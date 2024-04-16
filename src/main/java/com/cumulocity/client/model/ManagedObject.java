@@ -98,6 +98,15 @@ public class ManagedObject {
 	private C8yIsDevice c8yIsDevice;
 
 	/**
+	 * <p>The read only fragment which contains the latest measurements reported by the device.The returned optionally only if the query parameter <code>withLatestValues=true</code> is used.</p>
+	 * <blockquote>
+	 * <p><strong>⚠️ Feature Preview:</strong> The feature is part of the Latest Measurement feature which is still under public feature preview.</p>
+	 * </blockquote>
+	 */
+	@JsonProperty(value = "c8y_LatestMeasurements")
+	private C8yLatestMeasurements c8yLatestMeasurements;
+
+	/**
 	 * <p>A fragment which identifies this managed object as a device group.</p>
 	 */
 	@JsonProperty(value = "c8y_IsDeviceGroup")
@@ -117,7 +126,7 @@ public class ManagedObject {
 
 	/**
 	 * <p>It is possible to add an arbitrary number of additional properties as a list of key-value pairs, for example, <code>"property1": {}</code>, <code>"property2": "value"</code>. These properties are known as custom fragments and can be of any type, for example, object or string. Each custom fragment is identified by a unique name.</p>
-	 * <p>Review the <a href="https://cumulocity.com/guides/concepts/domain-model/#naming-conventions-of-fragments">Naming conventions of fragments</a> as there are characters that can not be used when naming custom fragments.</p>
+	 * <p>Review <a href="https://cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity IoT user documentation as there are characters that can not be used when naming custom fragments.</p>
 	 */
 	private Map<String, Object> customFragments;
 
@@ -231,6 +240,14 @@ public class ManagedObject {
 	
 	public void setC8yIsDevice(final C8yIsDevice c8yIsDevice) {
 		this.c8yIsDevice = c8yIsDevice;
+	}
+
+	public C8yLatestMeasurements getC8yLatestMeasurements() {
+		return c8yLatestMeasurements;
+	}
+	
+	public void setC8yLatestMeasurements(final C8yLatestMeasurements c8yLatestMeasurements) {
+		this.c8yLatestMeasurements = c8yLatestMeasurements;
 	}
 
 	public C8yIsDeviceGroup getC8yIsDeviceGroup() {
@@ -358,7 +375,7 @@ public class ManagedObject {
 	public boolean equals(final Object r) {
 		if (r != null && r instanceof ManagedObject) {
 			ManagedObject comparer = (ManagedObject) r;
-			if (String.valueOf(comparer.getCreationTime()).equals(String.valueOf(this.getCreationTime())) && String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getLastUpdated()).equals(String.valueOf(this.getLastUpdated())) && String.valueOf(comparer.getName()).equals(String.valueOf(this.getName())) && String.valueOf(comparer.getOwner()).equals(String.valueOf(this.getOwner())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && String.valueOf(comparer.getType()).equals(String.valueOf(this.getType())) && comparer.getChildAdditions().equals(this.getChildAdditions()) && comparer.getChildAssets().equals(this.getChildAssets()) && comparer.getChildDevices().equals(this.getChildDevices()) && comparer.getAdditionParents().equals(this.getAdditionParents()) && comparer.getAssetParents().equals(this.getAssetParents()) && comparer.getDeviceParents().equals(this.getDeviceParents()) && comparer.getC8yIsDevice().equals(this.getC8yIsDevice()) && comparer.getC8yIsDeviceGroup().equals(this.getC8yIsDeviceGroup()) && comparer.getC8yDeviceTypes().equals(this.getC8yDeviceTypes()) && comparer.getC8ySupportedOperations().equals(this.getC8ySupportedOperations()) && comparer.getCustomFragments().equals(this.getCustomFragments())) {
+			if (String.valueOf(comparer.getCreationTime()).equals(String.valueOf(this.getCreationTime())) && String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getLastUpdated()).equals(String.valueOf(this.getLastUpdated())) && String.valueOf(comparer.getName()).equals(String.valueOf(this.getName())) && String.valueOf(comparer.getOwner()).equals(String.valueOf(this.getOwner())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && String.valueOf(comparer.getType()).equals(String.valueOf(this.getType())) && comparer.getChildAdditions().equals(this.getChildAdditions()) && comparer.getChildAssets().equals(this.getChildAssets()) && comparer.getChildDevices().equals(this.getChildDevices()) && comparer.getAdditionParents().equals(this.getAdditionParents()) && comparer.getAssetParents().equals(this.getAssetParents()) && comparer.getDeviceParents().equals(this.getDeviceParents()) && comparer.getC8yIsDevice().equals(this.getC8yIsDevice()) && comparer.getC8yLatestMeasurements().equals(this.getC8yLatestMeasurements()) && comparer.getC8yIsDeviceGroup().equals(this.getC8yIsDeviceGroup()) && comparer.getC8yDeviceTypes().equals(this.getC8yDeviceTypes()) && comparer.getC8ySupportedOperations().equals(this.getC8ySupportedOperations()) && comparer.getCustomFragments().equals(this.getCustomFragments())) {
 				return true;
 			}
 		}

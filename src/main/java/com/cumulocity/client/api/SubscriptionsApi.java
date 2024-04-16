@@ -154,7 +154,7 @@ public class SubscriptionsApi extends AdaptableApi {
 	 * <p>Used to explicitly control the processing mode of the request. See <a href="#processing-mode">Processing mode</a> for more details.</p>
 	 * @param context
 	 * <p>The context to which the subscription is associated.</p>
-	 * <p><strong>ⓘ Info:</strong> If the value is <code>mo</code>, then <code>source</code> must also be provided in the query.</p>
+	 * <p><strong>ⓘ Info:</strong> If the value is <code>mo</code> (managed object), then <code>source</code> must also be provided in the query.</p>
 	 * @param source
 	 * <p>The managed object ID to which the subscription is associated.</p>
 	 */

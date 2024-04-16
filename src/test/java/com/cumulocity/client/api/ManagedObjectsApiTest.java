@@ -34,7 +34,7 @@ public class ManagedObjectsApiTest {
     public void testGetManagedObjects() {
     	Object response = null;
     	try {
-    		response = service.getManagedObjects(null, null, null, 1, null, null, false, null, 5, null, null, false, null, null, true, false, false, false, false, false).toCompletableFuture().get();
+    		response = service.getManagedObjects(null, null, null, 1, null, null, false, null, 5, null, null, false, null, null, true, false, false, false, false, false, false).toCompletableFuture().get();
     	} catch (InterruptedException | ExecutionException e) {
     		e.printStackTrace();
     	}

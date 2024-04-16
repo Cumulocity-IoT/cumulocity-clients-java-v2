@@ -55,7 +55,7 @@ public class BinariesApi extends AdaptableApi {
 	 * @param pageSize
 	 * <p>Indicates how many entries of the collection shall be returned. The upper limit for one page is 2,000 objects.</p>
 	 * @param text
-	 * <p>Search for managed objects where any property value is equal to the given one. Only string values are supported.</p>
+	 * <p>Search for managed objects where a property value is equal to the given one.The following properties are examined: <code>id, type, name, owner, externalIds</code>.</p>
 	 * @param type
 	 * <p>The type of managed object to search for.</p>
 	 * @param withTotalPages

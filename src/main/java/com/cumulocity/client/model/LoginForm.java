@@ -26,18 +26,18 @@ public class LoginForm {
 	private GrantType grantType;
 
 	/**
-	 * <p>Used in cases of basic or OAI-Secure authentication.</p>
+	 * <p>Used in case of OAI-Secure authentication.</p>
 	 */
 	private String password;
 
 	/**
-	 * <p>Current TFA code, sent by the user, if a TFA code is required to log in.</p>
+	 * <p>Current TFA code, sent by the user, if a TFA code is required to log in. Used in case of OAI-Secure authentication.</p>
 	 */
 	@JsonProperty(value = "tfa_code")
 	private String tfaCode;
 
 	/**
-	 * <p>Used in cases of basic or OAI-Secure authentication.</p>
+	 * <p>Used in case of OAI-Secure authentication.</p>
 	 */
 	private String username;
 

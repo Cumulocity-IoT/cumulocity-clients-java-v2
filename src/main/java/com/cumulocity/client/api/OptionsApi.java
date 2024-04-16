@@ -66,7 +66,7 @@ public class OptionsApi extends AdaptableApi {
 	 * <p>Any option of any tenant can be defined as "non-editable" by the "management" tenant; once done, any PUT or DELETE requests made on that option by the tenant owner will result in a 403 error (Unauthorized).</p>
 	 * <h3>Default option categories</h3>
 	 * <p><strong>access.control</strong></p>
-	 * <p>| Key |	Default value |	Predefined | Description ||--|--|--|--|| allow.origin | * | Yes | Comma separated list of domains allowed for execution of CORS. Wildcards are allowed (for example, <code>*.cumuclocity.com</code>) |</p>
+	 * <p>| Key |	Default value |	Predefined | Description ||--|--|--|--|| allow.origin | * | Yes | Comma separated list of domains allowed for execution of CORS. Wildcards are allowed (for example, <code>*.cumulocity.com</code>) |</p>
 	 * <p><strong>alarm.type.mapping</strong></p>
 	 * <p>| Key  |	Predefined | Description ||--|--|--|| <ALARM_TYPE> | No | Overrides the severity and alarm text for the alarm with type <ALARM_TYPE>. The severity and text are specified as <code><ALARM_SEVERITY>\|<ALARM_TEXT></code>. If either part is empty, the value will not be overridden. If the severity is NONE, the alarm will be suppressed. Example: <code>"CRITICAL\|temperature too high"</code>|</p>
 	 * <h3>Encrypted credentials</h3>

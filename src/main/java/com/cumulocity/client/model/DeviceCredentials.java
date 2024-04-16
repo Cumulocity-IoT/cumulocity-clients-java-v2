@@ -38,6 +38,11 @@ public class DeviceCredentials {
 	 */
 	private String username;
 
+	/**
+	 * <p>Security token which is required and verified against during device request acceptance.See <a href="https://cumulocity.com/docs/device-management-application/registering-devices/#security-token-policy">Security token policy</a> for more details on configuration.See <a href="/#operation/putNewDeviceRequestResource">Update specific new device request status</a> for details on submitting token upon device acceptance.</p>
+	 */
+	private String securityToken;
+
 	public String getId() {
 		return id;
 	}
@@ -78,6 +83,14 @@ public class DeviceCredentials {
 		this.username = username;
 	}
 
+	public String getSecurityToken() {
+		return securityToken;
+	}
+	
+	public void setSecurityToken(final String securityToken) {
+		this.securityToken = securityToken;
+	}
+
 	@Override
 	public String toString() {
 		try {
@@ -91,7 +104,7 @@ public class DeviceCredentials {
 	public boolean equals(final Object r) {
 		if (r != null && r instanceof DeviceCredentials) {
 			DeviceCredentials comparer = (DeviceCredentials) r;
-			if (String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getPassword()).equals(String.valueOf(this.getPassword())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && String.valueOf(comparer.getTenantId()).equals(String.valueOf(this.getTenantId())) && String.valueOf(comparer.getUsername()).equals(String.valueOf(this.getUsername()))) {
+			if (String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getPassword()).equals(String.valueOf(this.getPassword())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && String.valueOf(comparer.getTenantId()).equals(String.valueOf(this.getTenantId())) && String.valueOf(comparer.getUsername()).equals(String.valueOf(this.getUsername())) && String.valueOf(comparer.getSecurityToken()).equals(String.valueOf(this.getSecurityToken()))) {
 				return true;
 			}
 		}

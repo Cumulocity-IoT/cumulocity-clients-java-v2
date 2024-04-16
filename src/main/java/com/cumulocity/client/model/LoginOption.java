@@ -58,7 +58,7 @@ public class LoginOption {
 	private String self;
 
 	/**
-	 * <p>The session configuration properties are only available for OAuth internal. See <a href="https://cumulocity.com/guides/users-guide/administration/#oauth-internal">Changing settings > OAuth internal</a> for more details.</p>
+	 * <p>The session configuration properties are only available for OAuth internal. See <a href="https://cumulocity.com/guides/10.11.0/users-guide/administration/#oauth-internal">Administration > Changing settings > OAuth internal</a> in the <em>10.11.0 user guide</em> for more details.</p>
 	 */
 	private OAuthSessionConfiguration sessionConfiguration;
 

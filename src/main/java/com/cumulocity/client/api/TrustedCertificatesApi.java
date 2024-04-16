@@ -15,12 +15,14 @@ import com.cumulocity.client.model.UploadedTrustedCertificate;
 import com.cumulocity.client.model.UploadedTrustedCertificateCollection;
 import com.cumulocity.client.model.TrustedCertificate;
 import com.cumulocity.client.model.UploadedTrustedCertSignedVerificationCode;
+import com.cumulocity.client.model.UpdateCRLEntries;
 import com.cumulocity.client.model.TrustedCertificateCollection;
 import com.cumulocity.client.model.VerifyCertificateChain;
+import com.cumulocity.client.model.AccessToken;
 
 /**
  * <p>API methods for managing trusted certificates used to establish device connections via MQTT.</p>
- * <p>More detailed information about trusted certificates and their role can be found in <a href="https://cumulocity.com/guides/users-guide/device-management/#managing-device-data">Device management > Managing device data</a> in the <em>User guide</em>.</p>
+ * <p>More detailed information about trusted certificates and their role can be found in <a href="https://cumulocity.com/docs/device-management-application/managing-device-data/">Device management > Device management application > Managing device data</a> in the Cumulocity IoT user documentation.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header must be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
  * </blockquote>
@@ -364,17 +366,23 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	}
 	
 	/**
-	 * <p>Verify a certificate chain via file upload</p>
-	 * <p>Verify a device certificate chain against a specific tenant. Max chain length support is <b>10</b>.The tenant ID is <code>optional</code> and this api will be further enhanced to resolve the tenant from the chain in future release.</p>
+	 * <p>Verify a certificate chain</p>
+	 * <p>Verify a device certificate chain against a specific tenant using file upload or by HTTP headers.The tenant ID is <code>optional</code> and this api will try to resolve the tenant from the chain if not found in the request header.For file upload, the max chain length support is 10 and for a header it is 5.</p>
+	 * <p>If CRL (certificate revocation list) check is enabled on the tenant and the certificate chain is identified to be revoked during validation the further validation of the chain stops and returns unauthorized.</p>
+	 * <blockquote>
+	 * <p><strong>ⓘ Info:</strong> File upload takes precedence over HTTP headers if both are passed.</p>
+	 * </blockquote>
 	 * <section><h5>Required roles</h5>
-	 * (ROLE_TENANT_MANAGEMENT_ADMIN) <b>AND</b> (is the current tenant <b>OR</b> is current management tenant)
+	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_MANAGEMENT_READ) <b>AND</b> (is the current tenant <b>OR</b> is current management tenant) <b>OR</b> (is authenticated <b>AND</b> is current user service user)
 	 * </section>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
 	 * <ul>
-	 * 	<li><p>HTTP 200 <p>The request has succeeded and the validation result is sent in the response.</p></p>
+	 * 	<li><p>HTTP 200 <p>The certificate chain is valid and not revoked.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 400 <p>Unable to parse certificate chain.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 401 <p>One or more certificates in the chain are revoked or the certificate chain is not valid. Revoked certificates are checked first, then the validity of the certificate chain.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not enough permissions/roles to perform this operation.</p></p>
 	 * 	</li>
@@ -385,13 +393,19 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * @param tenantId
 	 * @param file
 	 * <p>File to be uploaded.</p>
+	 * @param xCumulocityTenantId
+	 * <p>Used to send a tenant ID.</p>
+	 * @param xCumulocityClientCertChain
+	 * <p>Used to send a certificate chain in the header. Separate the chain with <code>,</code> and also each 64 bit block with <code> </code> (a space character).</p>
 	 */
-	public CompletionStage<VerifyCertificateChain> validateChainByFileUpload(final String tenantId, final byte[] file) {
+	public CompletionStage<VerifyCertificateChain> validateChain(final String tenantId, final byte[] file, final String xCumulocityTenantId, final String xCumulocityClientCertChain) {
 		final FormDataMultiPart multiPartEntity = new FormDataMultiPart();
 		multiPartEntity.field("tenantId", tenantId, MediaType.valueOf("text/plain"));
 		multiPartEntity.field("file", file, MediaType.valueOf("text/plain"));
-		return adapt().path("tenant").path("tenants").path("verify-cert-chain").path("fileUpload")
+		return adapt().path("tenant").path("trusted-certificates").path("verify-cert-chain")
 			.request()
+			.header("X-Cumulocity-TenantId", xCumulocityTenantId)
+			.header("X-Cumulocity-Client-Cert-Chain", xCumulocityClientCertChain)
 			.header("Content-Type", "multipart/form-data")
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/json")
 			.rx()
@@ -399,36 +413,193 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	}
 	
 	/**
-	 * <p>Verify a certificate chain via HTTP header</p>
-	 * <p>Verify a device certificate chain against a specific tenant. Max chain length support is <b>6</b>.The tenant ID is <code>optional</code> and this api will be further enhanced to resolve the tenant from the chain in future release.</p>
-	 * <section><h5>Required roles</h5>
-	 * (ROLE_TENANT_MANAGEMENT_ADMIN) <b>AND</b> (is the current tenant <b>OR</b> is current management tenant)
-	 * </section>
+	 * <p>Get revoked certificates</p>
+	 * <p>This endpoint downloads current CRL file containing list of revoked certificate ina binary file format with <code>content-type</code> as <code>application/pkix-crl</code>.</p>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
 	 * <ul>
-	 * 	<li><p>HTTP 200 <p>The request has succeeded and the validation result is sent in the response.</p></p>
-	 * 	</li>
-	 * 	<li><p>HTTP 400 <p>Unable to parse certificate chain.</p></p>
-	 * 	</li>
-	 * 	<li><p>HTTP 403 <p>Not enough permissions/roles to perform this operation.</p></p>
-	 * 	</li>
-	 * 	<li><p>HTTP 404 <p>The tenant ID does not exist.</p></p>
+	 * 	<li><p>HTTP 200 <p>The CRL file of the current tenant.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
-	 * @param xCumulocityTenantId
-	 * <p>Used to send a tenant ID.</p>
-	 * @param xCumulocityClientCertChain
-	 * <p>Used to send a certificate chain in the header. Separate the chain with <code>,</code> and also each 64 bit block with <code> </code> (a space character).</p>
+	 * @param tenantId
+	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
 	 */
-	public CompletionStage<VerifyCertificateChain> validateChainByHeader(final String xCumulocityTenantId, final String xCumulocityClientCertChain) {
-		return adapt().path("tenant").path("tenants").path("verify-cert-chain")
+	public CompletionStage<Response> downloadCrl(final String tenantId) {
+		return adapt().path("tenant").path("trusted-certificates").path("settings").path("crl")
 			.request()
-			.header("X-Cumulocity-TenantId", xCumulocityTenantId)
-			.header("X-Cumulocity-Client-Cert-Chain", xCumulocityClientCertChain)
+			.header("Accept", "application/pkix-crl")
+			.rx()
+			.method("GET");
+	}
+	
+	/**
+	 * <p>Add revoked certificates</p>
+	 * <blockquote>
+	 * <p><strong>ⓘ Info:</strong> A certificate revocation list (CRL) is a list of digital certificatesthat have been revoked by the issuing certificate authority (CA) before expiration date.In Cumulocity IoT, a CRL check can be in online or offline mode or both.</p>
+	 * </blockquote>
+	 * <p>An endpoint to add revoked certificate serial numbers for offline CRL check via payload or file.</p>
+	 * <p>For payload, a JSON object required with list of CRL entries, for example:</p>
+	 * <pre>
+	 *   {
+	 *    "crls": [
+	 *      {
+	 *        "serialNumberInHex": "1000",
+	 *        "revocationDate": "2023-01-11T16:12:36.288Z"
+	 *      }
+	 *     ]
+	 *    }
+	 * </pre>
+	 * <p>Each entry is composed of:</p>
+	 * <ul>
+	 * 	<li><p>serialNumberInHex: Needs to be in <code>Hexadecimal Value</code>. e.g As (1000)^16 == (4096)^10, So we have to enter 1000.If duplicate serial number exists in payload, the existing entry stays</br></p>
+	 * 	</li>
+	 * 	<li><p><code>revocationDate</code> - accepted Date format: <code>yyyy-MM-dd'T'HH:mm:ss.SSS'Z'</code>, for example: <code>2023-01-11T16:12:36.288Z</code>.This is an optional parameter and defaults to the current server UTC date time if not specified in the payload.If specified and the date is in future then those entries will be also defaulted to current date.</p>
+	 * 	</li>
+	 * </ul>
+	 * <p>For file upload, each file can hold at maximum 5000 revocation entries.Multiple upload is allowed.In case of duplicates, the latest (last uploaded) entry is considered.</p>
+	 * <p>See below for a sample CSV file:</p>
+	 * <p>| SERIAL NO.  | REVOCATION DATE ||--|--|| 1000 | 2023-01-11T16:12:36.288Z |</p>
+	 * <p>Each entry is composed of :</p>
+	 * <ul>
+	 * 	<li><p>serialNumberInHex: Needs to be in <code>Hexadecimal Value</code>. e.g (1000)^16 == (4096)^10, So we have to enter 1000.If duplicate serial number exists in payload, the latest entry will be taken.</br></p>
+	 * 	</li>
+	 * 	<li><p>revocationDate: Accepted Date format: <code>yyyy-MM-dd'T'HH:mm:ss.SSS'Z'</code> e.g: 2023-01-11T16:12:36.288Z.This is an optional and will be default to current server UTC date time if not specified in payload.If specified and the date is in future then those entries will be skipped.</p>
+	 * 	</li>
+	 * </ul>
+	 * <p>The CRL setting for offline and online check can be enabled/disabled using <kbd><a href="#operation/putOptionResource">/tenant/options</a></kbd>.Keys are <code>crl.online.check.enabled</code> and <code>crl.offline.check.enabled</code> under the category <code>configuration</code>.</p>
+	 * <section><h5>Required roles</h5>
+	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN) <b>AND</b> is the current tenant
+	 * </section>
+	 * <p><strong>⚠️ Important:</strong> According to CRL policy, added serial numbers cannot be reversed.</p>
+	 * <h5>Response Codes</h5>
+	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
+	 * <ul>
+	 * 	<li><p>HTTP 204 <p>CRLs updated successfully.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 400 <p>Unsupported date time format.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not enough permissions/roles to perform this operation.</p></p>
+	 * 	</li>
+	 * </ul>
+	 * 
+	 * @param body
+	 */
+	public CompletionStage<Response> updateCRL(final UpdateCRLEntries body) {
+		final JsonNode jsonNode = toJsonNode(body);
+		return adapt().path("tenant").path("trusted-certificates").path("settings").path("crl")
+			.request()
+			.header("Content-Type", "application/json")
+			.header("Accept", "application/json")
+			.rx()
+			.method("PUT", Entity.json(jsonNode));
+	}
+	
+	/**
+	 * <p>Add revoked certificates</p>
+	 * <blockquote>
+	 * <p><strong>ⓘ Info:</strong> A certificate revocation list (CRL) is a list of digital certificatesthat have been revoked by the issuing certificate authority (CA) before expiration date.In Cumulocity IoT, a CRL check can be in online or offline mode or both.</p>
+	 * </blockquote>
+	 * <p>An endpoint to add revoked certificate serial numbers for offline CRL check via payload or file.</p>
+	 * <p>For payload, a JSON object required with list of CRL entries, for example:</p>
+	 * <pre>
+	 *   {
+	 *    "crls": [
+	 *      {
+	 *        "serialNumberInHex": "1000",
+	 *        "revocationDate": "2023-01-11T16:12:36.288Z"
+	 *      }
+	 *     ]
+	 *    }
+	 * </pre>
+	 * <p>Each entry is composed of:</p>
+	 * <ul>
+	 * 	<li><p>serialNumberInHex: Needs to be in <code>Hexadecimal Value</code>. e.g As (1000)^16 == (4096)^10, So we have to enter 1000.If duplicate serial number exists in payload, the existing entry stays</br></p>
+	 * 	</li>
+	 * 	<li><p><code>revocationDate</code> - accepted Date format: <code>yyyy-MM-dd'T'HH:mm:ss.SSS'Z'</code>, for example: <code>2023-01-11T16:12:36.288Z</code>.This is an optional parameter and defaults to the current server UTC date time if not specified in the payload.If specified and the date is in future then those entries will be also defaulted to current date.</p>
+	 * 	</li>
+	 * </ul>
+	 * <p>For file upload, each file can hold at maximum 5000 revocation entries.Multiple upload is allowed.In case of duplicates, the latest (last uploaded) entry is considered.</p>
+	 * <p>See below for a sample CSV file:</p>
+	 * <p>| SERIAL NO.  | REVOCATION DATE ||--|--|| 1000 | 2023-01-11T16:12:36.288Z |</p>
+	 * <p>Each entry is composed of :</p>
+	 * <ul>
+	 * 	<li><p>serialNumberInHex: Needs to be in <code>Hexadecimal Value</code>. e.g (1000)^16 == (4096)^10, So we have to enter 1000.If duplicate serial number exists in payload, the latest entry will be taken.</br></p>
+	 * 	</li>
+	 * 	<li><p>revocationDate: Accepted Date format: <code>yyyy-MM-dd'T'HH:mm:ss.SSS'Z'</code> e.g: 2023-01-11T16:12:36.288Z.This is an optional and will be default to current server UTC date time if not specified in payload.If specified and the date is in future then those entries will be skipped.</p>
+	 * 	</li>
+	 * </ul>
+	 * <p>The CRL setting for offline and online check can be enabled/disabled using <kbd><a href="#operation/putOptionResource">/tenant/options</a></kbd>.Keys are <code>crl.online.check.enabled</code> and <code>crl.offline.check.enabled</code> under the category <code>configuration</code>.</p>
+	 * <section><h5>Required roles</h5>
+	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN) <b>AND</b> is the current tenant
+	 * </section>
+	 * <p><strong>⚠️ Important:</strong> According to CRL policy, added serial numbers cannot be reversed.</p>
+	 * <h5>Response Codes</h5>
+	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
+	 * <ul>
+	 * 	<li><p>HTTP 204 <p>CRLs updated successfully.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 400 <p>Unsupported date time format.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not enough permissions/roles to perform this operation.</p></p>
+	 * 	</li>
+	 * </ul>
+	 * 
+	 * @param file
+	 * <p>File to be uploaded.</p>
+	 */
+	public CompletionStage<Response> updateCRL(final byte[] file) {
+		final FormDataMultiPart multiPartEntity = new FormDataMultiPart();
+		multiPartEntity.field("file", file, MediaType.valueOf("text/plain"));
+		return adapt().path("tenant").path("trusted-certificates").path("settings").path("crl")
+			.request()
+			.header("Content-Type", "multipart/form-data")
+			.header("Accept", "application/json")
+			.rx()
+			.method("PUT", Entity.entity(multiPartEntity, "multipart/form-data"));
+	}
+	
+	/**
+	 * <p>Obtain device access token</p>
+	 * <p>Only those devices which are registered to use cert auth can authenticate via mTLS protocol and retrieve JWT token.To establish a Two-Way SSL (Mutual Authentication) connection, you must have the following:</p>
+	 * <ul>
+	 * 	<li><p>private_key</p>
+	 * 	</li>
+	 * 	<li><p>client certificate</p>
+	 * 	</li>
+	 * 	<li><p>certificate authority root certificate</p>
+	 * 	</li>
+	 * 	<li><p>certificate authority intermediate certificates (Optional)</p>
+	 * 	</li>
+	 * </ul>
+	 * <h5>Response Codes</h5>
+	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
+	 * <ul>
+	 * 	<li><p>HTTP 200 <p>Successfully retrieved device access token from device certificate.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 400 <p>Unable to parse certificate chain.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 401 <p>One or more certificates in the chain are revoked or the certificate chain is not valid. Revoked certificates are checked first, then the validity of the certificate chain.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 404 <p>Device access token feature is disabled.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 422 <p>The verification was not successful.</p></p>
+	 * 	</li>
+	 * </ul>
+	 * 
+	 * @param xSslCertChain
+	 * <p>Used to send a certificate chain in the header. Separate the chain with <code> </code> (a space character) and also each 64 bit block with <code> </code> (a space character).</p>
+	 */
+	public CompletionStage<AccessToken> obtainAccessToken(final String xSslCertChain) {
+		return adapt().path("devicecontrol").path("deviceAccessToken")
+			.request()
+			.header("X-Ssl-Cert-Chain", xSslCertChain)
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/json")
 			.rx()
-			.method("POST", VerifyCertificateChain.class);
+			.method("POST", AccessToken.class);
 	}
 }

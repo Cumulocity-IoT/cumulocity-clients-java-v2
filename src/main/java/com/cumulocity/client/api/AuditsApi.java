@@ -51,9 +51,9 @@ public class AuditsApi extends AdaptableApi {
 	 * @param currentPage
 	 * <p>The current page of the paginated results.</p>
 	 * @param dateFrom
-	 * <p>Start date or date and time of the audit record.</p>
+	 * <p>Start date or date and time of the audit record (device time).</p>
 	 * @param dateTo
-	 * <p>End date or date and time of the audit record.</p>
+	 * <p>End date or date and time of the audit record (device time).</p>
 	 * @param pageSize
 	 * <p>Indicates how many entries of the collection shall be returned. The upper limit for one page is 2,000 objects.</p>
 	 * @param source

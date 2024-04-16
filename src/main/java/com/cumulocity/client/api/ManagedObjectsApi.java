@@ -67,7 +67,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * @param skipChildrenNames
 	 * <p>When set to <code>true</code>, the returned references of child devices won't contain their names.</p>
 	 * @param text
-	 * <p>Search for managed objects where any property value is equal to the given one. Only string values are supported.</p>
+	 * <p>Search for managed objects where a property value is equal to the given one.The following properties are examined: <code>id, type, name, owner, externalIds</code>.</p>
 	 * @param type
 	 * <p>The type of managed object to search for.</p>
 	 * @param withChildren
@@ -82,8 +82,11 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * @param withLatestValues
+	 * <p>If set to true the platform returns managed objects with the fragment `c8y_LatestMeasurements, which contains the latest measurement values reported by the device to the platform.</p>
+	 * <p><strong>⚠️ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
 	 */
-	public CompletionStage<ManagedObjectCollection> getManagedObjects(final String childAdditionId, final String childAssetId, final String childDeviceId, final int currentPage, final String fragmentType, final String[] ids, final boolean onlyRoots, final String owner, final int pageSize, final String q, final String query, final boolean skipChildrenNames, final String text, final String type, final boolean withChildren, final boolean withChildrenCount, final boolean withGroups, final boolean withParents, final boolean withTotalElements, final boolean withTotalPages) {
+	public CompletionStage<ManagedObjectCollection> getManagedObjects(final String childAdditionId, final String childAssetId, final String childDeviceId, final int currentPage, final String fragmentType, final String[] ids, final boolean onlyRoots, final String owner, final int pageSize, final String q, final String query, final boolean skipChildrenNames, final String text, final String type, final boolean withChildren, final boolean withChildrenCount, final boolean withGroups, final boolean withParents, final boolean withTotalElements, final boolean withTotalPages, final boolean withLatestValues) {
 		return adapt().path("inventory").path("managedObjects")
 			.queryParam("childAdditionId", childAdditionId)
 			.queryParam("childAssetId", childAssetId)
@@ -105,6 +108,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 			.queryParam("withParents", withParents)
 			.queryParam("withTotalElements", withTotalElements)
 			.queryParam("withTotalPages", withTotalPages)
+			.queryParam("withLatestValues", withLatestValues)
 			.request()
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/vnd.com.nsn.cumulocity.managedobjectcollection+json")
 			.rx()
@@ -159,6 +163,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 		removeFromNode(jsonNode, "childAssets");
 		removeFromNode(jsonNode, "creationTime");
 		removeFromNode(jsonNode, "childAdditions");
+		removeFromNode(jsonNode, "c8y_LatestMeasurements");
 		removeFromNode(jsonNode, "self");
 		removeFromNode(jsonNode, "assetParents");
 		removeFromNode(jsonNode, "deviceParents");
@@ -199,13 +204,17 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned result will contain the total number of children in the respective objects (<code>childAdditions</code>, <code>childAssets</code> and <code>childDevices</code>).</p>
 	 * @param withParents
 	 * <p>When set to <code>true</code>, the returned references of child parents will return the device's parents (if any). Otherwise, it will be an empty array.</p>
+	 * @param withLatestValues
+	 * <p>If set to true the platform returns managed objects with the fragment `c8y_LatestMeasurements, which contains the latest measurement values reported by the device to the platform.</p>
+	 * <p><strong>⚠️ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
 	 */
-	public CompletionStage<ManagedObject> getManagedObject(final String id, final boolean skipChildrenNames, final boolean withChildren, final boolean withChildrenCount, final boolean withParents) {
+	public CompletionStage<ManagedObject> getManagedObject(final String id, final boolean skipChildrenNames, final boolean withChildren, final boolean withChildrenCount, final boolean withParents, final boolean withLatestValues) {
 		return adapt().path("inventory").path("managedObjects").path(valueOf(id))
 			.queryParam("skipChildrenNames", skipChildrenNames)
 			.queryParam("withChildren", withChildren)
 			.queryParam("withChildrenCount", withChildrenCount)
 			.queryParam("withParents", withParents)
+			.queryParam("withLatestValues", withLatestValues)
 			.request()
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/vnd.com.nsn.cumulocity.managedobject+json")
 			.rx()
@@ -246,6 +255,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 		removeFromNode(jsonNode, "childAssets");
 		removeFromNode(jsonNode, "creationTime");
 		removeFromNode(jsonNode, "childAdditions");
+		removeFromNode(jsonNode, "c8y_LatestMeasurements");
 		removeFromNode(jsonNode, "self");
 		removeFromNode(jsonNode, "assetParents");
 		removeFromNode(jsonNode, "deviceParents");

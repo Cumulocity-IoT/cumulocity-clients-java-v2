@@ -155,7 +155,7 @@ public class EventsApi extends AdaptableApi {
 	 * <p>Remove event collections specified by query parameters.</p>
 	 * <p>DELETE requests are not synchronous. The response could be returned before the delete request has been completed. This may happen especially when the deleted event has a lot of associated data. After sending the request, the platform starts deleting the associated data in an asynchronous way. Finally, the requested event is deleted after all associated data has been deleted.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> Note that it is possible to call this endpoint without providing any parameter - it will result in deleting all events and it is not recommended.</p>
+	 * <p><strong>⚠️ Important:</strong> DELETE requires at least one of the following parameters: <code>source</code>, <code>dateFrom</code>, <code>dateTo</code>, <code>createdFrom</code>, <code>createdTo</code>.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_EVENT_ADMIN

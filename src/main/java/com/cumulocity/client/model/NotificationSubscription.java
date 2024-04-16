@@ -17,7 +17,7 @@ public class NotificationSubscription {
 	/**
 	 * <p>The context within which the subscription is to be processed.</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> If the value is <code>mo</code>, then <code>source</code> must also be provided in the request body.</p>
+	 * <p><strong>ⓘ Info:</strong> If the value is <code>mo</code> (managed object), then <code>source</code> must also be provided in the request body.</p>
 	 * </blockquote>
 	 */
 	private Context context;
@@ -133,7 +133,7 @@ public class NotificationSubscription {
 	/**
 	 * <p>The context within which the subscription is to be processed.</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> If the value is <code>mo</code>, then <code>source</code> must also be provided in the request body.</p>
+	 * <p><strong>ⓘ Info:</strong> If the value is <code>mo</code> (managed object), then <code>source</code> must also be provided in the request body.</p>
 	 * </blockquote>
 	 */
 	public enum Context {
@@ -229,8 +229,7 @@ public class NotificationSubscription {
 	public static class SubscriptionFilter {
 	
 		/**
-		 * <p>For the <code>mo</code> (Managed object) context, notifications from the <code>alarms</code>, <code>alarmsWithChildren</code>, <code>events</code>, <code>eventsWithChildren</code>, <code>managedobjects</code> (Inventory), <code>measurements</code> and <code>operations</code> (Device control) APIs can be subscribed to.<br />
-		 * The <code>alarmsWithChildren</code> and <code>eventsWithChildren</code> APIs subscribe to alarms and events respectively from the managed object identified by the <code>source.id</code> field, and all of its descendant managed objects.</p>
+		 * <p>For the <code>mo</code> (managed object) context, notifications from the <code>alarms</code>, <code>alarmsWithChildren</code>, <code>events</code>, <code>eventsWithChildren</code>, <code>managedobjects</code> (Inventory), <code>measurements</code> and <code>operations</code> (Device control) APIs can be subscribed to.The <code>alarmsWithChildren</code> and <code>eventsWithChildren</code> APIs subscribe to alarms and events respectively from the managed object identified by the <code>source.id</code> field, and all of its descendant managed objects.</p>
 		 * <p>For the <code>tenant</code> context, notifications from the <code>alarms</code>, <code>events</code> and <code>managedobjects</code> (Inventory) APIs can be subscribed to.</p>
 		 * <p>For all contexts, the <code>*</code> (wildcard) value can be used to subscribe to notifications from all of the available APIs in that context.</p>
 		 * <blockquote>

@@ -63,6 +63,8 @@ public class ExternalIDsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 404 <p>Global ID not found.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 409 <p>Duplicate – Identity already bound to a different Global ID.</p></p>
 	 * 	</li>
 	 * </ul>

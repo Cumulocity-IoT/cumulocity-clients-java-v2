@@ -95,7 +95,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * 	<li><p><code>unit</code> - The unit of the measurements.</p>
 	 * 	</li>
 	 * </ul>
-	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review the <a href="https://cumulocity.com/guides/concepts/domain-model/#naming-conventions-of-fragments">Naming conventions of fragments</a> in the Concepts guide.</p>
+	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review <a href="https://cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity IoT user documentation.</p>
 	 * <p>The example below uses <code>c8y_Steam</code> in the request body to illustrate a fragment for recording temperature measurements.</p>
 	 * <blockquote>
 	 * <p><strong>⚠️ Important:</strong> Property names used for fragment and series must not contain whitespaces nor the special characters <code>. , * [ ] ( ) @ $</code>. This is required to ensure a correct processing and visualization of measurement series on UI graphs.</p>
@@ -149,7 +149,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * 	<li><p><code>unit</code> - The unit of the measurements.</p>
 	 * 	</li>
 	 * </ul>
-	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review the <a href="https://cumulocity.com/guides/concepts/domain-model/#naming-conventions-of-fragments">Naming conventions of fragments</a> in the Concepts guide.</p>
+	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review <a href="https://cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity IoT user documentation.</p>
 	 * <p>The example below uses <code>c8y_Steam</code> in the request body to illustrate a fragment for recording temperature measurements.</p>
 	 * <blockquote>
 	 * <p><strong>⚠️ Important:</strong> Property names used for fragment and series must not contain whitespaces nor the special characters <code>. , * [ ] ( ) @ $</code>. This is required to ensure a correct processing and visualization of measurement series on UI graphs.</p>
@@ -199,7 +199,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <p>Remove measurement collections specified by query parameters.</p>
 	 * <p>DELETE requests are not synchronous. The response could be returned before the delete request has been completed. This may happen especially when there are a lot of measurements to be deleted.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> Note that it is possible to call this endpoint without providing any parameter - it may result in deleting all measurements and it is not recommended.</p>
+	 * <p><strong>⚠️ Important:</strong> DELETE requires at least one of the following parameters: <code>source</code>, <code>dateFrom</code>, <code>dateTo</code>.</p>
 	 * </blockquote>
 	 * <p>In case of enhanced time series measurements, both <code>dateFrom</code> and <code>dateTo</code> parameters must be truncated to full hours (for example, 2022-08-19T14:00:00.000Z), otherwise an error will be returned.The <code>fragmentType</code> parameter allows to delete measurements only by a measurement fragment when enhanced time series measurements are used.It's not possible to delete by a custom (non-measurement) fragment.</p>
 	 * <p>Example for a valid measurement value fragment:</p>

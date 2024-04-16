@@ -83,6 +83,10 @@ public class NewDeviceRequestsApi extends AdaptableApi {
 	 */
 	public CompletionStage<NewDeviceRequest> createNewDeviceRequest(final NewDeviceRequest body, final String xCumulocityProcessingMode) {
 		final JsonNode jsonNode = toJsonNode(body);
+		removeFromNode(jsonNode, "owner");
+		removeFromNode(jsonNode, "securityToken");
+		removeFromNode(jsonNode, "creationTime");
+		removeFromNode(jsonNode, "tenantId");
 		removeFromNode(jsonNode, "self");
 		removeFromNode(jsonNode, "status");
 		return adapt().path("devicecontrol").path("newDeviceRequests")
@@ -145,8 +149,13 @@ public class NewDeviceRequestsApi extends AdaptableApi {
 	 */
 	public CompletionStage<NewDeviceRequest> updateNewDeviceRequest(final NewDeviceRequest body, final String requestId) {
 		final JsonNode jsonNode = toJsonNode(body);
+		removeFromNode(jsonNode, "owner");
+		removeFromNode(jsonNode, "creationTime");
+		removeFromNode(jsonNode, "groupId");
+		removeFromNode(jsonNode, "tenantId");
 		removeFromNode(jsonNode, "self");
 		removeFromNode(jsonNode, "id");
+		removeFromNode(jsonNode, "type");
 		return adapt().path("devicecontrol").path("newDeviceRequests").path(valueOf(requestId))
 			.request()
 			.header("Content-Type", "application/vnd.com.nsn.cumulocity.newdevicerequest+json")

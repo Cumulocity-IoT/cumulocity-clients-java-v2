@@ -177,6 +177,8 @@ import com.cumulocity.client.model.RealtimeNotification;
  *   }
  * ]
  * </pre>
+ * <h2>Long-running connections</h2>
+ * <p>To keep a long-running connection alive when there are no new notifications to deliver, the server will periodically send an empty <code>/meta/connect</code> response to the client.The client should send a new <code>/meta/connect</code> request immediately after receiving such a response, to ensure that the connection remains active and future notifications are delivered.</p>
  */
 public class RealtimeNotificationApi extends AdaptableApi {
 

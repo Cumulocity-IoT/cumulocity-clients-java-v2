@@ -10,7 +10,6 @@ import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Response;
 import com.cumulocity.client.supplementary.AdaptableApi;
 import com.cumulocity.client.model.User;
-import com.cumulocity.client.model.PasswordChange;
 import com.cumulocity.client.model.SubscribedUser;
 import com.cumulocity.client.model.UserCollection;
 import com.cumulocity.client.model.UserTfaData;
@@ -169,6 +168,7 @@ public class UsersApi extends AdaptableApi {
 	 * <p>Update a specific user (by a given user ID) for a specific tenant (by a given tenant ID).</p>
 	 * <p>Any change in user's roles, device permissions and groups creates corresponding audit records with type "User" and activity "User updated" with information which properties have been changed.</p>
 	 * <p>When the user is updated with changed permissions or groups, a corresponding audit record is created with type "User" and activity "User updated".</p>
+	 * <p>Note that you cannot update the password or email of another user, they can only be updated for the current user.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_USER_MANAGEMENT_ADMIN to update root users in a user hierarchy <b>OR</b> users that are not in any hierarchy<br/>
 	 * ROLE_USER_MANAGEMENT_ADMIN to update non-root users in a user hierarchy <b>AND</b> whose parents have access to roles, groups, device permissions and applications being assigned<br/>
@@ -247,47 +247,6 @@ public class UsersApi extends AdaptableApi {
 			.header("Accept", "application/json")
 			.rx()
 			.method("DELETE");
-	}
-	
-	/**
-	 * <p>Update a specific user's password of a specific tenant</p>
-	 * <p>Update a specific user's password (by a given user ID) of a specific tenant (by a given tenant ID).</p>
-	 * <p>Changing the user's password creates a corresponding audit record of type "User" and activity "User updated", and specifying that the password has been changed.</p>
-	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> If the tenant uses OAI-Secure authentication, the target user will be logged out.</p>
-	 * </blockquote>
-	 * <section><h5>Required roles</h5>
-	 * ROLE_USER_MANAGEMENT_ADMIN to update root users in a user hierarchy <b>OR</b> users that are not in any hierarchy<br/>
-	 * ROLE_USER_MANAGEMENT_ADMIN to update non-root users in a user hierarchy <b>AND</b> whose parents have access to assigned roles, groups, device permissions and applications<br/>
-	 * ROLE_USER_MANAGEMENT_CREATE to update descendants of the current user in a user hierarchy <b>AND</b> whose parents have access to assigned roles, groups, device permissions and applications
-	 * </section>
-	 * <h5>Response Codes</h5>
-	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
-	 * <ul>
-	 * 	<li><p>HTTP 200 <p>A user was updated.</p></p>
-	 * 	</li>
-	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
-	 * 	</li>
-	 * 	<li><p>HTTP 403 <p>Not enough permissions/roles to perform this operation.</p></p>
-	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
-	 * 	</li>
-	 * </ul>
-	 * 
-	 * @param body
-	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
-	 * @param userId
-	 * <p>Unique identifier of the a user.</p>
-	 */
-	public CompletionStage<Response> updateUserPassword(final PasswordChange body, final String tenantId, final String userId) {
-		final JsonNode jsonNode = toJsonNode(body);
-		return adapt().path("user").path(valueOf(tenantId)).path("users").path(valueOf(userId)).path("password")
-			.request()
-			.header("Content-Type", "application/json")
-			.header("Accept", "application/json")
-			.rx()
-			.method("PUT", Entity.json(jsonNode));
 	}
 	
 	/**

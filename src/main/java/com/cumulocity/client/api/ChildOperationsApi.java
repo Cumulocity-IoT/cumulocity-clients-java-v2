@@ -202,6 +202,7 @@ public class ChildOperationsApi extends AdaptableApi {
 		removeFromNode(jsonNode, "childAssets");
 		removeFromNode(jsonNode, "creationTime");
 		removeFromNode(jsonNode, "childAdditions");
+		removeFromNode(jsonNode, "c8y_LatestMeasurements");
 		removeFromNode(jsonNode, "self");
 		removeFromNode(jsonNode, "assetParents");
 		removeFromNode(jsonNode, "deviceParents");
@@ -493,6 +494,7 @@ public class ChildOperationsApi extends AdaptableApi {
 		removeFromNode(jsonNode, "childAssets");
 		removeFromNode(jsonNode, "creationTime");
 		removeFromNode(jsonNode, "childAdditions");
+		removeFromNode(jsonNode, "c8y_LatestMeasurements");
 		removeFromNode(jsonNode, "self");
 		removeFromNode(jsonNode, "assetParents");
 		removeFromNode(jsonNode, "deviceParents");
@@ -784,6 +786,7 @@ public class ChildOperationsApi extends AdaptableApi {
 		removeFromNode(jsonNode, "childAssets");
 		removeFromNode(jsonNode, "creationTime");
 		removeFromNode(jsonNode, "childAdditions");
+		removeFromNode(jsonNode, "c8y_LatestMeasurements");
 		removeFromNode(jsonNode, "self");
 		removeFromNode(jsonNode, "assetParents");
 		removeFromNode(jsonNode, "deviceParents");
