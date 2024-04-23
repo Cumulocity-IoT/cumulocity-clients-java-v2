@@ -5,7 +5,7 @@
 
 	<groupId>com.cumulocity.client</groupId>
 	<artifactId>cumulocitycorelibrary</artifactId>
-	<version>-268</version>
+	<version>-269</version>
 
 	<properties>
 		<maven.compiler.source>8</maven.compiler.source>
