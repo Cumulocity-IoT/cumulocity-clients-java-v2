@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * <p>The read only fragment which contains the latest measurements series reported by the device.</p>
  * <blockquote>
- * <p><strong>⚠️ Feature Preview:</strong> The feature is part of the Latest Measurement feature which is still under public feature preview.</p>
+ * <p><strong>������ Feature Preview:</strong> The feature is part of the Latest Measurement feature which is still under public feature preview.</p>
  * </blockquote>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)

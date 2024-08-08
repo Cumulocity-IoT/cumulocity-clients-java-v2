@@ -231,7 +231,7 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -523,7 +523,7 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -815,7 +815,7 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

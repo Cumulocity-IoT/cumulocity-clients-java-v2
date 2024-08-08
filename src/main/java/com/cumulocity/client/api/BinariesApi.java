@@ -83,9 +83,9 @@ public class BinariesApi extends AdaptableApi {
 	 * <p>Upload a file</p>
 	 * <p>Uploading a file (binary) requires providing the following properties:</p>
 	 * <ul>
-	 * 	<li><p><code>object</code> – In JSON format, it contains information about the file.</p>
+	 * 	<li><p><code>object</code> ��� In JSON format, it contains information about the file.</p>
 	 * 	</li>
-	 * 	<li><p><code>file</code> – Contains the file to be uploaded.</p>
+	 * 	<li><p><code>file</code> ��� Contains the file to be uploaded.</p>
 	 * 	</li>
 	 * </ul>
 	 * <p>After the file has been uploaded, the corresponding managed object will contain the fragment <code>c8y_IsBinary</code>.</p>
@@ -97,7 +97,7 @@ public class BinariesApi extends AdaptableApi {
 	 * <ul>
 	 * 	<li><p>HTTP 201 <p>A file was uploaded.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 400 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 400 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>

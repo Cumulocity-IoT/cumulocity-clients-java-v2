@@ -16,7 +16,7 @@ import com.cumulocity.client.model.SupportedMeasurements;
 import com.cumulocity.client.model.SupportedSeries;
 
 /**
- * <p>The inventory stores devices and other assets relevant to your IoT solution. We refer to them as managed objects and such can be “smart objects”, for example, smart electricity meters, home automation gateways or GPS devices.</p>
+ * <p>The inventory stores devices and other assets relevant to your IoT solution. We refer to them as managed objects and such can be ���smart objects���, for example, smart electricity meters, home automation gateways or GPS devices.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
  * </blockquote>
@@ -84,7 +84,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * @param withLatestValues
 	 * <p>If set to true the platform returns managed objects with the fragment `c8y_LatestMeasurements, which contains the latest measurement values reported by the device to the platform.</p>
-	 * <p><strong>⚠️ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
+	 * <p><strong>������ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
 	 */
 	public CompletionStage<ManagedObjectCollection> getManagedObjects(final String childAdditionId, final String childAssetId, final String childDeviceId, final int currentPage, final String fragmentType, final String[] ids, final boolean onlyRoots, final String owner, final int pageSize, final String q, final String query, final boolean skipChildrenNames, final String text, final String type, final boolean withChildren, final boolean withChildrenCount, final boolean withGroups, final boolean withParents, final boolean withTotalElements, final boolean withTotalPages, final boolean withLatestValues) {
 		return adapt().path("inventory").path("managedObjects")
@@ -146,7 +146,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -206,7 +206,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned references of child parents will return the device's parents (if any). Otherwise, it will be an empty array.</p>
 	 * @param withLatestValues
 	 * <p>If set to true the platform returns managed objects with the fragment `c8y_LatestMeasurements, which contains the latest measurement values reported by the device to the platform.</p>
-	 * <p><strong>⚠️ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
+	 * <p><strong>������ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
 	 */
 	public CompletionStage<ManagedObject> getManagedObject(final String id, final boolean skipChildrenNames, final boolean withChildren, final boolean withChildrenCount, final boolean withParents, final boolean withLatestValues) {
 		return adapt().path("inventory").path("managedObjects").path(valueOf(id))
@@ -290,7 +290,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Conflict – The managed object is associated to other objects, for example child devices.</p></p>
+	 * 	<li><p>HTTP 409 <p>Conflict ��� The managed object is associated to other objects, for example child devices.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

@@ -146,9 +146,9 @@ public class RolesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Group not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Conflict – Role already assigned to the user group.</p></p>
+	 * 	<li><p>HTTP 409 <p>Conflict ��� Role already assigned to the user group.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -222,7 +222,7 @@ public class RolesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>User not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

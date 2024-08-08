@@ -97,6 +97,11 @@ public class OperationsApi extends AdaptableApi {
 	 * <p>Create an operation</p>
 	 * <p>Create an operation.</p>
 	 * <p>It is possible to add custom fragments to operations, for example <code>com_cumulocity_model_WebCamDevice</code> is a custom object of the webcam operation.</p>
+	 * <p>There are some custom fragments which are used by web applications (like Device management) to provide additional context to operations, for example:</p>
+	 * <ul>
+	 * 	<li><p><code>description</code> - this fragment can be used to provide a brief user-friendly description of the operation which is later displayed in the operations list views within web applications.</p>
+	 * 	</li>
+	 * </ul>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_DEVICE_CONTROL_ADMIN <b>OR</b> owner of the device <b>OR</b> ADMIN permissions on the device
 	 * </section>
@@ -107,7 +112,7 @@ public class OperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

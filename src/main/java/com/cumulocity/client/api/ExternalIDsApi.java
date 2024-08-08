@@ -65,7 +65,7 @@ public class ExternalIDsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Global ID not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Duplicate – Identity already bound to a different Global ID.</p></p>
+	 * 	<li><p>HTTP 409 <p>Duplicate ��� Identity already bound to a different Global ID.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

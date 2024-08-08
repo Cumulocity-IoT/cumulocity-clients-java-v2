@@ -73,9 +73,9 @@ public class InventoryRolesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Duplicate – The inventory role already exists.</p></p>
+	 * 	<li><p>HTTP 409 <p>Duplicate ��� The inventory role already exists.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -136,7 +136,7 @@ public class InventoryRolesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Role not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -237,7 +237,7 @@ public class InventoryRolesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>User not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -312,7 +312,7 @@ public class InventoryRolesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Role not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

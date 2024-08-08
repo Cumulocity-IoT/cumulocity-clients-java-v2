@@ -194,7 +194,7 @@ public class RealtimeNotificationApi extends AdaptableApi {
 	 * <ul>
 	 * 	<li><p>HTTP 200 <p>The operation was completed and the result is sent in the response.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 400 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 400 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>

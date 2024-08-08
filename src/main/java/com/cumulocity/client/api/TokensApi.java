@@ -53,7 +53,7 @@ public class TokensApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not enough permissions/roles to perform this operation.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

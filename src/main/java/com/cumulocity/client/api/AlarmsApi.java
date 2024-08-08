@@ -124,7 +124,7 @@ public class AlarmsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -218,7 +218,7 @@ public class AlarmsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -248,7 +248,7 @@ public class AlarmsApi extends AdaptableApi {
 	 * <p>Remove alarm collections</p>
 	 * <p>Remove alarm collections specified by query parameters.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> DELETE requires at least one of the following parameters: <code>source</code>, <code>dateFrom</code>, <code>dateTo</code>, <code>createdFrom</code>, <code>createdTo</code>.Also note that DELETE requests are not synchronous. The response could be returned before the delete request has been completed.</p>
+	 * <p><strong>������ Important:</strong> DELETE requires at least one of the following parameters: <code>source</code>, <code>dateFrom</code>, <code>dateTo</code>, <code>createdFrom</code>, <code>createdTo</code>.Also note that DELETE requests are not synchronous. The response could be returned before the delete request has been completed.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_ALARM_ADMIN
@@ -346,7 +346,7 @@ public class AlarmsApi extends AdaptableApi {
 	 * <p>Update a specific alarm</p>
 	 * <p>Update a specific alarm by a given ID.Only text, status, severity and custom properties can be modified. A request will be rejected when non-modifiable properties are provided in the request body.</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> Changes to alarms will generate a new audit record. The audit record will include the username and application that triggered the update, if applicable. If the update operation doesn’t change anything (that is, the request body contains data that is identical to the already present in the database), there will be no audit record added and no notifications will be sent.</p>
+	 * <p><strong>ⓘ Info:</strong> Changes to alarms will generate a new audit record. The audit record will include the username and application that triggered the update, if applicable. If the update operation doesn���t change anything (that is, the request body contains data that is identical to the already present in the database), there will be no audit record added and no notifications will be sent.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_ALARM_ADMIN <b>OR</b> owner of the source <b>OR</b> ALARM_ADMIN permission on the source
@@ -362,7 +362,7 @@ public class AlarmsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Alarm not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

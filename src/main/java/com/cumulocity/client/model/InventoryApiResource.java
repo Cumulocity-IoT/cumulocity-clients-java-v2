@@ -24,7 +24,7 @@ public class InventoryApiResource {
 	private String managedObjectsForType;
 
 	/**
-	 * <p>Read-only collection of managed objects fetched for a given list of ids, for example, “ids=41,43,68”.</p>
+	 * <p>Read-only collection of managed objects fetched for a given list of ids, for example, ���ids=41,43,68���.</p>
 	 */
 	private String managedObjectsForListOfIds;
 

@@ -90,9 +90,9 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Tenant not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Duplicate – A certificate with the same fingerprint already exists.</p></p>
+	 * 	<li><p>HTTP 409 <p>Duplicate ��� A certificate with the same fingerprint already exists.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – Invalid certificate data.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� Invalid certificate data.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -132,9 +132,9 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Tenant not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Duplicate – A certificate with the same fingerprint already exists.</p></p>
+	 * 	<li><p>HTTP 409 <p>Duplicate ��� A certificate with the same fingerprint already exists.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – Invalid certificates data.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� Invalid certificates data.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -203,7 +203,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Certificate not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -421,11 +421,8 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>The CRL file of the current tenant.</p></p>
 	 * 	</li>
 	 * </ul>
-	 * 
-	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
 	 */
-	public CompletionStage<Response> downloadCrl(final String tenantId) {
+	public CompletionStage<Response> downloadCrl() {
 		return adapt().path("tenant").path("trusted-certificates").path("settings").path("crl")
 			.request()
 			.header("Accept", "application/pkix-crl")
@@ -471,7 +468,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * <section><h5>Required roles</h5>
 	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN) <b>AND</b> is the current tenant
 	 * </section>
-	 * <p><strong>⚠️ Important:</strong> According to CRL policy, added serial numbers cannot be reversed.</p>
+	 * <p><strong>������ Important:</strong> According to CRL policy, added serial numbers cannot be reversed.</p>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
 	 * <ul>
@@ -535,7 +532,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * <section><h5>Required roles</h5>
 	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN) <b>AND</b> is the current tenant
 	 * </section>
-	 * <p><strong>⚠️ Important:</strong> According to CRL policy, added serial numbers cannot be reversed.</p>
+	 * <p><strong>������ Important:</strong> According to CRL policy, added serial numbers cannot be reversed.</p>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
 	 * <ul>
@@ -565,15 +562,13 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	
 	/**
 	 * <p>Obtain device access token</p>
-	 * <p>Only those devices which are registered to use cert auth can authenticate via mTLS protocol and retrieve JWT token.To establish a Two-Way SSL (Mutual Authentication) connection, you must have the following:</p>
+	 * <p>Only those devices which are registered to use cert auth can authenticate via mTLS protocol and retrieve JWT token. Device access token API works only on port 8443 via mutual TLS (mTLS) connection.Immediate issuer of client certificate must present in Platform's truststore, if not then whole certificate chain needs to send in header and root or any intermediate certificate must be present in the Platform's truststore.We must have the following:</p>
 	 * <ul>
 	 * 	<li><p>private_key</p>
 	 * 	</li>
 	 * 	<li><p>client certificate</p>
 	 * 	</li>
-	 * 	<li><p>certificate authority root certificate</p>
-	 * 	</li>
-	 * 	<li><p>certificate authority intermediate certificates (Optional)</p>
+	 * 	<li><p>whole certificate chain (optional)</p>
 	 * 	</li>
 	 * </ul>
 	 * <h5>Response Codes</h5>

@@ -17,7 +17,7 @@ import com.cumulocity.client.model.BulkNewDeviceRequest;
  * <p>API methods to create device credentials in Cumulocity IoT.</p>
  * <p>Device credentials can be enquired by devices that do not have credentials for accessing a tenant yet.Since the device does not have credentials yet, a set of fixed credentials is used for this API.The credentials can be obtained by <a href="https://cumulocity.com/docs/additional-resources/contacting-support/">contacting support</a>.</p>
  * <blockquote>
- * <p><strong>⚠️ Important:</strong> Do not use your tenant credentials with this API.</p>
+ * <p><strong>������ Important:</strong> Do not use your tenant credentials with this API.</p>
  * </blockquote>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST requests, otherwise an empty response body will be returned.</p>
@@ -72,7 +72,7 @@ public class DeviceCredentialsApi extends AdaptableApi {
 	 * <p>Section two is the rest of the CSV file. Section two contains the device information. The order and quantity of the values must be the same as of the headers.</p>
 	 * <p>A separator is automatically obtained from the CSV file. Valid separator values are: <code>\t</code> (tabulation mark), <code>;</code> (semicolon) and <code>,</code> (comma).</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> The CSV file needs the "com_cumulocity_model_Agent.active" header with a value of "true" to be added to the request.</p>
+	 * <p><strong>������ Important:</strong> The CSV file needs the "com_cumulocity_model_Agent.active" header with a value of "true" to be added to the request.</p>
 	 * </blockquote>
 	 * <blockquote>
 	 * <p><strong>ⓘ Info:</strong> A bulk registration creates an elementary representation of the device. Then, the device needs to update it to a full representation with its own status. The device is ready to use only after it is updated to the full representation. Also see <a href="https://cumulocity.com/docs/device-management-application/registering-devices/#security-token-policy">Device management > Device management application > Registering devices > Single device registration > Security token policy</a> and <a href="https://cumulocity.com/docs/device-integration/rest/#integration-life-cycle">Device management > Device integration > Device integration using REST > Integration life cycle</a>.</p>

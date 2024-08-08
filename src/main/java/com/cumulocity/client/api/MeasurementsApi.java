@@ -28,7 +28,7 @@ public class MeasurementsApi extends AdaptableApi {
 	/**
 	 * <p>Retrieve all measurements</p>
 	 * <p>Retrieve all measurements on your tenant, or a specific subset based on queries.</p>
-	 * <p>In case of executing <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a> between an upper and lower boundary, for example, querying using <code>dateFrom</code>–<code>dateTo</code>, the oldest registered measurements are returned first. It is possible to change the order using the query parameter <code>revert=true</code>.</p>
+	 * <p>In case of executing <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a> between an upper and lower boundary, for example, querying using <code>dateFrom</code>���<code>dateTo</code>, the oldest registered measurements are returned first. It is possible to change the order using the query parameter <code>revert=true</code>.</p>
 	 * <p>For large measurement collections, querying older records without filters can be slow as the server needs to scan from the beginning of the input results set before beginning to return the results. For cases when older measurements should be retrieved, it is recommended to narrow the scope by using range queries based on the time stamp reported by a device. The scope of query can also be reduced significantly when a source device is provided.</p>
 	 * <p>Review <a href="#tag/Measurements-specifics">Measurements Specifics</a> for details about data streaming and response formats.</p>
 	 * <section><h5>Required roles</h5>
@@ -98,7 +98,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review <a href="https://cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity IoT user documentation.</p>
 	 * <p>The example below uses <code>c8y_Steam</code> in the request body to illustrate a fragment for recording temperature measurements.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> Property names used for fragment and series must not contain whitespaces nor the special characters <code>. , * [ ] ( ) @ $</code>. This is required to ensure a correct processing and visualization of measurement series on UI graphs.</p>
+	 * <p><strong>������ Important:</strong> Property names used for fragment and series must not contain whitespaces nor the special characters <code>. , * [ ] ( ) @ $</code>. This is required to ensure a correct processing and visualization of measurement series on UI graphs.</p>
 	 * </blockquote>
 	 * <h3>Create multiple measurements</h3>
 	 * <p>It is also possible to create multiple measurements at once by sending a <code>measurements</code> array containing all the measurements to be created. The content type must be <code>application/vnd.com.nsn.cumulocity.measurementcollection+json</code>.</p>
@@ -117,7 +117,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -152,7 +152,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review <a href="https://cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity IoT user documentation.</p>
 	 * <p>The example below uses <code>c8y_Steam</code> in the request body to illustrate a fragment for recording temperature measurements.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> Property names used for fragment and series must not contain whitespaces nor the special characters <code>. , * [ ] ( ) @ $</code>. This is required to ensure a correct processing and visualization of measurement series on UI graphs.</p>
+	 * <p><strong>������ Important:</strong> Property names used for fragment and series must not contain whitespaces nor the special characters <code>. , * [ ] ( ) @ $</code>. This is required to ensure a correct processing and visualization of measurement series on UI graphs.</p>
 	 * </blockquote>
 	 * <h3>Create multiple measurements</h3>
 	 * <p>It is also possible to create multiple measurements at once by sending a <code>measurements</code> array containing all the measurements to be created. The content type must be <code>application/vnd.com.nsn.cumulocity.measurementcollection+json</code>.</p>
@@ -171,7 +171,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -199,7 +199,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <p>Remove measurement collections specified by query parameters.</p>
 	 * <p>DELETE requests are not synchronous. The response could be returned before the delete request has been completed. This may happen especially when there are a lot of measurements to be deleted.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> DELETE requires at least one of the following parameters: <code>source</code>, <code>dateFrom</code>, <code>dateTo</code>.</p>
+	 * <p><strong>������ Important:</strong> DELETE requires at least one of the following parameters: <code>source</code>, <code>dateFrom</code>, <code>dateTo</code>.</p>
 	 * </blockquote>
 	 * <p>In case of enhanced time series measurements, both <code>dateFrom</code> and <code>dateTo</code> parameters must be truncated to full hours (for example, 2022-08-19T14:00:00.000Z), otherwise an error will be returned.The <code>fragmentType</code> parameter allows to delete measurements only by a measurement fragment when enhanced time series measurements are used.It's not possible to delete by a custom (non-measurement) fragment.</p>
 	 * <p>Example for a valid measurement value fragment:</p>
@@ -229,7 +229,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -326,7 +326,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <p>Retrieve a list of series (all or only those matching the specified names) and their values within a given period of a specific managed object (source).<br>A series is any fragment in measurement that contains a <code>value</code> property.</p>
 	 * <p>It is possible to fetch aggregated results using the <code>aggregationType</code> parameter. If the aggregation is not specified, the result will contain no more than 5000 values.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> For the aggregation to be done correctly, a device shall always use the same time zone when it sends dates.</p>
+	 * <p><strong>������ Important:</strong> For the aggregation to be done correctly, a device shall always use the same time zone when it sends dates.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_MEASUREMENT_READ <b>OR</b> owner of the source <b>OR</b> MEASUREMENT_READ permission on the source
@@ -350,7 +350,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <p>If you are using a range query (that is, at least one of the <code>dateFrom</code> or <code>dateTo</code> parameters is included in the request), then setting <code>revert=true</code> will sort the results by the newest measurements first.By default, the results are sorted by the oldest measurements first.</p>
 	 * @param series
 	 * <p>The specific series to search for.</p>
-	 * <p><strong>ⓘ Info:</strong> If you query for multiple series at once, comma-separate the values.</p>
+	 * <p><strong>ⓘ Info:</strong> If you want to query multiple series at once, you must specify the parameter multiple times.</p>
 	 * @param source
 	 * <p>The managed object ID to which the measurement is associated.</p>
 	 */
@@ -360,7 +360,7 @@ public class MeasurementsApi extends AdaptableApi {
 			.queryParam("dateFrom", dateFrom)
 			.queryParam("dateTo", dateTo)
 			.queryParam("revert", revert)
-			.queryParam("series", series, false)
+			.queryParam("series", series, true)
 			.queryParam("source", source)
 			.request()
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/json")

@@ -21,12 +21,12 @@ import com.cumulocity.client.model.TenantTfaData;
  * <p>The location where a tenant can be accessed is called <strong>tenant domain</strong>, for example, <em>mytenant.cumulocity.com</em>. It needs to be unique across all tenants and it can be changed after tenant creation.The tenant domain may contain only lowercase letters, digits and hyphens. It must start with a lowercase letter, hyphens are only allowed in the middle, and the minimum length is 2 characters. Note that the usage of underscore characters is deprecated but still possible for backward compatibility reasons.</p>
  * <p>In general, the tenant domain should be used for communication if it is known.</p>
  * <blockquote>
- * <p><strong>⚠️ Important:</strong> For support user access, the tenant ID must be used and not the tenant domain.</p>
+ * <p><strong>������ Important:</strong> For support user access, the tenant ID must be used and not the tenant domain.</p>
  * </blockquote>
  * <p>See <a href="#operation/getCurrentTenantResource">Tenant > Current tenant</a> for information on how to retrieve the tenant ID and domain of the current tenant via the API.</p>
  * <p>In the UI, the tenant ID is displayed in the user dropdown menu, see <a href="https://cumulocity.com/docs/get-familiar-with-the-ui/user-settings/">Getting started > Get familiar with the UI > User options and settings</a> in the Cumulocity IoT user documentation.</p>
  * <h3>Access rights and permissions</h3>
- * <p>There are two types of roles in Cumulocity IoT – global and inventory. Global roles are applied at the tenant level. In a Role Based Access Control (RBAC) approach you must use the inventory roles in order to have the correct level of separation. Apart from some global permissions (like "own user management") customer users will not be assigned any roles. Inventory roles must be created, or the default roles used, and then assigned to the user in combination with the assets the roles apply to. This needs to be done at least once for each customer.</p>
+ * <p>There are two types of roles in Cumulocity IoT ��� global and inventory. Global roles are applied at the tenant level. In a Role Based Access Control (RBAC) approach you must use the inventory roles in order to have the correct level of separation. Apart from some global permissions (like "own user management") customer users will not be assigned any roles. Inventory roles must be created, or the default roles used, and then assigned to the user in combination with the assets the roles apply to. This needs to be done at least once for each customer.</p>
  * <p>In a multi-tenancy approach, as the tenant is completely separated from all other customers you do not necessarily need to be involved in setting up the access rights of the customer. If customers are given administration rights for their tenants, they can set up permissions on their own. It is not possible for customers to have any sight or knowledge of other customers.</p>
  * <p>In the RBAC approach, managing access is the most complicated part because a misconfiguration can potentially give customers access to data that they must not see, like other customers' data. The inventory roles allow you to granularly define access for only certain parts of data, but they don't protect you from accidental misconfigurations. A limitation here is that customers won't be able to create their own roles.</p>
  * <p>For more details, see <a href="https://cumulocity.com/docs/concepts/tenant-hierarchy/#comparison-of-various-use-cases">RBAC versus multi-tenancy approach</a>.</p>
@@ -100,9 +100,9 @@ public class TenantsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Conflict – The tenant domain/ID already exists.</p></p>
+	 * 	<li><p>HTTP 409 <p>Conflict ��� The tenant domain/ID already exists.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -201,7 +201,7 @@ public class TenantsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Tenant not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -232,7 +232,7 @@ public class TenantsApi extends AdaptableApi {
 	 * <p>Remove a specific tenant</p>
 	 * <p>Remove a specific tenant by a given ID.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> Deleting a subtenant cannot be reverted. For security reasons, it is therefore only available in the management tenant. You cannot delete tenants from any tenant but the management tenant.</p>
+	 * <p><strong>������ Important:</strong> Deleting a subtenant cannot be reverted. For security reasons, it is therefore only available in the management tenant. You cannot delete tenants from any tenant but the management tenant.</p>
 	 * <p>Administrators in Enterprise Tenants are only allowed to suspend active subtenants, but not to delete them.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>

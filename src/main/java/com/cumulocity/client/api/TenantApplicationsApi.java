@@ -89,7 +89,7 @@ public class TenantApplicationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 409 <p>The application is already assigned to the tenant.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

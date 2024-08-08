@@ -53,7 +53,7 @@ public class ApplicationBinariesApi extends AdaptableApi {
 	/**
 	 * <p>Upload an application attachment</p>
 	 * <p>Upload an application attachment (by a given application ID).</p>
-	 * <p>For the applications of type “microservice” and “web application” to be available for Cumulocity IoT platform users, an attachment ZIP file must be uploaded.</p>
+	 * <p>For the applications of type ���microservice��� and ���web application��� to be available for Cumulocity IoT platform users, an attachment ZIP file must be uploaded.</p>
 	 * <p>For a microservice application, the ZIP file must consist of:</p>
 	 * <ul>
 	 * 	<li><p>cumulocity.json - file describing the deployment</p>

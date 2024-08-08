@@ -33,6 +33,7 @@ public class CurrentUserApi extends AdaptableApi {
 	 * <section><h5>Required roles</h5>
 	 * ROLE_USER_MANAGEMENT_OWN_READ <b>OR</b> ROLE_SYSTEM
 	 * </section>
+	 * <p>Users with ROLE_SYSTEM are not allowed to query with Accept header <code>application/vnd.com.nsn.cumulocity.user+json</code></p>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
 	 * <ul>
@@ -45,7 +46,7 @@ public class CurrentUserApi extends AdaptableApi {
 	public CompletionStage<CurrentUser> getCurrentUser() {
 		return adapt().path("user").path("currentUser")
 			.request()
-			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/vnd.com.nsn.cumulocity.currentuser+json")
+			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/vnd.com.nsn.cumulocity.currentuser+json, application/vnd.com.nsn.cumulocity.user+json")
 			.rx()
 			.method("GET", CurrentUser.class);
 	}
@@ -63,7 +64,7 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -89,7 +90,7 @@ public class CurrentUserApi extends AdaptableApi {
 	 * <p>Update the current user's password</p>
 	 * <p>Update the current user's  password.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> If the tenant uses OAI-Secure authentication, the current user will not be logged out. Instead, a new cookie will be set with a new token, and the previous token will expire within a minute.</p>
+	 * <p><strong>������ Important:</strong> If the tenant uses OAI-Secure authentication, the current user will not be logged out. Instead, a new cookie will be set with a new token, and the previous token will expire within a minute.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_USER_MANAGEMENT_OWN_ADMIN
@@ -101,7 +102,7 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -215,7 +216,7 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Cannot validate TFA TOTP code - user's TFA TOTP secret does not exist.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

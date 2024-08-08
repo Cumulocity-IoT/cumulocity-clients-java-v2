@@ -27,7 +27,7 @@ public class EventsApi extends AdaptableApi {
 	/**
 	 * <p>Retrieve all events</p>
 	 * <p>Retrieve all events on your tenant.</p>
-	 * <p>In case of executing <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a> between an upper and lower boundary, for example, querying using <code>dateFrom</code>–<code>dateTo</code> or <code>createdFrom</code>–<code>createdTo</code>, the newest registered events are returned first. It is possible to change the order using the query parameter <code>revert=true</code>.</p>
+	 * <p>In case of executing <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a> between an upper and lower boundary, for example, querying using <code>dateFrom</code>���<code>dateTo</code> or <code>createdFrom</code>���<code>createdTo</code>, the newest registered events are returned first. It is possible to change the order using the query parameter <code>revert=true</code>.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_EVENT_READ
 	 * </section>
@@ -54,7 +54,7 @@ public class EventsApi extends AdaptableApi {
 	 * <p>A characteristic which identifies a managed object or event, for example, geolocation, electricity sensor, relay state.</p>
 	 * @param fragmentValue
 	 * <p>Allows filtering events by the fragment's value, but only when provided together with <code>fragmentType</code>.</p>
-	 * <p><strong>⚠️ Important:</strong> Only fragments with a string value are supported.</p>
+	 * <p><strong>������ Important:</strong> Only fragments with a string value are supported.</p>
 	 * @param lastUpdatedFrom
 	 * <p>Start date or date and time of the last update made.</p>
 	 * @param lastUpdatedTo
@@ -126,7 +126,7 @@ public class EventsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -155,7 +155,7 @@ public class EventsApi extends AdaptableApi {
 	 * <p>Remove event collections specified by query parameters.</p>
 	 * <p>DELETE requests are not synchronous. The response could be returned before the delete request has been completed. This may happen especially when the deleted event has a lot of associated data. After sending the request, the platform starts deleting the associated data in an asynchronous way. Finally, the requested event is deleted after all associated data has been deleted.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> DELETE requires at least one of the following parameters: <code>source</code>, <code>dateFrom</code>, <code>dateTo</code>, <code>createdFrom</code>, <code>createdTo</code>.</p>
+	 * <p><strong>������ Important:</strong> DELETE requires at least one of the following parameters: <code>source</code>, <code>dateFrom</code>, <code>dateTo</code>, <code>createdFrom</code>, <code>createdTo</code>.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_EVENT_ADMIN
@@ -247,7 +247,7 @@ public class EventsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Event not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

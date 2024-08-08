@@ -16,7 +16,7 @@ import com.cumulocity.client.model.GroupReferenceCollection;
 /**
  * <p>API methods to create, retrieve, update and delete user groups.</p>
  * <blockquote>
- * <p><strong>⚠️ Important:</strong> In the Cumulocity IoT user interface, user groups are referred to as "global roles". Global roles are not to be confused with user roles.</p>
+ * <p><strong>������ Important:</strong> In the Cumulocity IoT user interface, user groups are referred to as "global roles". Global roles are not to be confused with user roles.</p>
  * </blockquote>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
@@ -83,9 +83,9 @@ public class GroupsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not enough permissions/roles to perform this operation.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Duplicate – Group name already exists.</p></p>
+	 * 	<li><p>HTTP 409 <p>Duplicate ��� Group name already exists.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -158,7 +158,7 @@ public class GroupsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Group not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

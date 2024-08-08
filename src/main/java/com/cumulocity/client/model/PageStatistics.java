@@ -34,7 +34,7 @@ public class PageStatistics {
 	/**
 	 * <p>The total number of paginated results (pages).</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> This property is returned by default except when an operation retrieves all records where values are between an upper and lower boundary, for example, querying ranges using <code>dateFrom</code>–<code>dateTo</code>. In such cases, the query parameter <code>withTotalPages=true</code> should be used to include the total number of pages (at the expense of slightly slower performance).</p>
+	 * <p><strong>ⓘ Info:</strong> This property is returned by default except when an operation retrieves all records where values are between an upper and lower boundary, for example, querying ranges using <code>dateFrom</code>���<code>dateTo</code>. In such cases, the query parameter <code>withTotalPages=true</code> should be used to include the total number of pages (at the expense of slightly slower performance).</p>
 	 * </blockquote>
 	 */
 	private int totalPages;

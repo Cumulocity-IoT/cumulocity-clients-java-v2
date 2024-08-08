@@ -33,7 +33,7 @@ import com.cumulocity.client.model.DevicePermissionOwners;
  * </ul>
  * <p>The wildcard "*" enables you to access every API and stored object regardless of the fragments that are inside it.</p>
  * <blockquote>
- * <p><strong>⚠️ Important:</strong> If there is no fragment in an object, for example, to read the object, you must use the wildcard "*" for the <strong>fragment_name</strong> part of the device permission (see the structure above). For example: <code>"10200":["MEASUREMENT:*:READ"]</code>.</p>
+ * <p><strong>������ Important:</strong> If there is no fragment in an object, for example, to read the object, you must use the wildcard "*" for the <strong>fragment_name</strong> part of the device permission (see the structure above). For example: <code>"10200":["MEASUREMENT:*:READ"]</code>.</p>
  * </blockquote>
  */
 public class DevicePermissionsApi extends AdaptableApi {

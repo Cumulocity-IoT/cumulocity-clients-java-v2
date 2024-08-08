@@ -25,7 +25,7 @@ public class SystemOptionsApi extends AdaptableApi {
 	 * <p>Retrieve all system options</p>
 	 * <p>Retrieve all the system options available on the tenant.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> Note that it is possible to call this endpoint without the ROLE_OPTION_MANAGEMENT_ADMIN role, but options that are considered secured (see the list of options above) will be obfuscated with a constant value <code>"<<Encrypted>>"</code>.</p>
+	 * <p><strong>������ Important:</strong> Note that it is possible to call this endpoint without the ROLE_OPTION_MANAGEMENT_ADMIN role, but options that are considered secured (see the list of options above) will be obfuscated with a constant value <code>"<<Encrypted>>"</code>.</p>
 	 * </blockquote>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
@@ -48,7 +48,7 @@ public class SystemOptionsApi extends AdaptableApi {
 	 * <p>Retrieve a specific system option</p>
 	 * <p>Retrieve a specific system option (by a given category and key) on your tenant.</p>
 	 * <blockquote>
-	 * <p><strong>⚠️ Important:</strong> Note that it is possible to call this endpoint without the ROLE_OPTION_MANAGEMENT_ADMIN role, but only the options that are considered not secured (see the list of options above) will be returned. Otherwise, if the option is considered secured and the user does not have the required role, an HTTP response 403 will be returned.</p>
+	 * <p><strong>������ Important:</strong> Note that it is possible to call this endpoint without the ROLE_OPTION_MANAGEMENT_ADMIN role, but only the options that are considered not secured (see the list of options above) will be returned. Otherwise, if the option is considered secured and the user does not have the required role, an HTTP response 403 will be returned.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_OPTION_MANAGEMENT_ADMIN

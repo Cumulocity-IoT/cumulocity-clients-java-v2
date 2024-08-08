@@ -106,7 +106,7 @@ public class SubscriptionsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 409 <p>Duplicated subscription.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -146,7 +146,7 @@ public class SubscriptionsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not enough permissions/roles to perform this operation.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – error in query parameters</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� error in query parameters</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
