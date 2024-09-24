@@ -183,7 +183,7 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Cannot deactivate TOTP setup.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 404 <p>User not found.</p></p>
+	 * 	<li><p>HTTP 409 <p>TFA TOTP secret does not exist. First generate secret.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

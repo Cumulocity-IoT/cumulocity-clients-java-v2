@@ -103,7 +103,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <h3>Create multiple measurements</h3>
 	 * <p>It is also possible to create multiple measurements at once by sending a <code>measurements</code> array containing all the measurements to be created. The content type must be <code>application/vnd.com.nsn.cumulocity.measurementcollection+json</code>.</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, review the sections <a href="#section/Device-management-library">Device management library</a> and <a href="#section/Sensor-library">Sensor library</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, refer to <a href="https://cumulocity.com/docs/device-integration/fragment-library/">Device management & connectivity > Device integration > Fragment library</a> in the Cumulocity IoT user documentation.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_MEASUREMENT_ADMIN <b>OR</b> owner of the source <b>OR</b> MEASUREMENT_ADMIN permission on the source
@@ -157,7 +157,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <h3>Create multiple measurements</h3>
 	 * <p>It is also possible to create multiple measurements at once by sending a <code>measurements</code> array containing all the measurements to be created. The content type must be <code>application/vnd.com.nsn.cumulocity.measurementcollection+json</code>.</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, review the sections <a href="#section/Device-management-library">Device management library</a> and <a href="#section/Sensor-library">Sensor library</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, refer to <a href="https://cumulocity.com/docs/device-integration/fragment-library/">Device management & connectivity > Device integration > Fragment library</a> in the Cumulocity IoT user documentation.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_MEASUREMENT_ADMIN <b>OR</b> owner of the source <b>OR</b> MEASUREMENT_ADMIN permission on the source

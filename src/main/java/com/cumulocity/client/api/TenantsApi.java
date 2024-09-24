@@ -10,6 +10,7 @@ import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Response;
 import com.cumulocity.client.supplementary.AdaptableApi;
 import com.cumulocity.client.model.Tenant;
+import com.cumulocity.client.model.TenantTfaStrategy;
 import com.cumulocity.client.model.TenantCollection;
 import com.cumulocity.client.model.CurrentTenant;
 import com.cumulocity.client.model.TenantTfaData;
@@ -288,5 +289,36 @@ public class TenantsApi extends AdaptableApi {
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/json")
 			.rx()
 			.method("GET", TenantTfaData.class);
+	}
+	
+	/**
+	 * <p>Sets TFA settings for a specific tenant</p>
+	 * <p>Sets the two-factor authentication settings of a specific tenant for a specific tenant ID.</p>
+	 * <section><h5>Required roles</h5>
+	 * ((ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_MANAGEMENT_UPDATE) <b>AND</b> (the current tenant is its parent <b>OR</b> the current user belongs to the tenant)))
+	 * </section>
+	 * <h5>Response Codes</h5>
+	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
+	 * <ul>
+	 * 	<li><p>HTTP 204 <p>The tenant's TFA configuration was updated.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 404 <p>Tenant not found.</p></p>
+	 * 	</li>
+	 * </ul>
+	 * 
+	 * @param body
+	 * @param tenantId
+	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 */
+	public CompletionStage<Response> updateTenantTfaSettings(final TenantTfaStrategy body, final String tenantId) {
+		final JsonNode jsonNode = toJsonNode(body);
+		return adapt().path("tenant").path("tenants").path(valueOf(tenantId)).path("tfa")
+			.request()
+			.header("Content-Type", "application/json")
+			.header("Accept", "application/json")
+			.rx()
+			.method("PUT", Entity.json(jsonNode));
 	}
 }

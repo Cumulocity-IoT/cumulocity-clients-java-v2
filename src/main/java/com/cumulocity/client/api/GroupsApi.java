@@ -132,9 +132,12 @@ public class GroupsApi extends AdaptableApi {
 	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
+	 * @param forceLogout
+	 * <p>If set to <code>true</code>, users with this global role will be force logged out.</p>
 	 */
-	public CompletionStage<Group> getUserGroup(final String tenantId, final int groupId) {
+	public CompletionStage<Group> getUserGroup(final String tenantId, final int groupId, final boolean forceLogout) {
 		return adapt().path("user").path(valueOf(tenantId)).path("groups").path(valueOf(groupId))
+			.queryParam("forceLogout", forceLogout)
 			.request()
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/vnd.com.nsn.cumulocity.group+json")
 			.rx()
@@ -167,8 +170,10 @@ public class GroupsApi extends AdaptableApi {
 	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
+	 * @param forceLogout
+	 * <p>If set to <code>true</code>, users with this global role will be force logged out.</p>
 	 */
-	public CompletionStage<Group> updateUserGroup(final Group body, final String tenantId, final int groupId) {
+	public CompletionStage<Group> updateUserGroup(final Group body, final String tenantId, final int groupId, final boolean forceLogout) {
 		final JsonNode jsonNode = toJsonNode(body);
 		removeFromNode(jsonNode, "roles");
 		removeFromNode(jsonNode, "self");
@@ -177,6 +182,7 @@ public class GroupsApi extends AdaptableApi {
 		removeFromNode(jsonNode, "users");
 		removeFromNode(jsonNode, "applications");
 		return adapt().path("user").path(valueOf(tenantId)).path("groups").path(valueOf(groupId))
+			.queryParam("forceLogout", forceLogout)
 			.request()
 			.header("Content-Type", "application/vnd.com.nsn.cumulocity.group+json")
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/vnd.com.nsn.cumulocity.group+json")
@@ -207,9 +213,12 @@ public class GroupsApi extends AdaptableApi {
 	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
+	 * @param forceLogout
+	 * <p>If set to <code>true</code>, users with this global role will be force logged out.</p>
 	 */
-	public CompletionStage<Response> deleteUserGroup(final String tenantId, final int groupId) {
+	public CompletionStage<Response> deleteUserGroup(final String tenantId, final int groupId, final boolean forceLogout) {
 		return adapt().path("user").path(valueOf(tenantId)).path("groups").path(valueOf(groupId))
+			.queryParam("forceLogout", forceLogout)
 			.request()
 			.header("Accept", "application/json")
 			.rx()

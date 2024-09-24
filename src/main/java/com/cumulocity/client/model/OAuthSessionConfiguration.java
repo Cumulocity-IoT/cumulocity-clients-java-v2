@@ -10,7 +10,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * <p>The session configuration properties are only available for OAuth internal. See <a href="https://cumulocity.com/guides/10.11.0/users-guide/administration/#oauth-internal">Administration > Changing settings > OAuth internal</a> in the <em>10.11.0 user guide</em> for more details.</p>
+ * <p>The session configuration properties are only available for OAI-Secure. See <a href="https://cumulocity.com/docs/authentication/basic-settings/#oai-secure-session-configuration">Platform administration > Authentication > Basic settings > OAI Secure session configuration </a> in the Cumulocity IoT user documentation.</p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_NULL)

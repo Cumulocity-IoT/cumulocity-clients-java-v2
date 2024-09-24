@@ -37,7 +37,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * <p>Retrieve all stored certificates</p>
 	 * <p>Retrieve all the trusted certificates of a specific tenant (by a given ID).</p>
 	 * <section><h5>Required roles</h5>
-	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN) <b>AND</b> (is the current tenant)
+	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN <b>OR</b> ROLE_TENANT_MANAGEMENT_READ) <b>AND</b> (is the current tenant)
 	 * </section>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
@@ -164,7 +164,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * <p>Retrieve a stored certificate</p>
 	 * <p>Retrieve the data of a stored trusted certificate (by a given fingerprint) of a specific tenant (by a given ID).</p>
 	 * <section><h5>Required roles</h5>
-	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN) <b>AND</b> (is the current tenant <b>OR</b> is the management tenant)
+	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN <b>OR</b> ROLE_TENANT_MANAGEMENT_READ) <b>AND</b> (is the current tenant <b>OR</b> is the management tenant)
 	 * </section>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
@@ -393,18 +393,15 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * @param tenantId
 	 * @param file
 	 * <p>File to be uploaded.</p>
-	 * @param xCumulocityTenantId
-	 * <p>Used to send a tenant ID.</p>
 	 * @param xCumulocityClientCertChain
 	 * <p>Used to send a certificate chain in the header. Separate the chain with <code>,</code> and also each 64 bit block with <code> </code> (a space character).</p>
 	 */
-	public CompletionStage<VerifyCertificateChain> validateChain(final String tenantId, final byte[] file, final String xCumulocityTenantId, final String xCumulocityClientCertChain) {
+	public CompletionStage<VerifyCertificateChain> validateChain(final String tenantId, final byte[] file, final String xCumulocityClientCertChain) {
 		final FormDataMultiPart multiPartEntity = new FormDataMultiPart();
 		multiPartEntity.field("tenantId", tenantId, MediaType.valueOf("text/plain"));
 		multiPartEntity.field("file", file, MediaType.valueOf("text/plain"));
 		return adapt().path("tenant").path("trusted-certificates").path("verify-cert-chain")
 			.request()
-			.header("X-Cumulocity-TenantId", xCumulocityTenantId)
 			.header("X-Cumulocity-Client-Cert-Chain", xCumulocityClientCertChain)
 			.header("Content-Type", "multipart/form-data")
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/json")
@@ -415,6 +412,9 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	/**
 	 * <p>Get revoked certificates</p>
 	 * <p>This endpoint downloads current CRL file containing list of revoked certificate ina binary file format with <code>content-type</code> as <code>application/pkix-crl</code>.</p>
+	 * <section><h5>Required roles</h5>
+	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN <b>OR</b> ROLE_TENANT_MANAGEMENT_READ)
+	 * </section>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
 	 * <ul>
@@ -568,7 +568,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>client certificate</p>
 	 * 	</li>
-	 * 	<li><p>whole certificate chain (optional)</p>
+	 * 	<li><p>whole certificate chain (Optional - This API requires the client to send a custom header <code>X-SSL-CERT-CHAIN</code> only if the immediate issuer of the client's certificate is not uploaded as a trusted certificate on the platform. If the immediate issuer is already uploaded and trusted, the header can be omitted)</p>
 	 * 	</li>
 	 * </ul>
 	 * <h5>Response Codes</h5>
