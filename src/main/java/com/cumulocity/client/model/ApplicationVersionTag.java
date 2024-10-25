@@ -16,21 +16,21 @@ public class ApplicationVersionTag {
 	/**
 	 * <p>Tag assigned to the version. Version tags must be unique across all versions and version fields of application versions.</p>
 	 */
-	private String[] tag;
+	private String[] tags;
 
 	public ApplicationVersionTag() {
 	}
 
-	public ApplicationVersionTag(final String[] tag) {
-		this.tag = tag;
+	public ApplicationVersionTag(final String[] tags) {
+		this.tags = tags;
 	}
 
-	public String[] getTag() {
-		return tag;
+	public String[] getTags() {
+		return tags;
 	}
 	
-	public void setTag(final String[] tag) {
-		this.tag = tag;
+	public void setTags(final String[] tags) {
+		this.tags = tags;
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class ApplicationVersionTag {
 	public boolean equals(final Object r) {
 		if (r != null && r instanceof ApplicationVersionTag) {
 			ApplicationVersionTag comparer = (ApplicationVersionTag) r;
-			if (comparer.getTag().equals(this.getTag())) {
+			if (comparer.getTags().equals(this.getTags())) {
 				return true;
 			}
 		}

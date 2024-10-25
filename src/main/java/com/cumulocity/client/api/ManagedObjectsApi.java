@@ -81,8 +81,10 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned references of child parents will return the device's parents (if any). Otherwise, it will be an empty array.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 * @param withLatestValues
 	 * <p>If set to true the platform returns managed objects with the fragment `c8y_LatestMeasurements, which contains the latest measurement values reported by the device to the platform.</p>
 	 * <p><strong>������ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>

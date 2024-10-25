@@ -64,8 +64,10 @@ public class UsersApi extends AdaptableApi {
 	 * <p>If set to <code>true</code>, then each of returned user will contain an additional field ���subusersCount���.It is the number of direct subusers (users with corresponding ���owner���).</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<UserCollection> getUsers(final String tenantId, final int currentPage, final String[] groups, final boolean onlyDevices, final String owner, final int pageSize, final String username, final boolean withSubusersCount, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("user").path(valueOf(tenantId)).path("users")
@@ -342,6 +344,7 @@ public class UsersApi extends AdaptableApi {
 	 * <p>Indicates how many entries of the collection shall be returned. The upper limit for one page is 2,000 objects.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<UserReferenceCollection> getUsersFromUserGroup(final String tenantId, final int groupId, final int currentPage, final int pageSize, final boolean withTotalElements) {
 		return adapt().path("user").path(valueOf(tenantId)).path("groups").path(valueOf(groupId)).path("users")

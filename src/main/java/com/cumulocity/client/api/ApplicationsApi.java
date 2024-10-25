@@ -62,8 +62,10 @@ public class ApplicationsApi extends AdaptableApi {
 	 * <p>The ID of a user that has access to the applications.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 * @param hasVersions
 	 * <p>When set to <code>true</code>, the returned result contains applications with an <code>applicationVersions</code> field that is not empty. When set to <code>false</code>, the result will contain applications with an empty <code>applicationVersions</code> field.</p>
 	 */
@@ -350,8 +352,10 @@ public class ApplicationsApi extends AdaptableApi {
 	 * <p>Indicates how many entries of the collection shall be returned. The upper limit for one page is 2,000 objects.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<ApplicationCollection> getApplicationsByOwner(final String tenantId, final int currentPage, final int pageSize, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("application").path("applicationsByOwner").path(valueOf(tenantId))
@@ -388,8 +392,10 @@ public class ApplicationsApi extends AdaptableApi {
 	 * <p>Indicates how many entries of the collection shall be returned. The upper limit for one page is 2,000 objects.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<ApplicationCollection> getApplicationsByUser(final String username, final int currentPage, final int pageSize, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("application").path("applicationsByUser").path(valueOf(username))

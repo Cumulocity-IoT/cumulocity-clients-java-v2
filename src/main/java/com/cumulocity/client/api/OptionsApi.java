@@ -29,6 +29,9 @@ public class OptionsApi extends AdaptableApi {
 	/**
 	 * <p>Retrieve all options</p>
 	 * <p>Retrieve all the options available on the tenant.</p>
+	 * <blockquote>
+	 * <p><strong>������ Important:</strong> Note that Enterprise Tenants are also allowed to read inherited tenant options from the management tenant.</p>
+	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_OPTION_MANAGEMENT_READ
 	 * </section>
@@ -47,6 +50,7 @@ public class OptionsApi extends AdaptableApi {
 	 * <p>Indicates how many entries of the collection shall be returned. The upper limit for one page is 2,000 objects.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<OptionCollection> getOptions(final int currentPage, final int pageSize, final boolean withTotalPages) {
 		return adapt().path("tenant").path("options")
@@ -109,6 +113,9 @@ public class OptionsApi extends AdaptableApi {
 	/**
 	 * <p>Retrieve all options by category</p>
 	 * <p>Retrieve all the options (by a specified category) on your tenant.</p>
+	 * <blockquote>
+	 * <p><strong>������ Important:</strong> Note that Enterprise Tenants are also allowed to read inherited tenant options from the management tenant.</p>
+	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_OPTION_MANAGEMENT_READ
 	 * </section>
@@ -166,6 +173,9 @@ public class OptionsApi extends AdaptableApi {
 	/**
 	 * <p>Retrieve a specific option</p>
 	 * <p>Retrieve a specific option (by a given category and key) on your tenant.</p>
+	 * <blockquote>
+	 * <p><strong>������ Important:</strong> Note that Enterprise Tenants are also allowed to read inherited tenant options from the management tenant.</p>
+	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_OPTION_MANAGEMENT_READ
 	 * </section>

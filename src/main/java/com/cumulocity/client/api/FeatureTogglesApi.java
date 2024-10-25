@@ -58,9 +58,12 @@ public class FeatureTogglesApi extends AdaptableApi {
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
+	 * 
+	 * @param featureKey
+	 * <p>A unique key of the feature toggle.</p>
 	 */
-	public CompletionStage<FeatureToggle> getCurrentTenantFeature() {
-		return adapt().path("features").path(valueOf(featurekey))
+	public CompletionStage<FeatureToggle> getCurrentTenantFeature(final String featureKey) {
+		return adapt().path("features").path(valueOf(featureKey))
 			.request()
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/json")
 			.rx()
@@ -85,9 +88,12 @@ public class FeatureTogglesApi extends AdaptableApi {
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
+	 * 
+	 * @param featureKey
+	 * <p>A unique key of the feature toggle.</p>
 	 */
-	public CompletionStage<TenantFeatureToggleValue[]> listTenantFeatureToggleValues() {
-		return adapt().path("features").path(valueOf(featurekey)).path("by-tenant")
+	public CompletionStage<TenantFeatureToggleValue[]> listTenantFeatureToggleValues(final String featureKey) {
+		return adapt().path("features").path(valueOf(featureKey)).path("by-tenant")
 			.request()
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/json")
 			.rx()
@@ -114,10 +120,12 @@ public class FeatureTogglesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param body
+	 * @param featureKey
+	 * <p>A unique key of the feature toggle.</p>
 	 */
-	public CompletionStage<Response> setCurrentTenantFeatureToggleValue(final FeatureToggleValue body) {
+	public CompletionStage<Response> setCurrentTenantFeatureToggleValue(final FeatureToggleValue body, final String featureKey) {
 		final JsonNode jsonNode = toJsonNode(body);
-		return adapt().path("features").path(valueOf(featurekey)).path("by-tenant")
+		return adapt().path("features").path(valueOf(featureKey)).path("by-tenant")
 			.request()
 			.header("Content-Type", "application/json")
 			.header("Accept", "application/json")
@@ -143,9 +151,12 @@ public class FeatureTogglesApi extends AdaptableApi {
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
+	 * 
+	 * @param featureKey
+	 * <p>A unique key of the feature toggle.</p>
 	 */
-	public CompletionStage<Response> unsetCurrentTenantFeatureToggleValue() {
-		return adapt().path("features").path(valueOf(featurekey)).path("by-tenant")
+	public CompletionStage<Response> unsetCurrentTenantFeatureToggleValue(final String featureKey) {
+		return adapt().path("features").path(valueOf(featureKey)).path("by-tenant")
 			.request()
 			.header("Accept", "application/json")
 			.rx()
@@ -172,10 +183,14 @@ public class FeatureTogglesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param body
+	 * @param featureKey
+	 * <p>A unique key of the feature toggle.</p>
+	 * @param tenantId
+	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
 	 */
-	public CompletionStage<Response> setGivenTenantFeatureToggleValue(final FeatureToggleValue body) {
+	public CompletionStage<Response> setGivenTenantFeatureToggleValue(final FeatureToggleValue body, final String featureKey, final String tenantId) {
 		final JsonNode jsonNode = toJsonNode(body);
-		return adapt().path("features").path(valueOf(featurekey)).path("by-tenant").path(valueOf(tenantid))
+		return adapt().path("features").path(valueOf(featureKey)).path("by-tenant").path(valueOf(tenantId))
 			.request()
 			.header("Content-Type", "application/json")
 			.header("Accept", "application/json")
@@ -201,9 +216,14 @@ public class FeatureTogglesApi extends AdaptableApi {
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
+	 * 
+	 * @param featureKey
+	 * <p>A unique key of the feature toggle.</p>
+	 * @param tenantId
+	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
 	 */
-	public CompletionStage<Response> unsetGivenTenantFeatureToggleValue() {
-		return adapt().path("features").path(valueOf(featurekey)).path("by-tenant").path(valueOf(tenantid))
+	public CompletionStage<Response> unsetGivenTenantFeatureToggleValue(final String featureKey, final String tenantId) {
+		return adapt().path("features").path(valueOf(featureKey)).path("by-tenant").path(valueOf(tenantId))
 			.request()
 			.header("Accept", "application/json")
 			.rx()

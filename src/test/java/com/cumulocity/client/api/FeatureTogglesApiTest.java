@@ -40,26 +40,4 @@ public class FeatureTogglesApiTest {
     	}
     	assertNotNull(response);
     }
-    
-    @Test
-    public void testGetCurrentTenantFeature() {
-    	Object response = null;
-    	try {
-    		response = service.getCurrentTenantFeature().toCompletableFuture().get();
-    	} catch (InterruptedException | ExecutionException e) {
-    		e.printStackTrace();
-    	}
-    	assertNotNull(response);
-    }
-    
-    @Test
-    public void testListTenantFeatureToggleValues() {
-    	Object response = null;
-    	try {
-    		response = service.listTenantFeatureToggleValues().toCompletableFuture().get();
-    	} catch (InterruptedException | ExecutionException e) {
-    		e.printStackTrace();
-    	}
-    	assertNotNull(response);
-    }
 }

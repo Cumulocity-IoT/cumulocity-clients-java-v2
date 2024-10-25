@@ -53,8 +53,10 @@ public class SubscriptionsApi extends AdaptableApi {
 	 * <p><strong>ⓘ Info:</strong> Filtering by <code>typeFilter</code> may affect paging. Additional post filtering may be performed if OData-like expressions are used in the subscriptions.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<NotificationSubscriptionCollection> getSubscriptions(final String context, final int currentPage, final int pageSize, final String source, final String subscription, final String typeFilter, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("notification2").path("subscriptions")

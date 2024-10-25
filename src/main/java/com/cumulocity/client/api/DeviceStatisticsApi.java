@@ -77,6 +77,7 @@ public class DeviceStatisticsApi extends AdaptableApi {
 	 * <p>Indicates how many entries of the collection shall be returned. The upper limit for one page is 2,000 objects.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<DeviceStatisticsCollection> getMonthlyDeviceStatistics(final String tenantId, final String date, final int currentPage, final String deviceId, final int pageSize, final boolean withTotalPages) {
 		return adapt().path("tenant").path("statistics").path("device").path(valueOf(tenantId)).path("monthly").path(valueOf(date))
@@ -119,6 +120,7 @@ public class DeviceStatisticsApi extends AdaptableApi {
 	 * <p>Indicates how many entries of the collection shall be returned. The upper limit for one page is 2,000 objects.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<DeviceStatisticsCollection> getDailyDeviceStatistics(final String tenantId, final String date, final int currentPage, final String deviceId, final int pageSize, final boolean withTotalPages) {
 		return adapt().path("tenant").path("statistics").path("device").path(valueOf(tenantId)).path("daily").path(valueOf(date))

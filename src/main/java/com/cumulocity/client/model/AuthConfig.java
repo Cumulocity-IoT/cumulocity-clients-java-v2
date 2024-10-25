@@ -111,6 +111,11 @@ public class AuthConfig {
 	private Type type;
 
 	/**
+	 * <p>If set to <code>true</code>, user data and the userId are retrieved using the claims from the id_token; otherwise, they are based on the access_token.</p>
+	 */
+	private boolean useIdToken;
+
+	/**
 	 * <p>SSO specific. Points to the field in the obtained JWT access token that should be used as the username in the Cumulocity IoT platform.</p>
 	 */
 	private UserIdConfig userIdConfig;
@@ -304,6 +309,14 @@ public class AuthConfig {
 	
 	public void setType(final Type type) {
 		this.type = type;
+	}
+
+	public boolean getUseIdToken() {
+		return useIdToken;
+	}
+	
+	public void setUseIdToken(final boolean useIdToken) {
+		this.useIdToken = useIdToken;
 	}
 
 	public UserIdConfig getUserIdConfig() {
@@ -567,6 +580,11 @@ public class AuthConfig {
 				 */
 				private boolean manageRolesOnlyFromAccessMapping;
 			
+				/**
+				 * <p>If set to <code>true</code>, dynamic access mapping is performed using the claims from the id_token; otherwise, it is based on the access_token.</p>
+				 */
+				private boolean mapFromIdToken;
+			
 				public boolean getMapRolesOnlyForNewUser() {
 					return mapRolesOnlyForNewUser;
 				}
@@ -583,6 +601,14 @@ public class AuthConfig {
 					this.manageRolesOnlyFromAccessMapping = manageRolesOnlyFromAccessMapping;
 				}
 			
+				public boolean getMapFromIdToken() {
+					return mapFromIdToken;
+				}
+				
+				public void setMapFromIdToken(final boolean mapFromIdToken) {
+					this.mapFromIdToken = mapFromIdToken;
+				}
+			
 				@Override
 				public String toString() {
 					try {
@@ -596,7 +622,7 @@ public class AuthConfig {
 				public boolean equals(final Object r) {
 					if (r != null && r instanceof Configuration) {
 						Configuration comparer = (Configuration) r;
-						if (Boolean.valueOf(comparer.getMapRolesOnlyForNewUser()).equals(Boolean.valueOf(this.getMapRolesOnlyForNewUser())) && Boolean.valueOf(comparer.getManageRolesOnlyFromAccessMapping()).equals(Boolean.valueOf(this.getManageRolesOnlyFromAccessMapping()))) {
+						if (Boolean.valueOf(comparer.getMapRolesOnlyForNewUser()).equals(Boolean.valueOf(this.getMapRolesOnlyForNewUser())) && Boolean.valueOf(comparer.getManageRolesOnlyFromAccessMapping()).equals(Boolean.valueOf(this.getManageRolesOnlyFromAccessMapping())) && Boolean.valueOf(comparer.getMapFromIdToken()).equals(Boolean.valueOf(this.getMapFromIdToken()))) {
 							return true;
 						}
 					}
@@ -1467,7 +1493,7 @@ public class AuthConfig {
 	public boolean equals(final Object r) {
 		if (r != null && r instanceof AuthConfig) {
 			AuthConfig comparer = (AuthConfig) r;
-			if (comparer.getAccessTokenToUserDataMapping().equals(this.getAccessTokenToUserDataMapping()) && String.valueOf(comparer.getAudience()).equals(String.valueOf(this.getAudience())) && comparer.getAuthorizationRequest().equals(this.getAuthorizationRequest()) && comparer.getAuthenticationRestrictions().equals(this.getAuthenticationRestrictions()) && String.valueOf(comparer.getButtonName()).equals(String.valueOf(this.getButtonName())) && String.valueOf(comparer.getClientId()).equals(String.valueOf(this.getClientId())) && comparer.getGrantType().equals(this.getGrantType()) && String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getIssuer()).equals(String.valueOf(this.getIssuer())) && comparer.getLogoutRequest().equals(this.getLogoutRequest()) && Boolean.valueOf(comparer.getOnlyManagementTenantAccess()).equals(Boolean.valueOf(this.getOnlyManagementTenantAccess())) && comparer.getOnNewUser().equals(this.getOnNewUser()) && String.valueOf(comparer.getProviderName()).equals(String.valueOf(this.getProviderName())) && String.valueOf(comparer.getRedirectToPlatform()).equals(String.valueOf(this.getRedirectToPlatform())) && comparer.getRefreshRequest().equals(this.getRefreshRequest()) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && comparer.getSessionConfiguration().equals(this.getSessionConfiguration()) && comparer.getSignatureVerificationConfig().equals(this.getSignatureVerificationConfig()) && String.valueOf(comparer.getTemplate()).equals(String.valueOf(this.getTemplate())) && comparer.getTokenRequest().equals(this.getTokenRequest()) && comparer.getType().equals(this.getType()) && comparer.getUserIdConfig().equals(this.getUserIdConfig()) && comparer.getUserManagementSource().equals(this.getUserManagementSource()) && Boolean.valueOf(comparer.getVisibleOnLoginPage()).equals(Boolean.valueOf(this.getVisibleOnLoginPage())) && comparer.getExternalTokenConfig().equals(this.getExternalTokenConfig())) {
+			if (comparer.getAccessTokenToUserDataMapping().equals(this.getAccessTokenToUserDataMapping()) && String.valueOf(comparer.getAudience()).equals(String.valueOf(this.getAudience())) && comparer.getAuthorizationRequest().equals(this.getAuthorizationRequest()) && comparer.getAuthenticationRestrictions().equals(this.getAuthenticationRestrictions()) && String.valueOf(comparer.getButtonName()).equals(String.valueOf(this.getButtonName())) && String.valueOf(comparer.getClientId()).equals(String.valueOf(this.getClientId())) && comparer.getGrantType().equals(this.getGrantType()) && String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getIssuer()).equals(String.valueOf(this.getIssuer())) && comparer.getLogoutRequest().equals(this.getLogoutRequest()) && Boolean.valueOf(comparer.getOnlyManagementTenantAccess()).equals(Boolean.valueOf(this.getOnlyManagementTenantAccess())) && comparer.getOnNewUser().equals(this.getOnNewUser()) && String.valueOf(comparer.getProviderName()).equals(String.valueOf(this.getProviderName())) && String.valueOf(comparer.getRedirectToPlatform()).equals(String.valueOf(this.getRedirectToPlatform())) && comparer.getRefreshRequest().equals(this.getRefreshRequest()) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && comparer.getSessionConfiguration().equals(this.getSessionConfiguration()) && comparer.getSignatureVerificationConfig().equals(this.getSignatureVerificationConfig()) && String.valueOf(comparer.getTemplate()).equals(String.valueOf(this.getTemplate())) && comparer.getTokenRequest().equals(this.getTokenRequest()) && comparer.getType().equals(this.getType()) && Boolean.valueOf(comparer.getUseIdToken()).equals(Boolean.valueOf(this.getUseIdToken())) && comparer.getUserIdConfig().equals(this.getUserIdConfig()) && comparer.getUserManagementSource().equals(this.getUserManagementSource()) && Boolean.valueOf(comparer.getVisibleOnLoginPage()).equals(Boolean.valueOf(this.getVisibleOnLoginPage())) && comparer.getExternalTokenConfig().equals(this.getExternalTokenConfig())) {
 				return true;
 			}
 		}

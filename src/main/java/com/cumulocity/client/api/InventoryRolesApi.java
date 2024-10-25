@@ -48,6 +48,7 @@ public class InventoryRolesApi extends AdaptableApi {
 	 * <p>Indicates how many entries of the collection shall be returned. The upper limit for one page is 2,000 objects.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<InventoryRoleCollection> getInventoryRoles(final int currentPage, final int pageSize, final boolean withTotalElements) {
 		return adapt().path("user").path("inventoryroles")

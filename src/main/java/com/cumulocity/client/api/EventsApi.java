@@ -73,8 +73,10 @@ public class EventsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code> also events for related source devices will be included in the request. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<EventCollection> getEvents(final String createdFrom, final String createdTo, final int currentPage, final String dateFrom, final String dateTo, final String fragmentType, final String fragmentValue, final String lastUpdatedFrom, final String lastUpdatedTo, final int pageSize, final boolean revert, final String source, final String type, final boolean withSourceAssets, final boolean withSourceDevices, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("event").path("events")

@@ -64,8 +64,10 @@ public class AuditsApi extends AdaptableApi {
 	 * <p>The username to search for.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<AuditRecordCollection> getAuditRecords(final String application, final int currentPage, final String dateFrom, final String dateTo, final int pageSize, final String source, final String type, final String user, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("audit").path("auditRecords")

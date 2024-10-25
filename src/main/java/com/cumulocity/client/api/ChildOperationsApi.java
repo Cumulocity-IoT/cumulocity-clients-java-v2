@@ -60,8 +60,10 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned result will contain the total number of children in the respective objects (<code>childAdditions</code>, <code>childAssets</code> and <code>childDevices</code>).</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<ManagedObjectReferenceCollection> getChildAdditions(final String id, final int currentPage, final int pageSize, final String query, final boolean withChildren, final boolean withChildrenCount, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("inventory").path("managedObjects").path(valueOf(id)).path("childAdditions")
@@ -352,8 +354,10 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned result will contain the total number of children in the respective objects (<code>childAdditions</code>, <code>childAssets</code> and <code>childDevices</code>).</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<ManagedObjectReferenceCollection> getChildAssets(final String id, final int currentPage, final int pageSize, final String query, final boolean withChildren, final boolean withChildrenCount, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("inventory").path("managedObjects").path(valueOf(id)).path("childAssets")
@@ -644,8 +648,10 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned result will contain the total number of children in the respective objects (<code>childAdditions</code>, <code>childAssets</code> and <code>childDevices</code>).</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
+	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
 	public CompletionStage<ManagedObjectReferenceCollection> getChildDevices(final String id, final int currentPage, final int pageSize, final String query, final boolean withChildren, final boolean withChildrenCount, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("inventory").path("managedObjects").path(valueOf(id)).path("childDevices")
