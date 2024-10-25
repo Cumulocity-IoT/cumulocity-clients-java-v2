@@ -8,7 +8,7 @@ plugins {
 
 jar {
     archiveBaseName = 'cumulocitycorelibrary'
-    archiveVersion =  '-8'
+    archiveVersion =  '-11'
 }
 
 compileJava {
