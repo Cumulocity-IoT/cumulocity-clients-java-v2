@@ -10,27 +10,27 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * <p>The availability information computed by Cumulocity IoT is stored in fragments <code>c8y_Availability</code> and <code>c8y_Connection</code> of the device.</p>
+ * <p>The availability information computed by Cumulocity IoT is stored in fragments <code>c8y_Availability</code> of the device.</p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_NULL)
 public class C8yAvailability {
 
 	/**
-	 * <p>The current status, one of <code>AVAILABLE</code>, <code>CONNECTED</code>, <code>MAINTENANCE</code>, <code>DISCONNECTED</code>.</p>
+	 * <p>The current status of availability, one of <code>AVAILABLE</code>, <code>UNAVAILABLE</code>, <code>MAINTENANCE</code>.</p>
 	 */
-	private C8yAvailabilityStatus status;
+	private C8yAvailabilityDataStatus status;
 
 	/**
 	 * <p>The time when the device sent the last message to Cumulocity IoT.</p>
 	 */
 	private String lastMessage;
 
-	public C8yAvailabilityStatus getStatus() {
+	public C8yAvailabilityDataStatus getStatus() {
 		return status;
 	}
 	
-	public void setStatus(final C8yAvailabilityStatus status) {
+	public void setStatus(final C8yAvailabilityDataStatus status) {
 		this.status = status;
 	}
 

@@ -197,7 +197,6 @@ public class ChildOperationsApi extends AdaptableApi {
 	 */
 	public CompletionStage<Response> assignAsChildAddition(final ManagedObject body, final String id, final String xCumulocityProcessingMode) {
 		final JsonNode jsonNode = toJsonNode(body);
-		removeFromNode(jsonNode, "owner");
 		removeFromNode(jsonNode, "additionParents");
 		removeFromNode(jsonNode, "lastUpdated");
 		removeFromNode(jsonNode, "childDevices");
@@ -491,7 +490,6 @@ public class ChildOperationsApi extends AdaptableApi {
 	 */
 	public CompletionStage<Response> assignAsChildAsset(final ManagedObject body, final String id, final String xCumulocityProcessingMode) {
 		final JsonNode jsonNode = toJsonNode(body);
-		removeFromNode(jsonNode, "owner");
 		removeFromNode(jsonNode, "additionParents");
 		removeFromNode(jsonNode, "lastUpdated");
 		removeFromNode(jsonNode, "childDevices");
@@ -785,7 +783,6 @@ public class ChildOperationsApi extends AdaptableApi {
 	 */
 	public CompletionStage<Response> assignAsChildDevice(final ManagedObject body, final String id, final String xCumulocityProcessingMode) {
 		final JsonNode jsonNode = toJsonNode(body);
-		removeFromNode(jsonNode, "owner");
 		removeFromNode(jsonNode, "additionParents");
 		removeFromNode(jsonNode, "lastUpdated");
 		removeFromNode(jsonNode, "childDevices");

@@ -12,6 +12,7 @@ import com.cumulocity.client.supplementary.AdaptableApi;
 import com.cumulocity.client.model.ManagedObject;
 import com.cumulocity.client.model.ManagedObjectUser;
 import com.cumulocity.client.model.ManagedObjectCollection;
+import com.cumulocity.client.model.ManagedObjectAvailability;
 import com.cumulocity.client.model.SupportedMeasurements;
 import com.cumulocity.client.model.SupportedSeries;
 
@@ -251,7 +252,6 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 */
 	public CompletionStage<ManagedObject> updateManagedObject(final ManagedObject body, final String id, final String xCumulocityProcessingMode) {
 		final JsonNode jsonNode = toJsonNode(body);
-		removeFromNode(jsonNode, "owner");
 		removeFromNode(jsonNode, "additionParents");
 		removeFromNode(jsonNode, "lastUpdated");
 		removeFromNode(jsonNode, "childDevices");
@@ -333,19 +333,19 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
+	 * 	<li><p>HTTP 404 <p>A device with provided ID is not monitored.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param id
 	 * <p>Unique identifier of the managed object.</p>
 	 */
-	public CompletionStage<String> getLatestAvailability(final String id) {
+	public CompletionStage<ManagedObjectAvailability> getLatestAvailability(final String id) {
 		return adapt().path("inventory").path("managedObjects").path(valueOf(id)).path("availability")
 			.request()
-			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, text/plain, application/json")
+			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/json")
 			.rx()
-			.method("GET", String.class);
+			.method("GET", ManagedObjectAvailability.class);
 	}
 	
 	/**

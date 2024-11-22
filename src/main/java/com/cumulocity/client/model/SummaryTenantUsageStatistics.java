@@ -86,6 +86,16 @@ public class SummaryTenantUsageStatistics {
 	private int measurementsCreatedCount;
 
 	/**
+	 * <p>Number of created operations.</p>
+	 */
+	private int operationsCreatedCount;
+
+	/**
+	 * <p>Number of updates made to the operations.</p>
+	 */
+	private int operationsUpdatedCount;
+
+	/**
 	 * <p>Number of requests that were made against the tenant. Updated every 5 minutes. The following requests are not included:</p>
 	 * <ul>
 	 * 	<li><p>Internal SmartREST requests used to resolve templates</p>
@@ -218,6 +228,22 @@ public class SummaryTenantUsageStatistics {
 		this.measurementsCreatedCount = measurementsCreatedCount;
 	}
 
+	public int getOperationsCreatedCount() {
+		return operationsCreatedCount;
+	}
+	
+	public void setOperationsCreatedCount(final int operationsCreatedCount) {
+		this.operationsCreatedCount = operationsCreatedCount;
+	}
+
+	public int getOperationsUpdatedCount() {
+		return operationsUpdatedCount;
+	}
+	
+	public void setOperationsUpdatedCount(final int operationsUpdatedCount) {
+		this.operationsUpdatedCount = operationsUpdatedCount;
+	}
+
 	public int getRequestCount() {
 		return requestCount;
 	}
@@ -271,7 +297,7 @@ public class SummaryTenantUsageStatistics {
 	public boolean equals(final Object r) {
 		if (r != null && r instanceof SummaryTenantUsageStatistics) {
 			SummaryTenantUsageStatistics comparer = (SummaryTenantUsageStatistics) r;
-			if (Integer.valueOf(comparer.getAlarmsCreatedCount()).equals(Integer.valueOf(this.getAlarmsCreatedCount())) && Integer.valueOf(comparer.getAlarmsUpdatedCount()).equals(Integer.valueOf(this.getAlarmsUpdatedCount())) && String.valueOf(comparer.getDay()).equals(String.valueOf(this.getDay())) && Integer.valueOf(comparer.getDeviceCount()).equals(Integer.valueOf(this.getDeviceCount())) && Integer.valueOf(comparer.getDeviceEndpointCount()).equals(Integer.valueOf(this.getDeviceEndpointCount())) && Integer.valueOf(comparer.getDeviceRequestCount()).equals(Integer.valueOf(this.getDeviceRequestCount())) && Integer.valueOf(comparer.getDeviceWithChildrenCount()).equals(Integer.valueOf(this.getDeviceWithChildrenCount())) && Integer.valueOf(comparer.getEventsCreatedCount()).equals(Integer.valueOf(this.getEventsCreatedCount())) && Integer.valueOf(comparer.getEventsUpdatedCount()).equals(Integer.valueOf(this.getEventsUpdatedCount())) && Integer.valueOf(comparer.getInventoriesCreatedCount()).equals(Integer.valueOf(this.getInventoriesCreatedCount())) && Integer.valueOf(comparer.getInventoriesUpdatedCount()).equals(Integer.valueOf(this.getInventoriesUpdatedCount())) && Integer.valueOf(comparer.getMeasurementsCreatedCount()).equals(Integer.valueOf(this.getMeasurementsCreatedCount())) && Integer.valueOf(comparer.getRequestCount()).equals(Integer.valueOf(this.getRequestCount())) && comparer.getResources().equals(this.getResources()) && Integer.valueOf(comparer.getStorageSize()).equals(Integer.valueOf(this.getStorageSize())) && comparer.getSubscribedApplications().equals(this.getSubscribedApplications()) && Integer.valueOf(comparer.getTotalResourceCreateAndUpdateCount()).equals(Integer.valueOf(this.getTotalResourceCreateAndUpdateCount()))) {
+			if (Integer.valueOf(comparer.getAlarmsCreatedCount()).equals(Integer.valueOf(this.getAlarmsCreatedCount())) && Integer.valueOf(comparer.getAlarmsUpdatedCount()).equals(Integer.valueOf(this.getAlarmsUpdatedCount())) && String.valueOf(comparer.getDay()).equals(String.valueOf(this.getDay())) && Integer.valueOf(comparer.getDeviceCount()).equals(Integer.valueOf(this.getDeviceCount())) && Integer.valueOf(comparer.getDeviceEndpointCount()).equals(Integer.valueOf(this.getDeviceEndpointCount())) && Integer.valueOf(comparer.getDeviceRequestCount()).equals(Integer.valueOf(this.getDeviceRequestCount())) && Integer.valueOf(comparer.getDeviceWithChildrenCount()).equals(Integer.valueOf(this.getDeviceWithChildrenCount())) && Integer.valueOf(comparer.getEventsCreatedCount()).equals(Integer.valueOf(this.getEventsCreatedCount())) && Integer.valueOf(comparer.getEventsUpdatedCount()).equals(Integer.valueOf(this.getEventsUpdatedCount())) && Integer.valueOf(comparer.getInventoriesCreatedCount()).equals(Integer.valueOf(this.getInventoriesCreatedCount())) && Integer.valueOf(comparer.getInventoriesUpdatedCount()).equals(Integer.valueOf(this.getInventoriesUpdatedCount())) && Integer.valueOf(comparer.getMeasurementsCreatedCount()).equals(Integer.valueOf(this.getMeasurementsCreatedCount())) && Integer.valueOf(comparer.getOperationsCreatedCount()).equals(Integer.valueOf(this.getOperationsCreatedCount())) && Integer.valueOf(comparer.getOperationsUpdatedCount()).equals(Integer.valueOf(this.getOperationsUpdatedCount())) && Integer.valueOf(comparer.getRequestCount()).equals(Integer.valueOf(this.getRequestCount())) && comparer.getResources().equals(this.getResources()) && Integer.valueOf(comparer.getStorageSize()).equals(Integer.valueOf(this.getStorageSize())) && comparer.getSubscribedApplications().equals(this.getSubscribedApplications()) && Integer.valueOf(comparer.getTotalResourceCreateAndUpdateCount()).equals(Integer.valueOf(this.getTotalResourceCreateAndUpdateCount()))) {
 				return true;
 			}
 		}

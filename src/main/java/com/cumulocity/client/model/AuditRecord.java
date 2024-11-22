@@ -68,7 +68,7 @@ public class AuditRecord {
 	private Severity severity;
 
 	/**
-	 * <p>The managed object to which the audit is associated.</p>
+	 * <p>The platform component ID to which the audit is associated.</p>
 	 */
 	private Source source;
 
@@ -486,7 +486,7 @@ public class AuditRecord {
 
 
 	/**
-	 * <p>The managed object to which the audit is associated.</p>
+	 * <p>The platform component ID to which the audit is associated.</p>
 	 */
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	@JsonInclude(Include.NON_NULL)

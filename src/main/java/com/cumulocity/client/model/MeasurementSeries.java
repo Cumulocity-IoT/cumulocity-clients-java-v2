@@ -3,6 +3,7 @@
 
 package com.cumulocity.client.model;
 
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -59,6 +60,16 @@ public class MeasurementSeries {
 	@JsonInclude(Include.NON_NULL)
 	public static class Values {
 	
+		private Map<String, MeasurementSeriesValue[]> additionalProperties;
+	
+		public Map<String, MeasurementSeriesValue[]> getAdditionalProperties() {
+			return additionalProperties;
+		}
+		
+		public void setAdditionalProperties(final Map<String, MeasurementSeriesValue[]> additionalProperties) {
+			this.additionalProperties = additionalProperties;
+		}
+	
 		@Override
 		public String toString() {
 			try {
@@ -68,6 +79,16 @@ public class MeasurementSeries {
 			return super.toString();
 		}
 	
+		@Override
+		public boolean equals(final Object r) {
+			if (r != null && r instanceof Values) {
+				Values comparer = (Values) r;
+				if (comparer.getAdditionalProperties().equals(this.getAdditionalProperties())) {
+					return true;
+				}
+			}
+			return false;
+		}
 	}
 
 	@Override

@@ -9,24 +9,28 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-/**
- * <p>The connection information computed by Cumulocity IoT is stored in fragments <code>c8y_Connection</code> of the device.</p>
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_NULL)
-public class C8yConnection {
+public class MeasurementSeriesValue {
 
-	/**
-	 * <p>The current status of connection, one of <code>CONNECTED</code>, <code>DISCONNECTED</code>, <code>MAINTENANCE</code>.</p>
-	 */
-	private C8yAvailabilityConnectionStatus status;
+	private Number min;
 
-	public C8yAvailabilityConnectionStatus getStatus() {
-		return status;
+	private Number max;
+
+	public Number getMin() {
+		return min;
 	}
 	
-	public void setStatus(final C8yAvailabilityConnectionStatus status) {
-		this.status = status;
+	public void setMin(final Number min) {
+		this.min = min;
+	}
+
+	public Number getMax() {
+		return max;
+	}
+	
+	public void setMax(final Number max) {
+		this.max = max;
 	}
 
 	@Override
@@ -40,9 +44,9 @@ public class C8yConnection {
 
 	@Override
 	public boolean equals(final Object r) {
-		if (r != null && r instanceof C8yConnection) {
-			C8yConnection comparer = (C8yConnection) r;
-			if (comparer.getStatus().equals(this.getStatus())) {
+		if (r != null && r instanceof MeasurementSeriesValue) {
+			MeasurementSeriesValue comparer = (MeasurementSeriesValue) r;
+			if (comparer.getMin().equals(this.getMin()) && comparer.getMax().equals(this.getMax())) {
 				return true;
 			}
 		}
