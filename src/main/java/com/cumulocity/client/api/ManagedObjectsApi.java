@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2023 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
+// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
 // Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
 
 package com.cumulocity.client.api;
@@ -18,7 +18,7 @@ import com.cumulocity.client.model.SupportedSeries;
 
 /**
  * <p>The inventory stores devices and other assets relevant to your IoT solution. We refer to them as managed objects and such can be ���smart objects���, for example, smart electricity meters, home automation gateways or GPS devices.</p>
- * <p>For further information, refer to <a href="https://cumulocity.com/docs/concepts/domain-model/#managed-objects">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Managed objects</a> in the Cumulocity IoT user documentation.</p>
+ * <p>For further information, refer to <a href="https://www.cumulocity.com/docs/concepts/domain-model/#managed-objects">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Managed objects</a> in the Cumulocity IoT user documentation.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
  * </blockquote>
@@ -138,7 +138,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * </ul>
 	 * <p>Imagine, for example, that you want to describe electric meters from different vendors. Depending on the make of the meter, one may have a relay and one may be capable to measure a single phase or three phases (for example, a three-phase electricity sensor). A fragment <code>c8y_ThreePhaseElectricitySensor</code> would identify such an electric meter. Devices' characteristics are identified by storing fragments for each of them.</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, refer to <a href="https://cumulocity.com/docs/device-integration/fragment-library/">Device management & connectivity > Device integration > Fragment library</a> in the Cumulocity IoT user documentation.</p>
+	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, refer to <a href="https://www.cumulocity.com/docs/device-integration/fragment-library/">Device management & connectivity > Device integration > Fragment library</a> in the Cumulocity IoT user documentation.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_INVENTORY_ADMIN <b>OR</b> ROLE_INVENTORY_CREATE <b>OR</b> ROLE_MANAGED_OBJECT_ADMIN <b>OR</b> ROLE_MANAGED_OBJECT_CREATE

@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2023 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
+// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
 // Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
 
 package com.cumulocity.client.model;
@@ -39,7 +39,7 @@ public class DeviceCredentials {
 	private String username;
 
 	/**
-	 * <p>Security token which is required and verified against during device request acceptance.See <a href="https://cumulocity.com/docs/device-management-application/registering-devices/#security-token-policy">Security token policy</a> for more details on configuration.See <a href="/#operation/putNewDeviceRequestResource">Update specific new device request status</a> for details on submitting token upon device acceptance.</p>
+	 * <p>Security token which is required and verified against during device request acceptance.See <a href="https://www.cumulocity.com/docs/device-management-application/registering-devices/#security-token-policy">Security token policy</a> for more details on configuration.See <a href="/#operation/putNewDeviceRequestResource">Update specific new device request status</a> for details on submitting token upon device acceptance.</p>
 	 */
 	private String securityToken;
 

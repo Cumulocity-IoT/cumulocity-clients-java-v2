@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2023 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
+// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
 // Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
 
 package com.cumulocity.client.api;
@@ -121,7 +121,7 @@ public class CurrentUserApi extends AdaptableApi {
 	/**
 	 * <p>Generate secret to set up TFA</p>
 	 * <p>Generate a secret code to create a QR code to set up the two-factor authentication functionality using a TFA app/service.</p>
-	 * <p>For more information about the feature, see <a href="https://cumulocity.com/docs/authentication/tfa/">Platform administration > Authentication > Two-factor authentication</a> in the Cumulocity IoT user documentation.</p>
+	 * <p>For more information about the feature, see <a href="https://www.cumulocity.com/docs/authentication/tfa/">Platform administration > Authentication > Two-factor authentication</a> in the Cumulocity IoT user documentation.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_USER_MANAGEMENT_OWN_READ <b>OR</b> ROLE_SYSTEM
 	 * </section>
@@ -170,7 +170,7 @@ public class CurrentUserApi extends AdaptableApi {
 	/**
 	 * <p>Activates or deactivates the two-factor authentication feature</p>
 	 * <p>Activates or deactivates the two-factor authentication feature for the current user.</p>
-	 * <p>For more information about the feature, see <a href="https://cumulocity.com/docs/authentication/tfa/">Platform administration > Authentication > Two-factor authentication</a> in the Cumulocity IoT user documentation.</p>
+	 * <p>For more information about the feature, see <a href="https://www.cumulocity.com/docs/authentication/tfa/">Platform administration > Authentication > Two-factor authentication</a> in the Cumulocity IoT user documentation.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_USER_MANAGEMENT_OWN_READ <b>OR</b> ROLE_SYSTEM
 	 * </section>

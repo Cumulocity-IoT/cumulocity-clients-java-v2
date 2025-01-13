@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2023 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
+// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
 // Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
 
 package com.cumulocity.client.api;
@@ -25,12 +25,12 @@ import com.cumulocity.client.model.TenantTfaData;
  * <p><strong>������ Important:</strong> For support user access, the tenant ID must be used and not the tenant domain.</p>
  * </blockquote>
  * <p>See <a href="#operation/getCurrentTenantResource">Tenant > Current tenant</a> for information on how to retrieve the tenant ID and domain of the current tenant via the API.</p>
- * <p>In the UI, the tenant ID is displayed in the user dropdown menu, see <a href="https://cumulocity.com/docs/get-familiar-with-the-ui/user-settings/">Getting started > Get familiar with the UI > User options and settings</a> in the Cumulocity IoT user documentation.</p>
+ * <p>In the UI, the tenant ID is displayed in the user dropdown menu, see <a href="https://www.cumulocity.com/docs/get-familiar-with-the-ui/user-settings/">Getting started > Get familiar with the UI > User options and settings</a> in the Cumulocity IoT user documentation.</p>
  * <h3>Access rights and permissions</h3>
  * <p>There are two types of roles in Cumulocity IoT ��� global and inventory. Global roles are applied at the tenant level. In a Role Based Access Control (RBAC) approach you must use the inventory roles in order to have the correct level of separation. Apart from some global permissions (like "own user management") customer users will not be assigned any roles. Inventory roles must be created, or the default roles used, and then assigned to the user in combination with the assets the roles apply to. This needs to be done at least once for each customer.</p>
  * <p>In a multi-tenancy approach, as the tenant is completely separated from all other customers you do not necessarily need to be involved in setting up the access rights of the customer. If customers are given administration rights for their tenants, they can set up permissions on their own. It is not possible for customers to have any sight or knowledge of other customers.</p>
  * <p>In the RBAC approach, managing access is the most complicated part because a misconfiguration can potentially give customers access to data that they must not see, like other customers' data. The inventory roles allow you to granularly define access for only certain parts of data, but they don't protect you from accidental misconfigurations. A limitation here is that customers won't be able to create their own roles.</p>
- * <p>For more details, see <a href="https://cumulocity.com/docs/concepts/tenant-hierarchy/#comparison-of-various-use-cases">RBAC versus multi-tenancy approach</a>.</p>
+ * <p>For more details, see <a href="https://www.cumulocity.com/docs/concepts/tenant-hierarchy/#comparison-of-various-use-cases">RBAC versus multi-tenancy approach</a>.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
  * </blockquote>

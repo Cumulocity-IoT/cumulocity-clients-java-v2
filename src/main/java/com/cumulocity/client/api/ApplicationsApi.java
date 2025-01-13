@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2023 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
+// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
 // Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
 
 package com.cumulocity.client.api;
@@ -16,7 +16,7 @@ import com.cumulocity.client.model.ApplicationCollection;
  * <p>API methods to retrieve, create, update and delete applications.</p>
  * <p>###��Application names</p>
  * <p>For each tenant, Cumulocity IoT manages the subscribed applications and provides a number of applications of various types.In case you want to subscribe a tenant to an application using an API, you must use the application name in the argument (as name).</p>
- * <p>Refer to the tables in <a href="https://cumulocity.com/docs/standard-tenant/ecosystem/#managing-applications">Platform administration > Standard tenant administration > Managing the ecosystem > Managing applications</a> in the Cumulocity IoT user documentation for the respective application name to be used.</p>
+ * <p>Refer to the tables in <a href="https://www.cumulocity.com/docs/standard-tenant/ecosystem/#managing-applications">Platform administration > Standard tenant administration > Managing the ecosystem > Managing applications</a> in the Cumulocity IoT user documentation for the respective application name to be used.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
  * </blockquote>

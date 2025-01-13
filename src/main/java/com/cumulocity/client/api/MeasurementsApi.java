@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2023 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
+// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
 // Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
 
 package com.cumulocity.client.api;
@@ -97,7 +97,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * 	<li><p><code>unit</code> - The unit of the measurements.</p>
 	 * 	</li>
 	 * </ul>
-	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review <a href="https://cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity IoT user documentation.</p>
+	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review <a href="https://www.cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity IoT user documentation.</p>
 	 * <p>The example below uses <code>c8y_Steam</code> in the request body to illustrate a fragment for recording temperature measurements.</p>
 	 * <blockquote>
 	 * <p><strong>������ Important:</strong> Property names used for fragment and series must not contain whitespaces nor the special characters <code>. , * [ ] ( ) @ $</code>. This is required to ensure a correct processing and visualization of measurement series on UI graphs.</p>
@@ -105,7 +105,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <h3>Create multiple measurements</h3>
 	 * <p>It is also possible to create multiple measurements at once by sending a <code>measurements</code> array containing all the measurements to be created. The content type must be <code>application/vnd.com.nsn.cumulocity.measurementcollection+json</code>.</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, refer to <a href="https://cumulocity.com/docs/device-integration/fragment-library/">Device management & connectivity > Device integration > Fragment library</a> in the Cumulocity IoT user documentation.</p>
+	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, refer to <a href="https://www.cumulocity.com/docs/device-integration/fragment-library/">Device management & connectivity > Device integration > Fragment library</a> in the Cumulocity IoT user documentation.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_MEASUREMENT_ADMIN <b>OR</b> owner of the source <b>OR</b> MEASUREMENT_ADMIN permission on the source
@@ -151,7 +151,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * 	<li><p><code>unit</code> - The unit of the measurements.</p>
 	 * 	</li>
 	 * </ul>
-	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review <a href="https://cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity IoT user documentation.</p>
+	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review <a href="https://www.cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity IoT user documentation.</p>
 	 * <p>The example below uses <code>c8y_Steam</code> in the request body to illustrate a fragment for recording temperature measurements.</p>
 	 * <blockquote>
 	 * <p><strong>������ Important:</strong> Property names used for fragment and series must not contain whitespaces nor the special characters <code>. , * [ ] ( ) @ $</code>. This is required to ensure a correct processing and visualization of measurement series on UI graphs.</p>
@@ -159,7 +159,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <h3>Create multiple measurements</h3>
 	 * <p>It is also possible to create multiple measurements at once by sending a <code>measurements</code> array containing all the measurements to be created. The content type must be <code>application/vnd.com.nsn.cumulocity.measurementcollection+json</code>.</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, refer to <a href="https://cumulocity.com/docs/device-integration/fragment-library/">Device management & connectivity > Device integration > Fragment library</a> in the Cumulocity IoT user documentation.</p>
+	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, refer to <a href="https://www.cumulocity.com/docs/device-integration/fragment-library/">Device management & connectivity > Device integration > Fragment library</a> in the Cumulocity IoT user documentation.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_MEASUREMENT_ADMIN <b>OR</b> owner of the source <b>OR</b> MEASUREMENT_ADMIN permission on the source
