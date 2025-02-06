@@ -34,7 +34,7 @@ public class CurrentTenant {
 	private String domainName;
 
 	/**
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 */
 	private String name;
 

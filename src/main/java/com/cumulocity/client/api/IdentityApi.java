@@ -9,7 +9,7 @@ import com.cumulocity.client.supplementary.AdaptableApi;
 import com.cumulocity.client.model.IdentityApiResource;
 
 /**
- * <p>Cumulocity IoT can associate devices and assets with multiple external identities.For instance, devices can often be identified by the IMEI of their modem, by a micro-controller serial number or by an asset tag.This is useful, for example, when you have non-functional hardware and must replace the hardware without losing the data that was recorded.</p>
+ * <p>Cumulocity can associate devices and assets with multiple external identities.For instance, devices can often be identified by the IMEI of their modem, by a micro-controller serial number or by an asset tag.This is useful, for example, when you have non-functional hardware and must replace the hardware without losing the data that was recorded.</p>
  * <p>The identity API resource returns URIs and URI templates for associating external identifiers with unique identifiers.</p>
  */
 public class IdentityApi extends AdaptableApi {

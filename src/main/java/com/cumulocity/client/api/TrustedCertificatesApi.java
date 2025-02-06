@@ -22,7 +22,7 @@ import com.cumulocity.client.model.AccessToken;
 
 /**
  * <p>API methods for managing trusted certificates used to establish device connections via MQTT.</p>
- * <p>More detailed information about trusted certificates and their role can be found in <a href="https://www.cumulocity.com/docs/device-management-application/managing-device-data/">Device management > Device management application > Managing device data</a> in the Cumulocity IoT user documentation.</p>
+ * <p>More detailed information about trusted certificates and their role can be found in <a href="https://www.cumulocity.com/docs/device-management-application/managing-device-data/">Device management > Device management application > Managing device data</a> in the Cumulocity user documentation.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header must be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
  * </blockquote>
@@ -53,7 +53,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param currentPage
 	 * <p>The current page of the paginated results.</p>
 	 * @param pageSize
@@ -79,7 +79,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	
 	/**
 	 * <p>Add a new certificate</p>
-	 * <p>Add a new trusted certificate to a specific tenant (by a given ID) which can be further used by the devices to establish connections with the Cumulocity IoT platform.</p>
+	 * <p>Add a new trusted certificate to a specific tenant (by a given ID) which can be further used by the devices to establish connections with the Cumulocity platform.</p>
 	 * <section><h5>Required roles</h5>
 	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN) <b>AND</b> (is the current tenant)
 	 * </section>
@@ -100,12 +100,12 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param xCumulocityProcessingMode
 	 * <p>Used to explicitly control the processing mode of the request. See <a href="#processing-mode">Processing mode</a> for more details.</p>
 	 * @param addToTrustStore
 	 * <p>If set to <code>true</code> the certificate is added to the truststore.</p>
-	 * <p>The truststore contains all trusted certificates. A connection to a device is only established if it connects to Cumulocity IoT with a certificate in the truststore.</p>
+	 * <p>The truststore contains all trusted certificates. A connection to a device is only established if it connects to Cumulocity with a certificate in the truststore.</p>
 	 */
 	public CompletionStage<TrustedCertificate> addTrustedCertificate(final UploadedTrustedCertificate body, final String tenantId, final String xCumulocityProcessingMode, final boolean addToTrustStore) {
 		final JsonNode jsonNode = toJsonNode(body);
@@ -121,7 +121,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	
 	/**
 	 * <p>Add multiple certificates</p>
-	 * <p>Add multiple trusted certificates to a specific tenant (by a given ID) which can be further used by the devices to establish connections with the Cumulocity IoT platform.</p>
+	 * <p>Add multiple trusted certificates to a specific tenant (by a given ID) which can be further used by the devices to establish connections with the Cumulocity platform.</p>
 	 * <section><h5>Required roles</h5>
 	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN) <b>AND</b> (is the current tenant)
 	 * </section>
@@ -142,10 +142,10 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param addToTrustStore
 	 * <p>If set to <code>true</code> the certificate is added to the truststore.</p>
-	 * <p>The truststore contains all trusted certificates. A connection to a device is only established if it connects to Cumulocity IoT with a certificate in the truststore.</p>
+	 * <p>The truststore contains all trusted certificates. A connection to a device is only established if it connects to Cumulocity with a certificate in the truststore.</p>
 	 */
 	public CompletionStage<TrustedCertificateCollection> addTrustedCertificates(final UploadedTrustedCertificateCollection body, final String tenantId, final boolean addToTrustStore) {
 		final JsonNode jsonNode = toJsonNode(body);
@@ -178,7 +178,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param fingerprint
 	 * <p>Unique identifier of a trusted certificate.</p>
 	 */
@@ -211,7 +211,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param fingerprint
 	 * <p>Unique identifier of a trusted certificate.</p>
 	 */
@@ -256,7 +256,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param fingerprint
 	 * <p>Unique identifier of a trusted certificate.</p>
 	 */
@@ -291,7 +291,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param fingerprint
 	 * <p>Unique identifier of a trusted certificate.</p>
 	 */
@@ -325,7 +325,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param fingerprint
 	 * <p>Unique identifier of a trusted certificate.</p>
 	 */
@@ -355,7 +355,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param fingerprint
 	 * <p>Unique identifier of a trusted certificate.</p>
 	 */
@@ -435,7 +435,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	/**
 	 * <p>Add revoked certificates</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> A certificate revocation list (CRL) is a list of digital certificatesthat have been revoked by the issuing certificate authority (CA) before expiration date.In Cumulocity IoT, a CRL check can be in online or offline mode or both.</p>
+	 * <p><strong>ⓘ Info:</strong> A certificate revocation list (CRL) is a list of digital certificatesthat have been revoked by the issuing certificate authority (CA) before expiration date.In Cumulocity, a CRL check can be in online or offline mode or both.</p>
 	 * </blockquote>
 	 * <p>An endpoint to add revoked certificate serial numbers for offline CRL check via payload or file.</p>
 	 * <p>For payload, a JSON object required with list of CRL entries, for example:</p>
@@ -499,7 +499,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	/**
 	 * <p>Add revoked certificates</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> A certificate revocation list (CRL) is a list of digital certificatesthat have been revoked by the issuing certificate authority (CA) before expiration date.In Cumulocity IoT, a CRL check can be in online or offline mode or both.</p>
+	 * <p><strong>ⓘ Info:</strong> A certificate revocation list (CRL) is a list of digital certificatesthat have been revoked by the issuing certificate authority (CA) before expiration date.In Cumulocity, a CRL check can be in online or offline mode or both.</p>
 	 * </blockquote>
 	 * <p>An endpoint to add revoked certificate serial numbers for offline CRL check via payload or file.</p>
 	 * <p>For payload, a JSON object required with list of CRL entries, for example:</p>

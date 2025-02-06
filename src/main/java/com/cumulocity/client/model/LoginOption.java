@@ -58,7 +58,7 @@ public class LoginOption {
 	private String self;
 
 	/**
-	 * <p>The session configuration properties are only available for OAI-Secure. See <a href="https://www.cumulocity.com/docs/authentication/basic-settings/#oai-secure-session-configuration">Platform administration > Authentication > Basic settings > OAI Secure session configuration </a> in the Cumulocity IoT user documentation.</p>
+	 * <p>The session configuration properties are only available for OAI-Secure. See <a href="https://www.cumulocity.com/docs/authentication/basic-settings/#oai-secure-session-configuration">Platform administration > Authentication > Basic settings > OAI Secure session configuration </a> in the Cumulocity user documentation.</p>
 	 */
 	private OAuthSessionConfiguration sessionConfiguration;
 
@@ -78,7 +78,7 @@ public class LoginOption {
 	private String type;
 
 	/**
-	 * <p>Specifies if the users are managed internally by Cumulocity IoT (<code>INTERNAL</code>) or if the users data are managed by a external system (<code>REMOTE</code>).</p>
+	 * <p>Specifies if the users are managed internally by Cumulocity (<code>INTERNAL</code>) or if the users data are managed by a external system (<code>REMOTE</code>).</p>
 	 */
 	private String userManagementSource;
 

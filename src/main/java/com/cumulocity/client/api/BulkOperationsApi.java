@@ -122,7 +122,7 @@ public class BulkOperationsApi extends AdaptableApi {
 	 * @param id
 	 * <p>Unique identifier of the bulk operation.</p>
 	 */
-	public CompletionStage<BulkOperation> getBulkOperation(final String id) {
+	public CompletionStage<BulkOperation> getBulkOperation(final int id) {
 		return adapt().path("devicecontrol").path("bulkoperations").path(valueOf(id))
 			.request()
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/vnd.com.nsn.cumulocity.bulkoperation+json")
@@ -153,7 +153,7 @@ public class BulkOperationsApi extends AdaptableApi {
 	 * @param xCumulocityProcessingMode
 	 * <p>Used to explicitly control the processing mode of the request. See <a href="#processing-mode">Processing mode</a> for more details.</p>
 	 */
-	public CompletionStage<BulkOperation> updateBulkOperation(final BulkOperation body, final String id, final String xCumulocityProcessingMode) {
+	public CompletionStage<BulkOperation> updateBulkOperation(final BulkOperation body, final int id, final String xCumulocityProcessingMode) {
 		final JsonNode jsonNode = toJsonNode(body);
 		removeFromNode(jsonNode, "generalStatus");
 		removeFromNode(jsonNode, "self");
@@ -193,7 +193,7 @@ public class BulkOperationsApi extends AdaptableApi {
 	 * @param xCumulocityProcessingMode
 	 * <p>Used to explicitly control the processing mode of the request. See <a href="#processing-mode">Processing mode</a> for more details.</p>
 	 */
-	public CompletionStage<Response> deleteBulkOperation(final String id, final String xCumulocityProcessingMode) {
+	public CompletionStage<Response> deleteBulkOperation(final int id, final String xCumulocityProcessingMode) {
 		return adapt().path("devicecontrol").path("bulkoperations").path(valueOf(id))
 			.request()
 			.header("X-Cumulocity-Processing-Mode", xCumulocityProcessingMode)

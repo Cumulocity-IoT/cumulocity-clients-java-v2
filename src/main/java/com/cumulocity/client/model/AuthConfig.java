@@ -40,7 +40,7 @@ public class AuthConfig {
 	private String buttonName;
 
 	/**
-	 * <p>SSO specific. The identifier of the Cumulocity IoT tenant on the external authorization server.</p>
+	 * <p>SSO specific. The identifier of the Cumulocity tenant on the external authorization server.</p>
 	 */
 	private String clientId;
 
@@ -77,7 +77,7 @@ public class AuthConfig {
 	private String providerName;
 
 	/**
-	 * <p>SSO specific. URL used for redirecting to the Cumulocity IoT platform. Do not set or leave it empty to allow SSO flow to be controlled by client (UI) applications.</p>
+	 * <p>SSO specific. URL used for redirecting to the Cumulocity platform. Do not set or leave it empty to allow SSO flow to be controlled by client (UI) applications.</p>
 	 */
 	private String redirectToPlatform;
 
@@ -89,12 +89,12 @@ public class AuthConfig {
 	private String self;
 
 	/**
-	 * <p>The session configuration properties are only available for OAI-Secure. See <a href="https://www.cumulocity.com/docs/authentication/basic-settings/#oai-secure-session-configuration">Platform administration > Authentication > Basic settings > OAI Secure session configuration </a> in the Cumulocity IoT user documentation.</p>
+	 * <p>The session configuration properties are only available for OAI-Secure. See <a href="https://www.cumulocity.com/docs/authentication/basic-settings/#oai-secure-session-configuration">Platform administration > Authentication > Basic settings > OAI Secure session configuration </a> in the Cumulocity user documentation.</p>
 	 */
 	private OAuthSessionConfiguration sessionConfiguration;
 
 	/**
-	 * <p>SSO specific and authorization server dependent. Describes the method of access token signature verification on the Cumulocity IoT platform.</p>
+	 * <p>SSO specific and authorization server dependent. Describes the method of access token signature verification on the Cumulocity platform.</p>
 	 */
 	private SignatureVerificationConfig signatureVerificationConfig;
 
@@ -116,12 +116,12 @@ public class AuthConfig {
 	private boolean useIdToken;
 
 	/**
-	 * <p>SSO specific. Points to the field in the obtained JWT access token that should be used as the username in the Cumulocity IoT platform.</p>
+	 * <p>SSO specific. Points to the field in the obtained JWT access token that should be used as the username in the Cumulocity platform.</p>
 	 */
 	private UserIdConfig userIdConfig;
 
 	/**
-	 * <p>Indicates whether user data are managed internally by the Cumulocity IoT platform or by an external server. Note that the value is case insensitive.</p>
+	 * <p>Indicates whether user data are managed internally by the Cumulocity platform or by an external server. Note that the value is case insensitive.</p>
 	 */
 	private UserManagementSource userManagementSource;
 
@@ -397,7 +397,7 @@ public class AuthConfig {
 
 	
 	/**
-	 * <p>Indicates whether user data are managed internally by the Cumulocity IoT platform or by an external server. Note that the value is case insensitive.</p>
+	 * <p>Indicates whether user data are managed internally by the Cumulocity platform or by an external server. Note that the value is case insensitive.</p>
 	 */
 	public enum UserManagementSource {
 		@JsonProperty("INTERNAL")
@@ -848,7 +848,7 @@ public class AuthConfig {
 	}
 
 	/**
-	 * <p>SSO specific and authorization server dependent. Describes the method of access token signature verification on the Cumulocity IoT platform.</p>
+	 * <p>SSO specific and authorization server dependent. Describes the method of access token signature verification on the Cumulocity platform.</p>
 	 */
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	@JsonInclude(Include.NON_NULL)
@@ -1221,7 +1221,7 @@ public class AuthConfig {
 
 
 	/**
-	 * <p>SSO specific. Points to the field in the obtained JWT access token that should be used as the username in the Cumulocity IoT platform.</p>
+	 * <p>SSO specific. Points to the field in the obtained JWT access token that should be used as the username in the Cumulocity platform.</p>
 	 */
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	@JsonInclude(Include.NON_NULL)
@@ -1238,7 +1238,7 @@ public class AuthConfig {
 		private String jwtField;
 	
 		/**
-		 * <p>Not recommended. If set to <code>true</code>, all SSO users will share one account in the Cumulocity IoT platform.</p>
+		 * <p>Not recommended. If set to <code>true</code>, all SSO users will share one account in the Cumulocity platform.</p>
 		 */
 		private boolean useConstantValue;
 	
@@ -1301,7 +1301,7 @@ public class AuthConfig {
 		private boolean enabled;
 	
 		/**
-		 * <p>Points to the claim of the access token from the authorization server that must be used as the username in the Cumulocity IoT platform.</p>
+		 * <p>Points to the claim of the access token from the authorization server that must be used as the username in the Cumulocity platform.</p>
 		 */
 		private UserOrAppIdConfig userOrAppIdConfig;
 	
@@ -1392,7 +1392,7 @@ public class AuthConfig {
 		}
 	
 		/**
-		 * <p>Points to the claim of the access token from the authorization server that must be used as the username in the Cumulocity IoT platform.</p>
+		 * <p>Points to the claim of the access token from the authorization server that must be used as the username in the Cumulocity platform.</p>
 		 */
 		@JsonIgnoreProperties(ignoreUnknown = true)
 		@JsonInclude(Include.NON_NULL)
@@ -1409,7 +1409,7 @@ public class AuthConfig {
 			private String jwtField;
 		
 			/**
-			 * <p>Not recommended. If set to <code>true</code>, all users share a single account in the Cumulocity IoT platform.</p>
+			 * <p>Not recommended. If set to <code>true</code>, all users share a single account in the Cumulocity platform.</p>
 			 */
 			private boolean useConstantValue;
 		

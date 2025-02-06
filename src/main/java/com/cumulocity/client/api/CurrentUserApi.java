@@ -16,7 +16,7 @@ import com.cumulocity.client.model.CurrentUserTotpCode;
 import com.cumulocity.client.model.CurrentUserTotpSecret;
 
 /**
- * <p>The current user is the user that is currently authenticated with Cumulocity IoT for the API calls.</p>
+ * <p>The current user is the user that is currently authenticated with Cumulocity for the API calls.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all PUT requests, otherwise an empty response body will be returned.</p>
  * </blockquote>
@@ -121,7 +121,7 @@ public class CurrentUserApi extends AdaptableApi {
 	/**
 	 * <p>Generate secret to set up TFA</p>
 	 * <p>Generate a secret code to create a QR code to set up the two-factor authentication functionality using a TFA app/service.</p>
-	 * <p>For more information about the feature, see <a href="https://www.cumulocity.com/docs/authentication/tfa/">Platform administration > Authentication > Two-factor authentication</a> in the Cumulocity IoT user documentation.</p>
+	 * <p>For more information about the feature, see <a href="https://www.cumulocity.com/docs/authentication/tfa/">Platform administration > Authentication > Two-factor authentication</a> in the Cumulocity user documentation.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_USER_MANAGEMENT_OWN_READ <b>OR</b> ROLE_SYSTEM
 	 * </section>
@@ -170,7 +170,7 @@ public class CurrentUserApi extends AdaptableApi {
 	/**
 	 * <p>Activates or deactivates the two-factor authentication feature</p>
 	 * <p>Activates or deactivates the two-factor authentication feature for the current user.</p>
-	 * <p>For more information about the feature, see <a href="https://www.cumulocity.com/docs/authentication/tfa/">Platform administration > Authentication > Two-factor authentication</a> in the Cumulocity IoT user documentation.</p>
+	 * <p>For more information about the feature, see <a href="https://www.cumulocity.com/docs/authentication/tfa/">Platform administration > Authentication > Two-factor authentication</a> in the Cumulocity user documentation.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_USER_MANAGEMENT_OWN_READ <b>OR</b> ROLE_SYSTEM
 	 * </section>

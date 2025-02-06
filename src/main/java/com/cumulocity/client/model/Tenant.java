@@ -73,7 +73,7 @@ public class Tenant {
 	private String domain;
 
 	/**
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 */
 	private String id;
 

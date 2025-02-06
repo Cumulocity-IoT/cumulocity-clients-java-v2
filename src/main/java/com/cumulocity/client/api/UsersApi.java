@@ -17,7 +17,7 @@ import com.cumulocity.client.model.UserReferenceCollection;
 import com.cumulocity.client.model.UserReference;
 
 /**
- * <p>API methods to create, retrieve, update and delete users in Cumulocity IoT.</p>
+ * <p>API methods to create, retrieve, update and delete users in Cumulocity.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
  * </blockquote>
@@ -46,7 +46,7 @@ public class UsersApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param currentPage
 	 * <p>The current page of the paginated results.</p>
 	 * @param groups
@@ -109,7 +109,7 @@ public class UsersApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 */
 	public CompletionStage<User> createUser(final User body, final String tenantId) {
 		final JsonNode jsonNode = toJsonNode(body);
@@ -153,7 +153,7 @@ public class UsersApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 */
@@ -193,7 +193,7 @@ public class UsersApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 */
@@ -239,7 +239,7 @@ public class UsersApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 */
@@ -271,7 +271,7 @@ public class UsersApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 */
@@ -303,7 +303,7 @@ public class UsersApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param username
 	 * <p>The username of the a user.</p>
 	 */
@@ -335,7 +335,7 @@ public class UsersApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
 	 * @param currentPage
@@ -382,7 +382,7 @@ public class UsersApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
 	 */
@@ -416,7 +416,7 @@ public class UsersApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
 	 * @param userId
@@ -477,7 +477,7 @@ public class UsersApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 */
 	public CompletionStage<Response> logoutAllUsers(final String tenantId) {
 		return adapt().path("user").path("logout").path(valueOf(tenantId)).path("allUsers")

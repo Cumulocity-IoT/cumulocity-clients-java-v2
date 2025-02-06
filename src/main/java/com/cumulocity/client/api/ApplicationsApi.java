@@ -15,8 +15,8 @@ import com.cumulocity.client.model.ApplicationCollection;
 /**
  * <p>API methods to retrieve, create, update and delete applications.</p>
  * <p>###��Application names</p>
- * <p>For each tenant, Cumulocity IoT manages the subscribed applications and provides a number of applications of various types.In case you want to subscribe a tenant to an application using an API, you must use the application name in the argument (as name).</p>
- * <p>Refer to the tables in <a href="https://www.cumulocity.com/docs/standard-tenant/ecosystem/#managing-applications">Platform administration > Standard tenant administration > Managing the ecosystem > Managing applications</a> in the Cumulocity IoT user documentation for the respective application name to be used.</p>
+ * <p>For each tenant, Cumulocity manages the subscribed applications and provides a number of applications of various types.In case you want to subscribe a tenant to an application using an API, you must use the application name in the argument (as name).</p>
+ * <p>Refer to the tables in <a href="https://www.cumulocity.com/docs/standard-tenant/ecosystem/#managing-applications">Platform administration > Standard tenant administration > Managing the ecosystem > Managing applications</a> in the Cumulocity user documentation for the respective application name to be used.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
  * </blockquote>
@@ -319,7 +319,7 @@ public class ApplicationsApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 */
 	public CompletionStage<ApplicationCollection> getApplicationsByTenant(final String tenantId) {
 		return adapt().path("application").path("applicationsByTenant").path(valueOf(tenantId))
@@ -345,7 +345,7 @@ public class ApplicationsApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param currentPage
 	 * <p>The current page of the paginated results.</p>
 	 * @param pageSize

@@ -15,7 +15,7 @@ import com.cumulocity.client.model.LoginOptionCollection;
 
 /**
  * <p>API methods to retrieve the login options configured in the tenant.</p>
- * <p>More detailed information about the parameters and their meaning can be found in <a href="https://www.cumulocity.com/docs/standard-tenant/changing-settings/">Platform administration > Standard tenant administration > Changing settings</a> in the Cumulocity IoT user documentation.</p>
+ * <p>More detailed information about the parameters and their meaning can be found in <a href="https://www.cumulocity.com/docs/standard-tenant/changing-settings/">Platform administration > Standard tenant administration > Changing settings</a> in the Cumulocity user documentation.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> If OAuth external is the only login option shown in the response, the user will be automatically redirected to the SSO login screen.</p>
  * </blockquote>
@@ -42,7 +42,7 @@ public class LoginOptionsApi extends AdaptableApi {
 	 * <p>If this is set to <code>true</code>, the management tenant login options will be returned.</p>
 	 * <p><strong>ⓘ Info:</strong> The <code>tenantId</code> parameter must not be present in the request when using the <code>management</code> parameter, otherwise it will cause an error.</p>
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 */
 	public CompletionStage<LoginOptionCollection> getLoginOptions(final boolean management, final String tenantId) {
 		return adapt().path("tenant").path("loginOptions")
@@ -208,7 +208,7 @@ public class LoginOptionsApi extends AdaptableApi {
 	 * @param typeOrId
 	 * <p>The type or ID of the login option. The type's value is case insensitive and can be <code>OAUTH2</code>, <code>OAUTH2_INTERNAL</code> or <code>BASIC</code>.</p>
 	 * @param targetTenant
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 */
 	public CompletionStage<AuthConfig> updateLoginOptionAccess(final AuthConfigAccess body, final String typeOrId, final String targetTenant) {
 		final JsonNode jsonNode = toJsonNode(body);

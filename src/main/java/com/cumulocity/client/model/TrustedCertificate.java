@@ -80,7 +80,7 @@ public class TrustedCertificate {
 	private String serialNumber;
 
 	/**
-	 * <p>Indicates if the certificate is active and can be used by the device to establish a connection to the Cumulocity IoT platform.</p>
+	 * <p>Indicates if the certificate is active and can be used by the device to establish a connection to the Cumulocity platform.</p>
 	 */
 	private Status status;
 
@@ -224,7 +224,7 @@ public class TrustedCertificate {
 
 	
 	/**
-	 * <p>Indicates if the certificate is active and can be used by the device to establish a connection to the Cumulocity IoT platform.</p>
+	 * <p>Indicates if the certificate is active and can be used by the device to establish a connection to the Cumulocity platform.</p>
 	 */
 	public enum Status {
 		@JsonProperty("ENABLED")

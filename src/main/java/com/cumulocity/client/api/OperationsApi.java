@@ -13,7 +13,7 @@ import com.cumulocity.client.model.Operation;
 import com.cumulocity.client.model.OperationCollection;
 
 /**
- * <p>API methods to create, retrieve, update and delete operations in Cumulocity IoT.</p>
+ * <p>API methods to create, retrieve, update and delete operations in Cumulocity.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
  * </blockquote>
@@ -75,7 +75,7 @@ public class OperationsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
-	public CompletionStage<OperationCollection> getOperations(final String agentId, final String bulkOperationId, final int currentPage, final String dateFrom, final String dateTo, final String deviceId, final String fragmentType, final int pageSize, final boolean revert, final String status, final boolean withTotalElements, final boolean withTotalPages) {
+	public CompletionStage<OperationCollection> getOperations(final String agentId, final int bulkOperationId, final int currentPage, final String dateFrom, final String dateTo, final String deviceId, final String fragmentType, final int pageSize, final boolean revert, final String status, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("devicecontrol").path("operations")
 			.queryParam("agentId", agentId)
 			.queryParam("bulkOperationId", bulkOperationId)

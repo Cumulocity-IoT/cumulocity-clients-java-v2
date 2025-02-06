@@ -32,7 +32,7 @@ public class TokensApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>The token expiration duration.</p>
 	 * 	</li>
-	 * 	<li><p>The option to disable signing of the token by the Cumulocity IoT platform.</p>
+	 * 	<li><p>The option to disable signing of the token by the Cumulocity platform.</p>
 	 * 	</li>
 	 * 	<li><p>The subscription type that the token should be associated with.</p>
 	 * 	</li>

@@ -19,12 +19,12 @@ public class ManagedObjectAvailability {
 	private String deviceId;
 
 	/**
-	 * <p>The identifier used in the external system that Cumulocity IoT interfaces with.</p>
+	 * <p>The identifier used in the external system that Cumulocity interfaces with.</p>
 	 */
 	private String externalId;
 
 	/**
-	 * <p>The time when the device sent the last message to Cumulocity IoT.</p>
+	 * <p>The time when the device sent the last message to Cumulocity.</p>
 	 */
 	private String lastMessage;
 

@@ -230,13 +230,10 @@ public class NotificationSubscription {
 	
 		/**
 		 * <p>For the <code>mo</code> (managed object) context, notifications from the <code>alarms</code>, <code>alarmsWithChildren</code>, <code>events</code>, <code>eventsWithChildren</code>, <code>managedobjects</code> (Inventory), <code>measurements</code> and <code>operations</code> (Device control) APIs can be subscribed to.The <code>alarmsWithChildren</code> and <code>eventsWithChildren</code> APIs subscribe to alarms and events respectively from the managed object identified by the <code>source.id</code> field, and all of its descendant managed objects.</p>
-		 * <p>For the <code>tenant</code> context, notifications from the <code>alarms</code>, <code>events</code> and <code>managedobjects</code> (Inventory) APIs can be subscribed to.</p>
+		 * <p>For the <code>tenant</code> context, notifications from the <code>alarms</code>, <code>events</code>, <code>managedobjects</code> (Inventory), and <code>operations</code> APIs can be subscribed to.</p>
 		 * <p>For all contexts, the <code>*</code> (wildcard) value can be used to subscribe to notifications from all of the available APIs in that context.</p>
 		 * <blockquote>
 		 * <p><strong>ⓘ Info:</strong> The wildcard <code>*</code> cannot be used in conjunction with other values.</p>
-		 * </blockquote>
-		 * <blockquote>
-		 * <p><strong>ⓘ Info:</strong> When filtering Events in the <code>tenant</code> context it is required to also specify the <code>typeFilter</code>.</p>
 		 * </blockquote>
 		 */
 		private String[] apis;

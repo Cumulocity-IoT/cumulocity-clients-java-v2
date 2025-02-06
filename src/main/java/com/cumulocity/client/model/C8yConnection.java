@@ -10,7 +10,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * <p>The connection information computed by Cumulocity IoT is stored in fragments <code>c8y_Connection</code> of the device.</p>
+ * <p>The connection information computed by Cumulocity is stored in fragments <code>c8y_Connection</code> of the device.</p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_NULL)

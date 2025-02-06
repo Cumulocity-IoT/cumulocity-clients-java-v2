@@ -35,7 +35,7 @@ public class NotificationTokenClaims {
 	private Type type;
 
 	/**
-	 * <p>If <code>true</code>, the token will be securely signed by the Cumulocity IoT platform.</p>
+	 * <p>If <code>true</code>, the token will be securely signed by the Cumulocity platform.</p>
 	 */
 	private boolean signed;
 

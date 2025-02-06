@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ExternalId {
 
 	/**
-	 * <p>The identifier used in the external system that Cumulocity IoT interfaces with.</p>
+	 * <p>The identifier used in the external system that Cumulocity interfaces with.</p>
 	 */
 	private String externalId;
 

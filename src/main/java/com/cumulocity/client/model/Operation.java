@@ -29,7 +29,7 @@ public class Operation {
 	/**
 	 * <p>Reference to a bulk operation ID if this operation was scheduled from a bulk operation.</p>
 	 */
-	private String bulkOperationId;
+	private int bulkOperationId;
 
 	/**
 	 * <p>Date and time when the operation was created in the database.</p>
@@ -65,15 +65,15 @@ public class Operation {
 
 	/**
 	 * <p>It is possible to add an arbitrary number of additional properties as a list of key-value pairs, for example, <code>"property1": {}</code>, <code>"property2": "value"</code>. These properties are known as custom fragments and can be of any type, for example, object or string. Each custom fragment is identified by a unique name.</p>
-	 * <p>Review <a href="https://www.cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity IoT's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity IoT user documentation as there are characters that can not be used when naming custom fragments.</p>
+	 * <p>Review <a href="https://www.cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity user documentation as there are characters that can not be used when naming custom fragments.</p>
 	 */
 	private Map<String, Object> customFragments;
 
-	public String getBulkOperationId() {
+	public int getBulkOperationId() {
 		return bulkOperationId;
 	}
 	
-	public void setBulkOperationId(final String bulkOperationId) {
+	public void setBulkOperationId(final int bulkOperationId) {
 		this.bulkOperationId = bulkOperationId;
 	}
 
@@ -224,7 +224,7 @@ public class Operation {
 	public boolean equals(final Object r) {
 		if (r != null && r instanceof Operation) {
 			Operation comparer = (Operation) r;
-			if (String.valueOf(comparer.getBulkOperationId()).equals(String.valueOf(this.getBulkOperationId())) && String.valueOf(comparer.getCreationTime()).equals(String.valueOf(this.getCreationTime())) && String.valueOf(comparer.getDeviceId()).equals(String.valueOf(this.getDeviceId())) && comparer.getDeviceExternalIDs().equals(this.getDeviceExternalIDs()) && String.valueOf(comparer.getFailureReason()).equals(String.valueOf(this.getFailureReason())) && String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && comparer.getStatus().equals(this.getStatus()) && comparer.getCustomFragments().equals(this.getCustomFragments())) {
+			if (Integer.valueOf(comparer.getBulkOperationId()).equals(Integer.valueOf(this.getBulkOperationId())) && String.valueOf(comparer.getCreationTime()).equals(String.valueOf(this.getCreationTime())) && String.valueOf(comparer.getDeviceId()).equals(String.valueOf(this.getDeviceId())) && comparer.getDeviceExternalIDs().equals(this.getDeviceExternalIDs()) && String.valueOf(comparer.getFailureReason()).equals(String.valueOf(this.getFailureReason())) && String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && comparer.getStatus().equals(this.getStatus()) && comparer.getCustomFragments().equals(this.getCustomFragments())) {
 				return true;
 			}
 		}

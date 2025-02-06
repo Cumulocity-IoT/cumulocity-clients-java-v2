@@ -16,7 +16,7 @@ import com.cumulocity.client.model.GroupReferenceCollection;
 /**
  * <p>API methods to create, retrieve, update and delete user groups.</p>
  * <blockquote>
- * <p><strong>������ Important:</strong> In the Cumulocity IoT user interface, user groups are referred to as "global roles". Global roles are not to be confused with user roles.</p>
+ * <p><strong>������ Important:</strong> In the Cumulocity user interface, user groups are referred to as "global roles". Global roles are not to be confused with user roles.</p>
  * </blockquote>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
@@ -46,7 +46,7 @@ public class GroupsApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param currentPage
 	 * <p>The current page of the paginated results.</p>
 	 * @param pageSize
@@ -93,7 +93,7 @@ public class GroupsApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 */
 	public CompletionStage<Group> createUserGroup(final Group body, final String tenantId) {
 		final JsonNode jsonNode = toJsonNode(body);
@@ -131,7 +131,7 @@ public class GroupsApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
 	 * @param forceLogout
@@ -169,7 +169,7 @@ public class GroupsApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
 	 * @param forceLogout
@@ -212,7 +212,7 @@ public class GroupsApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
 	 * @param forceLogout
@@ -247,7 +247,7 @@ public class GroupsApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param groupName
 	 * <p>The name of the user group.</p>
 	 */
@@ -279,7 +279,7 @@ public class GroupsApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 * @param currentPage

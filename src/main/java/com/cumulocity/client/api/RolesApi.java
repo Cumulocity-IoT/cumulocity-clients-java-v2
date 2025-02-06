@@ -113,7 +113,7 @@ public class RolesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
 	 * @param currentPage
@@ -156,7 +156,7 @@ public class RolesApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
 	 */
@@ -190,7 +190,7 @@ public class RolesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
 	 * @param roleId
@@ -230,7 +230,7 @@ public class RolesApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 */
@@ -264,7 +264,7 @@ public class RolesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 * @param roleId

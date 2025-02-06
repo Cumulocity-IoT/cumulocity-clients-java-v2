@@ -25,7 +25,7 @@ public class User {
 	private CustomProperties customProperties;
 
 	/**
-	 * <p>The user's display name in Cumulocity IoT.</p>
+	 * <p>The user's display name in Cumulocity.</p>
 	 */
 	private String displayName;
 
@@ -101,7 +101,7 @@ public class User {
 	private String self;
 
 	/**
-	 * <p>When set to <code>true</code>, this field will cause Cumulocity IoT to send a password reset email to the email address specified.</p>
+	 * <p>When set to <code>true</code>, this field will cause Cumulocity to send a password reset email to the email address specified.</p>
 	 * <p>If there is no password specified when creating a new user with a POST request, this must be specified and it must be set to <code>true</code>.</p>
 	 */
 	private boolean sendPasswordResetEmail;

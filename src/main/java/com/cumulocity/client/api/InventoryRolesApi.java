@@ -207,7 +207,7 @@ public class InventoryRolesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 */
@@ -244,7 +244,7 @@ public class InventoryRolesApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 */
@@ -280,7 +280,7 @@ public class InventoryRolesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 * @param id
@@ -319,7 +319,7 @@ public class InventoryRolesApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 * @param id
@@ -355,7 +355,7 @@ public class InventoryRolesApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param userId
 	 * <p>Unique identifier of the a user.</p>
 	 * @param id

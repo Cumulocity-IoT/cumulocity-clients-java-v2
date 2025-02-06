@@ -186,7 +186,7 @@ public class FeatureTogglesApi extends AdaptableApi {
 	 * @param featureKey
 	 * <p>A unique key of the feature toggle.</p>
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 */
 	public CompletionStage<Response> setGivenTenantFeatureToggleValue(final FeatureToggleValue body, final String featureKey, final String tenantId) {
 		final JsonNode jsonNode = toJsonNode(body);
@@ -220,7 +220,7 @@ public class FeatureTogglesApi extends AdaptableApi {
 	 * @param featureKey
 	 * <p>A unique key of the feature toggle.</p>
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 */
 	public CompletionStage<Response> unsetGivenTenantFeatureToggleValue(final String featureKey, final String tenantId) {
 		return adapt().path("features").path(valueOf(featureKey)).path("by-tenant").path(valueOf(tenantId))

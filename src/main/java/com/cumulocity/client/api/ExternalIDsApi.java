@@ -103,7 +103,7 @@ public class ExternalIDsApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param type
-	 * <p>The identifier used in the external system that Cumulocity IoT interfaces with.</p>
+	 * <p>The identifier used in the external system that Cumulocity interfaces with.</p>
 	 * @param externalId
 	 * <p>The type of the external identifier.</p>
 	 */
@@ -133,7 +133,7 @@ public class ExternalIDsApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param type
-	 * <p>The identifier used in the external system that Cumulocity IoT interfaces with.</p>
+	 * <p>The identifier used in the external system that Cumulocity interfaces with.</p>
 	 * @param externalId
 	 * <p>The type of the external identifier.</p>
 	 */

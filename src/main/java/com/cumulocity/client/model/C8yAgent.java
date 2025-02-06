@@ -10,7 +10,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * <p>The term "agent" refers to the piece of software that connects a device with Cumulocity IoT.</p>
+ * <p>The term "agent" refers to the piece of software that connects a device with Cumulocity.</p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_NULL)

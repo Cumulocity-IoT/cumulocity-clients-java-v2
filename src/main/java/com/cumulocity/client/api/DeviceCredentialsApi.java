@@ -14,7 +14,7 @@ import com.cumulocity.client.model.DeviceCredentials;
 import com.cumulocity.client.model.BulkNewDeviceRequest;
 
 /**
- * <p>API methods to create device credentials in Cumulocity IoT.</p>
+ * <p>API methods to create device credentials in Cumulocity.</p>
  * <p>Device credentials can be enquired by devices that do not have credentials for accessing a tenant yet.Since the device does not have credentials yet, a set of fixed credentials is used for this API.The credentials can be obtained by <a href="https://www.cumulocity.com/docs/additional-resources/contacting-support/">contacting support</a>.</p>
  * <blockquote>
  * <p><strong>������ Important:</strong> Do not use your tenant credentials with this API.</p>

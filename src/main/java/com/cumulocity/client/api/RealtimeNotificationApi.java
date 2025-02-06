@@ -12,10 +12,10 @@ import com.cumulocity.client.model.RealtimeNotification;
 
 /**
  * <h1>Real-time operations</h1>
- * <p>Real-time notification services of Cumulocity IoT have their own subscription channel name format and URL. The real-time notifications are available for <a href="#tag/Alarm-notification-API">Alarms</a>, <a href="#tag/Device-control-notification-API">Device control</a>, <a href="#tag/Event-notification-API">Events</a>, <a href="#tag/Inventory-notification-API">Inventory</a> and <a href="#tag/Measurement-notification-API">Measurements</a>.</p>
+ * <p>Real-time notification services of Cumulocity have their own subscription channel name format and URL. The real-time notifications are available for <a href="#tag/Alarm-notification-API">Alarms</a>, <a href="#tag/Device-control-notification-API">Device control</a>, <a href="#tag/Event-notification-API">Events</a>, <a href="#tag/Inventory-notification-API">Inventory</a> and <a href="#tag/Measurement-notification-API">Measurements</a>.</p>
  * <p>Note that when using long-polling, all POST requests must contain the Accept header, otherwise an empty response body will be returned.All requests are sent to the <kbd>/notification/realtime</kbd> endpoint.</p>
  * <blockquote>
- * <p><strong>ⓘ Info:</strong> The long-polling interface is designed as a mechanism for custom applications to poll infrequent events from Cumulocity IoT. The long-polling interface is not designed as a mechanism to stream large data volumes (>100kB/sec) or frequent data (>50 events/sec) out of Cumulocity IoT. The usage of long-polling is not supported for such use cases.</p>
+ * <p><strong>ⓘ Info:</strong> The long-polling interface is designed as a mechanism for custom applications to poll infrequent events from Cumulocity. The long-polling interface is not designed as a mechanism to stream large data volumes (>100kB/sec) or frequent data (>50 events/sec) out of Cumulocity. The usage of long-polling is not supported for such use cases.</p>
  * </blockquote>
  * <h2>Handshake</h2>
  * <p>A real-time notifications client initiates the connection negotiation by sending a message to the <code>/meta/handshake</code> channel. In response, the client receives a <code>clientId</code> which identifies a conversation and must be passed in every non-handshake request.</p>
@@ -65,7 +65,7 @@ import com.cumulocity.client.model.RealtimeNotification;
  * ]
  * </pre>
  * <h2>Subscribe</h2>
- * <p>A notification client can send subscribe messages and specify the desired channel to receive output messages from the Cumulocity IoT server. The client will receive the messages in succeeding connect requests.</p>
+ * <p>A notification client can send subscribe messages and specify the desired channel to receive output messages from the Cumulocity server. The client will receive the messages in succeeding connect requests.</p>
  * <p>Each REST API that uses the real-time notification service has its own format for channel names. See <a href="#tag/Device-control-notification-API">Device control</a> for more details.</p>
  * <h3>Request example</h3>
  * <pre>
@@ -188,7 +188,7 @@ public class RealtimeNotificationApi extends AdaptableApi {
 
 	/**
 	 * <p>Responsive communication</p>
-	 * <p>The Real-time notification API enables responsive communication from Cumulocity IoT over restricted networks towards clients such as web browser and mobile devices. All clients subscribe to so-called channels to receive messages. These channels are filled by Cumulocity IoT with the output of <a href="#tag/Operations">Operations</a>. In addition, particular system channels are used for the initial handshake with clients, subscription to channels, removal from channels and connection. The <a href="https://docs.cometd.org/current/reference/#_concepts_bayeux_protocol">Bayeux protocol</a> over HTTPS or WSS is used as communication mechanism.</p>
+	 * <p>The Real-time notification API enables responsive communication from Cumulocity over restricted networks towards clients such as web browser and mobile devices. All clients subscribe to so-called channels to receive messages. These channels are filled by Cumulocity with the output of <a href="#tag/Operations">Operations</a>. In addition, particular system channels are used for the initial handshake with clients, subscription to channels, removal from channels and connection. The <a href="https://docs.cometd.org/current/reference/#_concepts_bayeux_protocol">Bayeux protocol</a> over HTTPS or WSS is used as communication mechanism.</p>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
 	 * <ul>

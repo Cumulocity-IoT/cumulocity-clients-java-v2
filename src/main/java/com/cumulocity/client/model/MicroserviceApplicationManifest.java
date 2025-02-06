@@ -290,7 +290,7 @@ public class MicroserviceApplicationManifest {
 	public static class Extensions {
 	
 		/**
-		 * <p>The relative path in Cumulocity IoT for this microservice application.</p>
+		 * <p>The relative path in Cumulocity for this microservice application.</p>
 		 */
 		private String path;
 	

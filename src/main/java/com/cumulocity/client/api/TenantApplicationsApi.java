@@ -45,7 +45,7 @@ public class TenantApplicationsApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param currentPage
 	 * <p>The current page of the paginated results.</p>
 	 * @param pageSize
@@ -97,7 +97,7 @@ public class TenantApplicationsApi extends AdaptableApi {
 	 * 
 	 * @param body
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 */
 	public CompletionStage<ApplicationReference> subscribeApplication(final SubscribedApplicationReference body, final String tenantId) {
 		final JsonNode jsonNode = toJsonNode(body);
@@ -128,7 +128,7 @@ public class TenantApplicationsApi extends AdaptableApi {
 	 * </ul>
 	 * 
 	 * @param tenantId
-	 * <p>Unique identifier of a Cumulocity IoT tenant.</p>
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param applicationId
 	 * <p>Unique identifier of the application.</p>
 	 */

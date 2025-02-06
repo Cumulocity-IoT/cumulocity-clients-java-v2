@@ -13,7 +13,7 @@ import com.cumulocity.client.model.NewDeviceRequest;
 import com.cumulocity.client.model.NewDeviceRequestCollection;
 
 /**
- * <p>API methods to create, retrieve, update and delete new device requests in Cumulocity IoT.</p>
+ * <p>API methods to create, retrieve, update and delete new device requests in Cumulocity.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
  * </blockquote>
