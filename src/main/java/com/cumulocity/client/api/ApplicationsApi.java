@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -14,7 +14,7 @@ import com.cumulocity.client.model.ApplicationCollection;
 
 /**
  * <p>API methods to retrieve, create, update and delete applications.</p>
- * <p>###��Application names</p>
+ * <p>### Application names</p>
  * <p>For each tenant, Cumulocity manages the subscribed applications and provides a number of applications of various types.In case you want to subscribe a tenant to an application using an API, you must use the application name in the argument (as name).</p>
  * <p>Refer to the tables in <a href="https://www.cumulocity.com/docs/standard-tenant/ecosystem/#managing-applications">Platform administration > Standard tenant administration > Managing the ecosystem > Managing applications</a> in the Cumulocity user documentation for the respective application name to be used.</p>
  * <blockquote>
@@ -104,7 +104,7 @@ public class ApplicationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 409 <p>Duplicate key/name.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -200,7 +200,7 @@ public class ApplicationsApi extends AdaptableApi {
 	 * <p>Delete an application</p>
 	 * <p>Delete an application (by a given ID).This method is not supported by microservice applications.</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> With regards to a hosted application, there is a caching mechanism in place that keeps the information about the placement of application files (html, javascript, css, fonts, etc.). Removing a hosted application, in normal circumstances, will cause the subsequent requests for application files to fail with an HTTP 404 error because the application is removed synchronously, its files are immediately removed on the node serving the request and at the same time the information is propagated to other nodes ��� but in rare cases there might be a delay with this propagation. In such situations, the files of the removed application can be served from those nodes up until the aforementioned cache expires. For the same reason, the cache can also cause HTTP 404 errors when the application is updated as it will keep the path to the files of the old version of the application. The cache is filled on demand, so there should not be issues if application files were not accessed prior to the delete request. The expiration delay of the cache can differ, but should not take more than one minute.</p>
+	 * <p><strong>ⓘ Info:</strong> With regards to a hosted application, there is a caching mechanism in place that keeps the information about the placement of application files (html, javascript, css, fonts, etc.). Removing a hosted application, in normal circumstances, will cause the subsequent requests for application files to fail with an HTTP 404 error because the application is removed synchronously, its files are immediately removed on the node serving the request and at the same time the information is propagated to other nodes – but in rare cases there might be a delay with this propagation. In such situations, the files of the removed application can be served from those nodes up until the aforementioned cache expires. For the same reason, the cache can also cause HTTP 404 errors when the application is updated as it will keep the path to the files of the old version of the application. The cache is filled on demand, so there should not be issues if application files were not accessed prior to the delete request. The expiration delay of the cache can differ, but should not take more than one minute.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_APPLICATION_MANAGEMENT_ADMIN <b>AND</b> tenant is the owner of the application
@@ -253,7 +253,7 @@ public class ApplicationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� method not supported</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – method not supported</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

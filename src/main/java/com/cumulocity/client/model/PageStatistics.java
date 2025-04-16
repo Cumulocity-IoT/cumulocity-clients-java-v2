@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.model;
 
@@ -34,7 +34,7 @@ public class PageStatistics {
 	/**
 	 * <p>The total number of paginated results (pages).</p>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> This property is returned by default except when an operation retrieves all records where values are between an upper and lower boundary, for example, querying ranges using <code>dateFrom</code>���<code>dateTo</code>. In such cases, the query parameter <code>withTotalPages=true</code> should be used to include the total number of pages (at the expense of slightly slower performance).</p>
+	 * <p><strong>ⓘ Info:</strong> This property is returned by default except when an operation retrieves all records where values are between an upper and lower boundary, for example, querying ranges using <code>dateFrom</code>–<code>dateTo</code>. In such cases, the query parameter <code>withTotalPages=true</code> should be used to include the total number of pages (at the expense of slightly slower performance).</p>
 	 * </blockquote>
 	 */
 	private int totalPages;

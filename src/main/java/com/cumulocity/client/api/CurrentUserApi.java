@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -64,7 +64,7 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -90,7 +90,7 @@ public class CurrentUserApi extends AdaptableApi {
 	 * <p>Update the current user's password</p>
 	 * <p>Update the current user's  password.</p>
 	 * <blockquote>
-	 * <p><strong>������ Important:</strong> If the tenant uses OAI-Secure authentication, the current user will not be logged out. Instead, a new cookie will be set with a new token, and the previous token will expire within a minute.</p>
+	 * <p><strong>⚠️ Important:</strong> If the tenant uses OAI-Secure authentication, the current user will not be logged out. Instead, a new cookie will be set with a new token, and the previous token will expire within a minute.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_USER_MANAGEMENT_OWN_ADMIN
@@ -102,7 +102,7 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -216,7 +216,7 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Cannot validate TFA TOTP code - user's TFA TOTP secret does not exist.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

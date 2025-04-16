@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.model;
 
@@ -93,6 +93,11 @@ public class TrustedCertificate {
 	 * <p>Version of the X.509 certificate standard.</p>
 	 */
 	private int version;
+
+	/**
+	 * <p>Indicates whether this certificate is tenant's CA.</p>
+	 */
+	private boolean tenantCertificateAuthority;
 
 	public String getAlgorithmName() {
 		return algorithmName;
@@ -222,6 +227,14 @@ public class TrustedCertificate {
 		this.version = version;
 	}
 
+	public boolean getTenantCertificateAuthority() {
+		return tenantCertificateAuthority;
+	}
+	
+	public void setTenantCertificateAuthority(final boolean tenantCertificateAuthority) {
+		this.tenantCertificateAuthority = tenantCertificateAuthority;
+	}
+
 	
 	/**
 	 * <p>Indicates if the certificate is active and can be used by the device to establish a connection to the Cumulocity platform.</p>
@@ -257,7 +270,7 @@ public class TrustedCertificate {
 	public boolean equals(final Object r) {
 		if (r != null && r instanceof TrustedCertificate) {
 			TrustedCertificate comparer = (TrustedCertificate) r;
-			if (String.valueOf(comparer.getAlgorithmName()).equals(String.valueOf(this.getAlgorithmName())) && Boolean.valueOf(comparer.getAutoRegistrationEnabled()).equals(Boolean.valueOf(this.getAutoRegistrationEnabled())) && String.valueOf(comparer.getCertInPemFormat()).equals(String.valueOf(this.getCertInPemFormat())) && String.valueOf(comparer.getFingerprint()).equals(String.valueOf(this.getFingerprint())) && String.valueOf(comparer.getIssuer()).equals(String.valueOf(this.getIssuer())) && String.valueOf(comparer.getName()).equals(String.valueOf(this.getName())) && String.valueOf(comparer.getNotAfter()).equals(String.valueOf(this.getNotAfter())) && String.valueOf(comparer.getNotBefore()).equals(String.valueOf(this.getNotBefore())) && Boolean.valueOf(comparer.getProofOfPossessionValid()).equals(Boolean.valueOf(this.getProofOfPossessionValid())) && String.valueOf(comparer.getProofOfPossessionUnsignedVerificationCode()).equals(String.valueOf(this.getProofOfPossessionUnsignedVerificationCode())) && String.valueOf(comparer.getProofOfPossessionVerificationCodeUsableUntil()).equals(String.valueOf(this.getProofOfPossessionVerificationCodeUsableUntil())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && String.valueOf(comparer.getSerialNumber()).equals(String.valueOf(this.getSerialNumber())) && comparer.getStatus().equals(this.getStatus()) && String.valueOf(comparer.getSubject()).equals(String.valueOf(this.getSubject())) && Integer.valueOf(comparer.getVersion()).equals(Integer.valueOf(this.getVersion()))) {
+			if (String.valueOf(comparer.getAlgorithmName()).equals(String.valueOf(this.getAlgorithmName())) && Boolean.valueOf(comparer.getAutoRegistrationEnabled()).equals(Boolean.valueOf(this.getAutoRegistrationEnabled())) && String.valueOf(comparer.getCertInPemFormat()).equals(String.valueOf(this.getCertInPemFormat())) && String.valueOf(comparer.getFingerprint()).equals(String.valueOf(this.getFingerprint())) && String.valueOf(comparer.getIssuer()).equals(String.valueOf(this.getIssuer())) && String.valueOf(comparer.getName()).equals(String.valueOf(this.getName())) && String.valueOf(comparer.getNotAfter()).equals(String.valueOf(this.getNotAfter())) && String.valueOf(comparer.getNotBefore()).equals(String.valueOf(this.getNotBefore())) && Boolean.valueOf(comparer.getProofOfPossessionValid()).equals(Boolean.valueOf(this.getProofOfPossessionValid())) && String.valueOf(comparer.getProofOfPossessionUnsignedVerificationCode()).equals(String.valueOf(this.getProofOfPossessionUnsignedVerificationCode())) && String.valueOf(comparer.getProofOfPossessionVerificationCodeUsableUntil()).equals(String.valueOf(this.getProofOfPossessionVerificationCodeUsableUntil())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && String.valueOf(comparer.getSerialNumber()).equals(String.valueOf(this.getSerialNumber())) && comparer.getStatus().equals(this.getStatus()) && String.valueOf(comparer.getSubject()).equals(String.valueOf(this.getSubject())) && Integer.valueOf(comparer.getVersion()).equals(Integer.valueOf(this.getVersion())) && Boolean.valueOf(comparer.getTenantCertificateAuthority()).equals(Boolean.valueOf(this.getTenantCertificateAuthority()))) {
 				return true;
 			}
 		}

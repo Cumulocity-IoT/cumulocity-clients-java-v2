@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -53,7 +53,7 @@ public class UsersApi extends AdaptableApi {
 	 * <p>Numeric group identifiers. The response will contain only users which belong to at least one of the specified groups.</p>
 	 * <p><strong>ⓘ Info:</strong> If you query for multiple user groups at once, comma-separate the values.</p>
 	 * @param onlyDevices
-	 * <p>If set to <code>true</code>, the response will only contain users created during bootstrap process (starting with ���device_���).If the flag is absent or <code>false</code> the result will not contain ���device_��� users.</p>
+	 * <p>If set to <code>true</code>, the response will only contain users created during bootstrap process (starting with “device_”).If the flag is absent or <code>false</code> the result will not contain “device_” users.</p>
 	 * @param owner
 	 * <p>Exact username of the owner of the user</p>
 	 * @param pageSize
@@ -61,7 +61,7 @@ public class UsersApi extends AdaptableApi {
 	 * @param username
 	 * <p>Prefix or full username</p>
 	 * @param withSubusersCount
-	 * <p>If set to <code>true</code>, then each of returned user will contain an additional field ���subusersCount���.It is the number of direct subusers (users with corresponding ���owner���).</p>
+	 * <p>If set to <code>true</code>, then each of returned user will contain an additional field “subusersCount”.It is the number of direct subusers (users with corresponding “owner”).</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
@@ -101,9 +101,9 @@ public class UsersApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 403 <p>Not enough permissions/roles to perform this operation.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Duplicate ��� The userName or alias already exists.</p></p>
+	 * 	<li><p>HTTP 409 <p>Duplicate – The userName or alias already exists.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -187,7 +187,7 @@ public class UsersApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>User not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -376,7 +376,7 @@ public class UsersApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Group not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

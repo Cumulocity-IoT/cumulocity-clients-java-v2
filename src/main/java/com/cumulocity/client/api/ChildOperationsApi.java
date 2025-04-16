@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -84,13 +84,14 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>Assign a managed object as child addition</p>
 	 * <p>The possible ways to assign child objects are:</p>
 	 * <ul>
-	 * 	<li><p>Assign an existing managed object (by a given child ID) as child addition of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign an existing managed object (by a given child ID) as child addition of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreference+json.</p>
 	 * 	</li>
-	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child additions of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child additions of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreferencecollection+json.</p>
 	 * 	</li>
-	 * 	<li><p>Create a managed object in the inventory and assign it as a child addition to another managed object (by a given ID).</p>
+	 * 	<li><p>Create a new managed object in the inventory and assign it as a child addition to another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobject+json</p>
 	 * 	</li>
 	 * </ul>
+	 * <p>For sample requests and schema details for each method, simply select the appropriate header from either the "REQUEST BODY SCHEMA" dropdown menu or the "Content-Type" dropdown menu.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_INVENTORY_ADMIN <b>OR</b> ROLE_MANAGED_OBJECT_ADMIN <b>OR</b> ((owner of the source <b>OR</b> MANAGE_OBJECT_ADMIN permission on the source) <b>AND</b> (owner of the child <b>OR</b> MANAGE_OBJECT_ADMIN permission on the child))
 	 * </section>
@@ -126,13 +127,14 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>Assign a managed object as child addition</p>
 	 * <p>The possible ways to assign child objects are:</p>
 	 * <ul>
-	 * 	<li><p>Assign an existing managed object (by a given child ID) as child addition of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign an existing managed object (by a given child ID) as child addition of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreference+json.</p>
 	 * 	</li>
-	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child additions of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child additions of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreferencecollection+json.</p>
 	 * 	</li>
-	 * 	<li><p>Create a managed object in the inventory and assign it as a child addition to another managed object (by a given ID).</p>
+	 * 	<li><p>Create a new managed object in the inventory and assign it as a child addition to another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobject+json</p>
 	 * 	</li>
 	 * </ul>
+	 * <p>For sample requests and schema details for each method, simply select the appropriate header from either the "REQUEST BODY SCHEMA" dropdown menu or the "Content-Type" dropdown menu.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_INVENTORY_ADMIN <b>OR</b> ROLE_MANAGED_OBJECT_ADMIN <b>OR</b> ((owner of the source <b>OR</b> MANAGE_OBJECT_ADMIN permission on the source) <b>AND</b> (owner of the child <b>OR</b> MANAGE_OBJECT_ADMIN permission on the child))
 	 * </section>
@@ -168,13 +170,14 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>Assign a managed object as child addition</p>
 	 * <p>The possible ways to assign child objects are:</p>
 	 * <ul>
-	 * 	<li><p>Assign an existing managed object (by a given child ID) as child addition of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign an existing managed object (by a given child ID) as child addition of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreference+json.</p>
 	 * 	</li>
-	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child additions of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child additions of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreferencecollection+json.</p>
 	 * 	</li>
-	 * 	<li><p>Create a managed object in the inventory and assign it as a child addition to another managed object (by a given ID).</p>
+	 * 	<li><p>Create a new managed object in the inventory and assign it as a child addition to another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobject+json</p>
 	 * 	</li>
 	 * </ul>
+	 * <p>For sample requests and schema details for each method, simply select the appropriate header from either the "REQUEST BODY SCHEMA" dropdown menu or the "Content-Type" dropdown menu.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_INVENTORY_ADMIN <b>OR</b> ROLE_MANAGED_OBJECT_ADMIN <b>OR</b> ((owner of the source <b>OR</b> MANAGE_OBJECT_ADMIN permission on the source) <b>AND</b> (owner of the child <b>OR</b> MANAGE_OBJECT_ADMIN permission on the child))
 	 * </section>
@@ -232,7 +235,7 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -377,13 +380,14 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>Assign a managed object as child asset</p>
 	 * <p>The possible ways to assign child objects are:</p>
 	 * <ul>
-	 * 	<li><p>Assign an existing managed object (by a given child ID) as child asset of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign an existing managed object (by a given child ID) as child asset of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreference+json.</p>
 	 * 	</li>
-	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child assets of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child assets of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreferencecollection+json.</p>
 	 * 	</li>
-	 * 	<li><p>Create a managed object in the inventory and assign it as a child asset to another managed object (by a given ID).</p>
+	 * 	<li><p>Create a managed object in the inventory and assign it as a child asset to another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobject+json.</p>
 	 * 	</li>
 	 * </ul>
+	 * <p>For sample requests and schema details for each method, simply select the appropriate header from either the "REQUEST BODY SCHEMA" dropdown menu or the "Content-Type" dropdown menu.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_INVENTORY_ADMIN <b>OR</b> ROLE_MANAGED_OBJECT_ADMIN <b>OR</b> ((owner of the source <b>OR</b> MANAGE_OBJECT_ADMIN permission on the source) <b>AND</b> (owner of the child <b>OR</b> MANAGE_OBJECT_ADMIN permission on the child))
 	 * </section>
@@ -419,13 +423,14 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>Assign a managed object as child asset</p>
 	 * <p>The possible ways to assign child objects are:</p>
 	 * <ul>
-	 * 	<li><p>Assign an existing managed object (by a given child ID) as child asset of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign an existing managed object (by a given child ID) as child asset of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreference+json.</p>
 	 * 	</li>
-	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child assets of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child assets of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreferencecollection+json.</p>
 	 * 	</li>
-	 * 	<li><p>Create a managed object in the inventory and assign it as a child asset to another managed object (by a given ID).</p>
+	 * 	<li><p>Create a managed object in the inventory and assign it as a child asset to another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobject+json.</p>
 	 * 	</li>
 	 * </ul>
+	 * <p>For sample requests and schema details for each method, simply select the appropriate header from either the "REQUEST BODY SCHEMA" dropdown menu or the "Content-Type" dropdown menu.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_INVENTORY_ADMIN <b>OR</b> ROLE_MANAGED_OBJECT_ADMIN <b>OR</b> ((owner of the source <b>OR</b> MANAGE_OBJECT_ADMIN permission on the source) <b>AND</b> (owner of the child <b>OR</b> MANAGE_OBJECT_ADMIN permission on the child))
 	 * </section>
@@ -461,13 +466,14 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>Assign a managed object as child asset</p>
 	 * <p>The possible ways to assign child objects are:</p>
 	 * <ul>
-	 * 	<li><p>Assign an existing managed object (by a given child ID) as child asset of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign an existing managed object (by a given child ID) as child asset of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreference+json.</p>
 	 * 	</li>
-	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child assets of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child assets of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreferencecollection+json.</p>
 	 * 	</li>
-	 * 	<li><p>Create a managed object in the inventory and assign it as a child asset to another managed object (by a given ID).</p>
+	 * 	<li><p>Create a managed object in the inventory and assign it as a child asset to another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobject+json.</p>
 	 * 	</li>
 	 * </ul>
+	 * <p>For sample requests and schema details for each method, simply select the appropriate header from either the "REQUEST BODY SCHEMA" dropdown menu or the "Content-Type" dropdown menu.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_INVENTORY_ADMIN <b>OR</b> ROLE_MANAGED_OBJECT_ADMIN <b>OR</b> ((owner of the source <b>OR</b> MANAGE_OBJECT_ADMIN permission on the source) <b>AND</b> (owner of the child <b>OR</b> MANAGE_OBJECT_ADMIN permission on the child))
 	 * </section>
@@ -525,7 +531,7 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -670,13 +676,14 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>Assign a managed object as child device</p>
 	 * <p>The possible ways to assign child objects are:</p>
 	 * <ul>
-	 * 	<li><p>Assign an existing managed object (by a given child ID) as child device of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign an existing managed object (by a given child ID) as child device of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreference+json.</p>
 	 * 	</li>
-	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child devices of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child devices of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreferencecollection+json.</p>
 	 * 	</li>
-	 * 	<li><p>Create a managed object in the inventory and assign it as a child device to another managed object (by a given ID).</p>
+	 * 	<li><p>Create a managed object in the inventory and assign it as a child device to another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobject+json.</p>
 	 * 	</li>
 	 * </ul>
+	 * <p>For sample requests and schema details for each method, simply select the appropriate header from either the "REQUEST BODY SCHEMA" dropdown menu or the "Content-Type" dropdown menu.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_INVENTORY_ADMIN <b>OR</b> ROLE_MANAGED_OBJECT_ADMIN <b>OR</b> ((owner of the source <b>OR</b> MANAGE_OBJECT_ADMIN permission on the source) <b>AND</b> (owner of the child <b>OR</b> MANAGE_OBJECT_ADMIN permission on the child))
 	 * </section>
@@ -712,13 +719,14 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>Assign a managed object as child device</p>
 	 * <p>The possible ways to assign child objects are:</p>
 	 * <ul>
-	 * 	<li><p>Assign an existing managed object (by a given child ID) as child device of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign an existing managed object (by a given child ID) as child device of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreference+json.</p>
 	 * 	</li>
-	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child devices of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child devices of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreferencecollection+json.</p>
 	 * 	</li>
-	 * 	<li><p>Create a managed object in the inventory and assign it as a child device to another managed object (by a given ID).</p>
+	 * 	<li><p>Create a managed object in the inventory and assign it as a child device to another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobject+json.</p>
 	 * 	</li>
 	 * </ul>
+	 * <p>For sample requests and schema details for each method, simply select the appropriate header from either the "REQUEST BODY SCHEMA" dropdown menu or the "Content-Type" dropdown menu.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_INVENTORY_ADMIN <b>OR</b> ROLE_MANAGED_OBJECT_ADMIN <b>OR</b> ((owner of the source <b>OR</b> MANAGE_OBJECT_ADMIN permission on the source) <b>AND</b> (owner of the child <b>OR</b> MANAGE_OBJECT_ADMIN permission on the child))
 	 * </section>
@@ -754,13 +762,14 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * <p>Assign a managed object as child device</p>
 	 * <p>The possible ways to assign child objects are:</p>
 	 * <ul>
-	 * 	<li><p>Assign an existing managed object (by a given child ID) as child device of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign an existing managed object (by a given child ID) as child device of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreference+json.</p>
 	 * 	</li>
-	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child devices of another managed object (by a given ID).</p>
+	 * 	<li><p>Assign multiple existing managed objects (by given child IDs) as child devices of another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobjectreferencecollection+json.</p>
 	 * 	</li>
-	 * 	<li><p>Create a managed object in the inventory and assign it as a child device to another managed object (by a given ID).</p>
+	 * 	<li><p>Create a managed object in the inventory and assign it as a child device to another managed object (by a given ID) by setting the Content-Type to application/vnd.com.nsn.cumulocity.managedobject+json.</p>
 	 * 	</li>
 	 * </ul>
+	 * <p>For sample requests and schema details for each method, simply select the appropriate header from either the "REQUEST BODY SCHEMA" dropdown menu or the "Content-Type" dropdown menu.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_INVENTORY_ADMIN <b>OR</b> ROLE_MANAGED_OBJECT_ADMIN <b>OR</b> ((owner of the source <b>OR</b> MANAGE_OBJECT_ADMIN permission on the source) <b>AND</b> (owner of the child <b>OR</b> MANAGE_OBJECT_ADMIN permission on the child))
 	 * </section>
@@ -818,7 +827,7 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

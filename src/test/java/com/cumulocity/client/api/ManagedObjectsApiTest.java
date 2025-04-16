@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -34,7 +34,7 @@ public class ManagedObjectsApiTest {
     public void testGetManagedObjects() {
     	Object response = null;
     	try {
-    		response = service.getManagedObjects(null, null, null, 1, null, null, false, null, 5, null, null, false, null, null, true, false, false, false, false, false, false).toCompletableFuture().get();
+    		response = service.getManagedObjects(null, null, null, 1, null, null, false, null, 5, null, null, false, null, null, false, false, false, false, false, false, false).toCompletableFuture().get();
     	} catch (InterruptedException | ExecutionException e) {
     		e.printStackTrace();
     	}

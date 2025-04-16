@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -17,7 +17,7 @@ import com.cumulocity.client.model.SupportedMeasurements;
 import com.cumulocity.client.model.SupportedSeries;
 
 /**
- * <p>The inventory stores devices and other assets relevant to your IoT solution. We refer to them as managed objects and such can be ���smart objects���, for example, smart electricity meters, home automation gateways or GPS devices.</p>
+ * <p>The inventory stores devices and other assets relevant to your IoT solution. We refer to them as managed objects and such can be “smart objects”, for example, smart electricity meters, home automation gateways or GPS devices.</p>
  * <p>For further information, refer to <a href="https://www.cumulocity.com/docs/concepts/domain-model/#managed-objects">Getting started > Technical concepts > Cumulocity's domain model > Inventory > Managed objects</a> in the Cumulocity user documentation.</p>
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST/PUT requests, otherwise an empty response body will be returned.</p>
@@ -88,7 +88,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 * @param withLatestValues
 	 * <p>If set to true the platform returns managed objects with the fragment `c8y_LatestMeasurements, which contains the latest measurement values reported by the device to the platform.</p>
-	 * <p><strong>������ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
+	 * <p><strong>⚠️ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
 	 */
 	public CompletionStage<ManagedObjectCollection> getManagedObjects(final String childAdditionId, final String childAssetId, final String childDeviceId, final int currentPage, final String fragmentType, final String[] ids, final boolean onlyRoots, final String owner, final int pageSize, final String q, final String query, final boolean skipChildrenNames, final String text, final String type, final boolean withChildren, final boolean withChildrenCount, final boolean withGroups, final boolean withParents, final boolean withTotalElements, final boolean withTotalPages, final boolean withLatestValues) {
 		return adapt().path("inventory").path("managedObjects")
@@ -150,7 +150,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -210,7 +210,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned references of child parents will return the device's parents (if any). Otherwise, it will be an empty array.</p>
 	 * @param withLatestValues
 	 * <p>If set to true the platform returns managed objects with the fragment `c8y_LatestMeasurements, which contains the latest measurement values reported by the device to the platform.</p>
-	 * <p><strong>������ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
+	 * <p><strong>⚠️ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
 	 */
 	public CompletionStage<ManagedObject> getManagedObject(final String id, final boolean skipChildrenNames, final boolean withChildren, final boolean withChildrenCount, final boolean withParents, final boolean withLatestValues) {
 		return adapt().path("inventory").path("managedObjects").path(valueOf(id))
@@ -279,7 +279,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * <p><strong>ⓘ Info:</strong> Inventory DELETE requests are not synchronous. The response could be returned before the delete request has been completed. This may happen especially when the deleted managed object has a lot of associated data. After sending the request, the platform starts deleting the associated data in an asynchronous way. Finally, the requested managed object is deleted after all associated data has been deleted.</p>
 	 * </blockquote>
 	 * <blockquote>
-	 * <p><strong>ⓘ Info:</strong> By default, the delete operation is always propagated to the subgroups, but only if the deleted object is a group.</p>
+	 * <p><strong>ⓘ Info:</strong> By default, the delete operation is propagated to subgroups, but only if the object being deleted is a group. Deleting a parent group will also delete its subgroups. The cascade parameter controls whether the devices assigned to the groups are also deleted. When set to false, the devices remain intact even as the groups and subgroups are deleted. When set to true, all groups, subgroups, and their assigned devices are deleted.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_INVENTORY_ADMIN <b>OR</b> ROLE_MANAGED_OBJECT_ADMIN <b>OR</b> owner of the source <b>OR</b> MANAGE_OBJECT_ADMIN permission on the source
@@ -293,7 +293,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Conflict ��� The managed object is associated to other objects, for example child devices.</p></p>
+	 * 	<li><p>HTTP 409 <p>Conflict – The managed object is associated to other objects, for example child devices.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

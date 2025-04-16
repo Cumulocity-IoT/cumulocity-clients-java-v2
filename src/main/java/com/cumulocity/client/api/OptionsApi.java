@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -30,7 +30,7 @@ public class OptionsApi extends AdaptableApi {
 	 * <p>Retrieve all options</p>
 	 * <p>Retrieve all the options available on the tenant.</p>
 	 * <blockquote>
-	 * <p><strong>������ Important:</strong> Note that Enterprise Tenants are also allowed to read inherited tenant options from the management tenant.</p>
+	 * <p><strong>⚠️ Important:</strong> Note that Enterprise Tenants are also allowed to read inherited tenant options from the management tenant.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_OPTION_MANAGEMENT_READ
@@ -74,7 +74,7 @@ public class OptionsApi extends AdaptableApi {
 	 * <p><strong>alarm.type.mapping</strong></p>
 	 * <p>| Key  |	Predefined | Description ||--|--|--|| <ALARM_TYPE> | No | Overrides the severity and alarm text for the alarm with type <ALARM_TYPE>. The severity and text are specified as <code><ALARM_SEVERITY>\|<ALARM_TEXT></code>. If either part is empty, the value will not be overridden. If the severity is NONE, the alarm will be suppressed. Example: <code>"CRITICAL\|temperature too high"</code>|</p>
 	 * <h3>Encrypted credentials</h3>
-	 * <p>Adding a "credentials." prefix to the <code>key</code> will make the <code>value</code> of the option encrypted. When the option is  sent to a microservice, the "credentials." prefix is removed and the <code>value</code> is decrypted. For example:</p>
+	 * <p>Adding a "credentials." prefix to the <code>key</code> will make the <code>value</code> of the option encrypted. When the option is sent to a microservice, the "credentials." prefix is removed, and the <code>value</code> is decrypted only if the tenant option category matches the category defined by the microservice. The category is determined based on the first non-blank value from: manifest settings category, context path or service name. If the tenant option category does not match any of these values, the encrypted value will not be decrypted. For example:</p>
 	 * <pre>
 	 * {
 	 *   "category": "secrets",
@@ -93,7 +93,7 @@ public class OptionsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -114,7 +114,7 @@ public class OptionsApi extends AdaptableApi {
 	 * <p>Retrieve all options by category</p>
 	 * <p>Retrieve all the options (by a specified category) on your tenant.</p>
 	 * <blockquote>
-	 * <p><strong>������ Important:</strong> Note that Enterprise Tenants are also allowed to read inherited tenant options from the management tenant.</p>
+	 * <p><strong>⚠️ Important:</strong> Note that Enterprise Tenants are also allowed to read inherited tenant options from the management tenant.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_OPTION_MANAGEMENT_READ
@@ -152,7 +152,7 @@ public class OptionsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -174,7 +174,7 @@ public class OptionsApi extends AdaptableApi {
 	 * <p>Retrieve a specific option</p>
 	 * <p>Retrieve a specific option (by a given category and key) on your tenant.</p>
 	 * <blockquote>
-	 * <p><strong>������ Important:</strong> Note that Enterprise Tenants are also allowed to read inherited tenant options from the management tenant.</p>
+	 * <p><strong>⚠️ Important:</strong> Note that Enterprise Tenants are also allowed to read inherited tenant options from the management tenant.</p>
 	 * </blockquote>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_OPTION_MANAGEMENT_READ
@@ -218,7 +218,7 @@ public class OptionsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Option not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

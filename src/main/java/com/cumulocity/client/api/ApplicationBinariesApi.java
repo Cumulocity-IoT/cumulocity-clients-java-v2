@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -53,7 +53,7 @@ public class ApplicationBinariesApi extends AdaptableApi {
 	/**
 	 * <p>Upload an application attachment</p>
 	 * <p>Upload an application attachment (by a given application ID).</p>
-	 * <p>For the applications of type ���microservice��� and ���web application��� to be available for Cumulocity platform users, an attachment ZIP file must be uploaded.</p>
+	 * <p>For the applications of type “microservice” and “web application” to be available for Cumulocity platform users, an attachment ZIP file must be uploaded.</p>
 	 * <p>For a microservice application, the ZIP file must consist of:</p>
 	 * <ul>
 	 * 	<li><p>cumulocity.json - file describing the deployment</p>

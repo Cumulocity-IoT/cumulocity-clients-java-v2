@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -92,9 +92,9 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Tenant not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Duplicate ��� A certificate with the same fingerprint already exists.</p></p>
+	 * 	<li><p>HTTP 409 <p>Duplicate – A certificate with the same fingerprint already exists.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� Invalid certificate data.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – Invalid certificate data.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -134,9 +134,9 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Tenant not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Duplicate ��� A certificate with the same fingerprint already exists.</p></p>
+	 * 	<li><p>HTTP 409 <p>Duplicate – A certificate with the same fingerprint already exists.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� Invalid certificates data.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – Invalid certificates data.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -205,7 +205,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Certificate not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -222,6 +222,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 		removeFromNode(jsonNode, "serialNumber");
 		removeFromNode(jsonNode, "proofOfPossessionVerificationCodeUsableUntil");
 		removeFromNode(jsonNode, "subject");
+		removeFromNode(jsonNode, "tenantCertificateAuthority");
 		removeFromNode(jsonNode, "algorithmName");
 		removeFromNode(jsonNode, "version");
 		removeFromNode(jsonNode, "issuer");
@@ -470,7 +471,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * <section><h5>Required roles</h5>
 	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN) <b>AND</b> is the current tenant
 	 * </section>
-	 * <p><strong>������ Important:</strong> According to CRL policy, added serial numbers cannot be reversed.</p>
+	 * <p><strong>⚠️ Important:</strong> According to CRL policy, added serial numbers cannot be reversed.</p>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
 	 * <ul>
@@ -534,7 +535,7 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * <section><h5>Required roles</h5>
 	 * (ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_TENANT_ADMIN) <b>AND</b> is the current tenant
 	 * </section>
-	 * <p><strong>������ Important:</strong> According to CRL policy, added serial numbers cannot be reversed.</p>
+	 * <p><strong>⚠️ Important:</strong> According to CRL policy, added serial numbers cannot be reversed.</p>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
 	 * <ul>

@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.model;
 
@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * <p>The read only fragment which contains the latest measurements series values reported by the device.</p>
  * <blockquote>
- * <p><strong>������ Feature Preview:</strong> The feature is part of the Latest Measurement feature which is still under public feature preview.</p>
+ * <p><strong>⚠️ Feature Preview:</strong> The feature is part of the Latest Measurement feature which is still under public feature preview.</p>
  * </blockquote>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)

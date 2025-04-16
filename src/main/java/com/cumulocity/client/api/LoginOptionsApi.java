@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -34,7 +34,7 @@ public class LoginOptionsApi extends AdaptableApi {
 	 * <ul>
 	 * 	<li><p>HTTP 200 <p>The request has succeeded and the login options are sent in the response.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 400 <p>Bad request ��� invalid parameters.</p></p>
+	 * 	<li><p>HTTP 400 <p>Bad request – invalid parameters.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -65,11 +65,11 @@ public class LoginOptionsApi extends AdaptableApi {
 	 * <ul>
 	 * 	<li><p>HTTP 200 <p>A login option was created.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 400 <p>Duplicated ��� The login option already exists.</p></p>
+	 * 	<li><p>HTTP 400 <p>Duplicated – The login option already exists.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 422 <p>Unprocessable Entity ��� invalid payload.</p></p>
+	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

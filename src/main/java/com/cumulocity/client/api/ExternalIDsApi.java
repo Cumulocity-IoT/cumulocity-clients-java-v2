@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -65,7 +65,7 @@ public class ExternalIDsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Global ID not found.</p></p>
 	 * 	</li>
-	 * 	<li><p>HTTP 409 <p>Duplicate ��� Identity already bound to a different Global ID.</p></p>
+	 * 	<li><p>HTTP 409 <p>Duplicate – Identity already bound to a different Global ID.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

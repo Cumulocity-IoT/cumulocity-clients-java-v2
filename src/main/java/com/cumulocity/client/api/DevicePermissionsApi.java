@@ -1,5 +1,5 @@
-// Copyright (c) 2014-2024 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
-// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+// Copyright (c) 2014-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Cumulocity GmbH
 
 package com.cumulocity.client.api;
 
@@ -33,7 +33,7 @@ import com.cumulocity.client.model.DevicePermissionOwners;
  * </ul>
  * <p>The wildcard "*" enables you to access every API and stored object regardless of the fragments that are inside it.</p>
  * <blockquote>
- * <p><strong>������ Important:</strong> If there is no fragment in an object, for example, to read the object, you must use the wildcard "*" for the <strong>fragment_name</strong> part of the device permission (see the structure above). For example: <code>"10200":["MEASUREMENT:*:READ"]</code>.</p>
+ * <p><strong>⚠️ Important:</strong> If there is no fragment in an object, for example, to read the object, you must use the wildcard "*" for the <strong>fragment_name</strong> part of the device permission (see the structure above). For example: <code>"10200":["MEASUREMENT:*:READ"]</code>.</p>
  * </blockquote>
  */
 public class DevicePermissionsApi extends AdaptableApi {
