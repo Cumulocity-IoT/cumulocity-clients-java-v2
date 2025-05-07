@@ -17,6 +17,9 @@ import com.cumulocity.client.model.RealtimeNotification;
  * <blockquote>
  * <p><strong>ⓘ Info:</strong> The long-polling interface is designed as a mechanism for custom applications to poll infrequent events from Cumulocity. The long-polling interface is not designed as a mechanism to stream large data volumes (>100kB/sec) or frequent data (>50 events/sec) out of Cumulocity. The usage of long-polling is not supported for such use cases.</p>
  * </blockquote>
+ * <blockquote>
+ * <p><strong>⚠️ Important:</strong> Real-time notification is based on the Bayeux protocol where idle clients will have their sessions terminated after a set interval, defaulting to 2 hours.An idle client is one that has not received any messages from the server, nor polled the <code>/meta/connect</code> endpoint.To avoid session termination clients should poll <code>/meta/connect</code> and follow the instructions for <a href="#tag/Real-time-notification-API/">Long-running connections</a>.Additional information regarding the Bayeux protocol can be found in the CometD documentation under <a href="https://docs.cometd.org/current3/reference/#_bayeux">Appendix C: The Bayeux Protocol Specification 1.0</a>.</p>
+ * </blockquote>
  * <h2>Handshake</h2>
  * <p>A real-time notifications client initiates the connection negotiation by sending a message to the <code>/meta/handshake</code> channel. In response, the client receives a <code>clientId</code> which identifies a conversation and must be passed in every non-handshake request.</p>
  * <blockquote>

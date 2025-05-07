@@ -74,7 +74,7 @@ public class GroupsApi extends AdaptableApi {
 	 * <p>Create a user group for a specific tenant</p>
 	 * <p>Create a user group for a specific tenant (by a given tenant ID).</p>
 	 * <section><h5>Required roles</h5>
-	 * ROLE_USER_MANAGEMENT_ADMIN
+	 * ROLE_USER_MANAGEMENT_ADMIN <b>OR</b> ROLE_USER_MANAGEMENT_CREATE
 	 * </section>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
@@ -134,12 +134,9 @@ public class GroupsApi extends AdaptableApi {
 	 * <p>Unique identifier of a Cumulocity tenant.</p>
 	 * @param groupId
 	 * <p>Unique identifier of the user group.</p>
-	 * @param forceLogout
-	 * <p>If set to <code>true</code>, users with this global role will be force logged out.</p>
 	 */
-	public CompletionStage<Group> getUserGroup(final String tenantId, final int groupId, final boolean forceLogout) {
+	public CompletionStage<Group> getUserGroup(final String tenantId, final int groupId) {
 		return adapt().path("user").path(valueOf(tenantId)).path("groups").path(valueOf(groupId))
-			.queryParam("forceLogout", forceLogout)
 			.request()
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/vnd.com.nsn.cumulocity.group+json")
 			.rx()

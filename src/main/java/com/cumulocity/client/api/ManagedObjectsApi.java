@@ -79,7 +79,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * @param withGroups
 	 * <p>When set to <code>true</code> it returns additional information about the groups to which the searched managed object belongs. This results in setting the <code>assetParents</code> property with additional information about the groups.</p>
 	 * @param withParents
-	 * <p>When set to <code>true</code>, the returned references of child parents will return the device's parents (if any). Otherwise, it will be an empty array.</p>
+	 * <p>When withParents is set to <code>true</code>, the request will include the device’s parent groups up to a maximum depth of three levels above the device in the group hierarchy. If no parent groups exist, an empty array will be returned.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
@@ -207,7 +207,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * @param withChildrenCount
 	 * <p>When set to <code>true</code>, the returned result will contain the total number of children in the respective objects (<code>childAdditions</code>, <code>childAssets</code> and <code>childDevices</code>).</p>
 	 * @param withParents
-	 * <p>When set to <code>true</code>, the returned references of child parents will return the device's parents (if any). Otherwise, it will be an empty array.</p>
+	 * <p>When withParents is set to <code>true</code>, the request will include the device’s parent groups up to a maximum depth of three levels above the device in the group hierarchy. If no parent groups exist, an empty array will be returned.</p>
 	 * @param withLatestValues
 	 * <p>If set to true the platform returns managed objects with the fragment `c8y_LatestMeasurements, which contains the latest measurement values reported by the device to the platform.</p>
 	 * <p><strong>⚠️ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>

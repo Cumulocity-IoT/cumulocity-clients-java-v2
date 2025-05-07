@@ -71,7 +71,7 @@ public class TenantsApi extends AdaptableApi {
 	 * @param domain
 	 * <p>Domain name of the Cumulocity tenant.</p>
 	 * @param parent
-	 * <p>Identifier of the Cumulocity tenant's parent.</p>
+	 * <p>Identifier of the Cumulocity tenant's parent. Works only for requests sent with management tenant credentials.</p>
 	 */
 	public CompletionStage<TenantCollection> getTenants(final int currentPage, final int pageSize, final boolean withTotalElements, final boolean withTotalPages, final String company, final String domain, final String parent) {
 		return adapt().path("tenant").path("tenants")
