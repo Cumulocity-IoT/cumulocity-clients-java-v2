@@ -20,7 +20,7 @@ public class Tenant {
 	private String adminEmail;
 
 	/**
-	 * <p>Username of the tenant's administrator.</p>
+	 * <p>Username of the tenant's administrator. It cannot contain whitespace, slashes nor any of <code>+$:</code> characters.</p>
 	 * <blockquote>
 	 * <p><strong>ⓘ Info:</strong> When it is provided in the request body, also <code>adminEmail</code> and <code>adminPass</code> must be provided.</p>
 	 * </blockquote>

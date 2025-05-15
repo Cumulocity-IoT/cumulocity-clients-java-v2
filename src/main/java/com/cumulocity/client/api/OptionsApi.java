@@ -12,6 +12,7 @@ import com.cumulocity.client.supplementary.AdaptableApi;
 import com.cumulocity.client.model.Option;
 import com.cumulocity.client.model.CategoryOptions;
 import com.cumulocity.client.model.CategoryKeyOption;
+import com.cumulocity.client.model.EditableOption;
 import com.cumulocity.client.model.OptionCollection;
 
 /**
@@ -68,6 +69,9 @@ public class OptionsApi extends AdaptableApi {
 	 * <p>Create an option on your tenant.</p>
 	 * <p>Options are category-key-value tuples which store tenant configurations. Some categories of options allow the creation of new ones, while others are limited to predefined set of keys.</p>
 	 * <p>Any option of any tenant can be defined as "non-editable" by the "management" tenant; once done, any PUT or DELETE requests made on that option by the tenant owner will result in a 403 error (Unauthorized).</p>
+	 * <blockquote>
+	 * <p><strong>⚠️ Important:</strong> Category names must not contain whitespaces nor the special characters <code>$ & + , / : ; = ? @ " < > # % { } | \ ^ ~ [ ] `</code>. This is necessary to ensure the new tenant option is processed correctly and saved successfully.</p>
+	 * </blockquote>
 	 * <h3>Default option categories</h3>
 	 * <p><strong>access.control</strong></p>
 	 * <p>| Key |	Default value |	Predefined | Description ||--|--|--|--|| allow.origin | * | Yes | Comma separated list of domains allowed for execution of CORS. Wildcards are allowed (for example, <code>*.cumulocity.com</code>) |</p>
@@ -266,5 +270,43 @@ public class OptionsApi extends AdaptableApi {
 			.header("Accept", "application/json")
 			.rx()
 			.method("DELETE");
+	}
+	
+	/**
+	 * <p>Update a specific option editable flag.</p>
+	 * <p>Updates the editable flag of a specific option (by a given category and key) on target tenant which determines if the option can be edited.</p>
+	 * <section><h5>Required roles</h5>
+	 * ROLE_OPTION_MANAGEMENT_ADMIN <b>AND</b> is the management tenant
+	 * </section>
+	 * <h5>Response Codes</h5>
+	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
+	 * <ul>
+	 * 	<li><p>HTTP 200 <p>An option was updated.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 400 <p>Could not parse JSON request.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 404 <p>Option not found.</p></p>
+	 * 	</li>
+	 * </ul>
+	 * 
+	 * @param body
+	 * @param category
+	 * <p>The category of the options.</p>
+	 * @param key
+	 * <p>The key of an option.</p>
+	 * @param targetTenant
+	 * <p>Unique identifier of a Cumulocity tenant.</p>
+	 */
+	public CompletionStage<Response> updateOption(final EditableOption body, final String category, final String key, final String targetTenant) {
+		final JsonNode jsonNode = toJsonNode(body);
+		return adapt().path("tenant").path("options").path(valueOf(category)).path(valueOf(key)).path("editable")
+			.queryParam("targetTenant", targetTenant)
+			.request()
+			.header("Content-Type", "application/json")
+			.header("Accept", "application/json")
+			.rx()
+			.method("PUT", Entity.json(jsonNode));
 	}
 }

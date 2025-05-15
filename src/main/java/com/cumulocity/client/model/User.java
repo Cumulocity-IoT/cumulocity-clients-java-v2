@@ -117,7 +117,7 @@ public class User {
 	private boolean twoFactorAuthenticationEnabled;
 
 	/**
-	 * <p>The user's username. It can have a maximum of 1000 characters.</p>
+	 * <p>The user's username. It cannot contain whitespace, slashes nor any of <code>+$:</code> characters.</p>
 	 */
 	private String userName;
 
