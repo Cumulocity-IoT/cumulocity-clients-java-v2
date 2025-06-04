@@ -91,7 +91,7 @@ public class LoginOptionsApi extends AdaptableApi {
 	 * <p>Retrieve a specific login option</p>
 	 * <p>Retrieve a specific login option in the tenant by the given type or ID.</p>
 	 * <section><h5>Required roles</h5>
-	 * ((ROLE_TENANT_ADMIN <b>OR</b> ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_USER_MANAGEMENT_OWN_ADMIN <b>OR</b> ROLE_USER_MANAGEMENT_CREATE)
+	 * ((ROLE_TENANT_ADMIN <b>OR</b> ROLE_TENANT_MANAGEMENT_ADMIN <b>OR</b> ROLE_USER_MANAGEMENT_ADMIN <b>OR</b> ROLE_USER_MANAGEMENT_CREATE)
 	 * <b>AND</b> tenant access to login option is not restricted by management tenant)
 	 * </section>
 	 * <h5>Response Codes</h5>

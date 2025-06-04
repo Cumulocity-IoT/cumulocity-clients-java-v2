@@ -43,7 +43,7 @@ public class DeviceEnrollmentApi extends AdaptableApi {
 	 */
 	public CompletionStage<String> simpleEnrollDevice(final byte[] body) {
 		final JsonNode jsonNode = toJsonNode(body);
-		return adapt().path(".well_known").path("est").path("simpleenroll")
+		return adapt().path(".well-known").path("est").path("simpleenroll")
 			.request()
 			.header("Content-Type", "application/pkcs10")
 			.header("Accept", "application/pkcs7-mime;smime-type=certs-only, application/vnd.com.nsn.cumulocity.error+json")
@@ -78,7 +78,7 @@ public class DeviceEnrollmentApi extends AdaptableApi {
 	 */
 	public CompletionStage<Byte[]> simpleReEnrollDevice(final byte[] body) {
 		final JsonNode jsonNode = toJsonNode(body);
-		return adapt().path(".well_known").path("est").path("simplereenroll")
+		return adapt().path(".well-known").path("est").path("simplereenroll")
 			.request()
 			.header("Content-Type", "application/pkcs10")
 			.header("Accept", "application/pkcs7-mime;smime-type=certs-only, application/vnd.com.nsn.cumulocity.error+json")
