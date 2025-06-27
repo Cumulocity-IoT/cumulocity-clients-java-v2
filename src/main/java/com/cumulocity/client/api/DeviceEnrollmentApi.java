@@ -10,7 +10,7 @@ import jakarta.ws.rs.client.WebTarget;
 import com.cumulocity.client.supplementary.AdaptableApi;
 
 /**
- * <p>Device enroll API to be used by a device to issue an X509 certificate signed by tenant's <a href="#operation/postBulkNewDeviceRequestCollectionResource">certificate authority</a>. The identifier and enrollment OTP for a device must be first shared as a pre-shared-key (PSK) with Cumulocity using the <a href="#operation/postBulkNewDeviceRequestCollectionResource">bulkNewDeviceRequests</a> endpoint for certificate provisioning.Internally, ID and ENROLLMENT_OTP fields will be added to the NewDeviceRegistration list with a status of Accepted, serving as temporary device credentials for device authentication.</p>
+ * <p>Device enroll API to be used by a device to issue an X509 certificate signed by tenant's <a href="#operation/postBulkNewDeviceRequestCollectionResource">certificate authority</a>. The identifier and enrollment OTP for a device must be first shared as a pre-shared-key (PSK) with Cumulocity using the <a href="#operation/postBulkNewDeviceRequestCollectionResource">bulkNewDeviceRequests</a> endpoint or <a href="#operation/postNewDeviceRequestCollectionResource">NewDeviceRequests</a> endpoint for certificate provisioning. Internally, ID and ENROLLMENT_OTP fields will be added to the NewDeviceRegistration list with a status of Accepted, serving as temporary device credentials for device authentication.</p>
  * <p>Device re-enroll API to be used by a device to renew its certificate or replace its certificate with its current credentials (being a password or a JWT token).</p>
  */
 public class DeviceEnrollmentApi extends AdaptableApi {

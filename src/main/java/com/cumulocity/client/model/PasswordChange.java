@@ -20,6 +20,28 @@ public class PasswordChange {
 
 	/**
 	 * <p>The new password to be set for the user performing the request.</p>
+	 * <p>By default, the password must meet the following conditions:</p>
+	 * <ul>
+	 * 	<li><p>Consist of at least eight characters (this parameter can be configured by the management tenant.)</p>
+	 * 	</li>
+	 * 	<li><p>It must not have been used previously by user.</p>
+	 * 	</li>
+	 * 	<li><p>Include each of the following character types:</p>
+	 * 	<ul>
+	 * 		<li><p>uppercase letters: <code>[A-Z]</code>, for example <code>ABCDEF</code>.</p>
+	 * 		</li>
+	 * 		<li><p>lowercase letters: <code>[a-z]</code>, for example <code>abcdef</code>.</p>
+	 * 		</li>
+	 * 		<li><p>numbers: <code>[0-9]</code>, for example: <code>123456</code>.</p>
+	 * 		</li>
+	 * 		<li><p>any other symbol from following list <code> `~!@#$%^&*()_|+-=?;:'",.<>{}[]\/</code> as a special character, for example <code>!@#$%^</code>.</p>
+	 * 		</li>
+	 * 	</ul>
+	 * 	</li>
+	 * </ul>
+	 * <blockquote>
+	 * <p><strong>ⓘ Info:</strong> The password rules can be configured by the administrator, that means, your administrator can configure your account to enforce a password policy. You may be required to pick a strong password for example or to change your password regularly.</p>
+	 * </blockquote>
 	 */
 	private String newPassword;
 

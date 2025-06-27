@@ -59,6 +59,11 @@ public class NewDeviceRequest {
 	 */
 	private String securityToken;
 
+	/**
+	 * <p>When creating <a href="#tag/Device-enrollment">a new device enrollment request</a> this field is treated as device's one time password (OTP).</p>
+	 */
+	private String enrollmentToken;
+
 	public String getId() {
 		return id;
 	}
@@ -131,6 +136,14 @@ public class NewDeviceRequest {
 		this.securityToken = securityToken;
 	}
 
+	public String getEnrollmentToken() {
+		return enrollmentToken;
+	}
+	
+	public void setEnrollmentToken(final String enrollmentToken) {
+		this.enrollmentToken = enrollmentToken;
+	}
+
 	
 	/**
 	 * <p>Status of this new device request.</p>
@@ -168,7 +181,7 @@ public class NewDeviceRequest {
 	public boolean equals(final Object r) {
 		if (r != null && r instanceof NewDeviceRequest) {
 			NewDeviceRequest comparer = (NewDeviceRequest) r;
-			if (String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getGroupId()).equals(String.valueOf(this.getGroupId())) && String.valueOf(comparer.getType()).equals(String.valueOf(this.getType())) && String.valueOf(comparer.getTenantId()).equals(String.valueOf(this.getTenantId())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && comparer.getStatus().equals(this.getStatus()) && String.valueOf(comparer.getOwner()).equals(String.valueOf(this.getOwner())) && String.valueOf(comparer.getCreationTime()).equals(String.valueOf(this.getCreationTime())) && String.valueOf(comparer.getSecurityToken()).equals(String.valueOf(this.getSecurityToken()))) {
+			if (String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getGroupId()).equals(String.valueOf(this.getGroupId())) && String.valueOf(comparer.getType()).equals(String.valueOf(this.getType())) && String.valueOf(comparer.getTenantId()).equals(String.valueOf(this.getTenantId())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && comparer.getStatus().equals(this.getStatus()) && String.valueOf(comparer.getOwner()).equals(String.valueOf(this.getOwner())) && String.valueOf(comparer.getCreationTime()).equals(String.valueOf(this.getCreationTime())) && String.valueOf(comparer.getSecurityToken()).equals(String.valueOf(this.getSecurityToken())) && String.valueOf(comparer.getEnrollmentToken()).equals(String.valueOf(this.getEnrollmentToken()))) {
 				return true;
 			}
 		}

@@ -63,6 +63,19 @@ import com.cumulocity.client.model.StatisticsFile;
  * 	<li><p>Bulk creation requests with a wrong payload are not counted for inbound data transfer count.</p>
  * 	</li>
  * </ul>
+ * <h3>Notifications 2.0 specific counting details</h3>
+ * <ul>
+ * 	<li><p>Invalid requests are counted, for example, unsuccessful subscription.</p>
+ * 	</li>
+ * 	<li><p>All Notifications 2.0 subscription API requests are counted.</p>
+ * 	</li>
+ * 	<li><p>All Notifications 2.0 token API requests are counted.</p>
+ * 	</li>
+ * 	<li><p>Notifications 2.0 WebSocket consumer connection requests are not counted.</p>
+ * 	</li>
+ * 	<li><p>Messages delivered over Notifications 2.0 WebSocket connections are not counted.</p>
+ * 	</li>
+ * </ul>
  * <h3>Total inbound data transfer</h3>
  * <p>Inbound data transfer refers to the total number of inbound requests performed to transfer data into the Cumulocity platform. This includes sensor readings, alarms, events, commands and alike that are transferred between devices and the Cumulocity platform using the REST and/or MQTT interfaces. Such an inbound request could also originate from a custom microservice, website or any other client.</p>
  * <p>See the table below for more information on how the counters are increased. Additionally, it shows how inbound data transfers are handled for both MQTT and REST:</p>

@@ -54,6 +54,21 @@ public class AttachmentsApi extends AdaptableApi {
 	/**
 	 * <p>Replace the attached file of a specific event</p>
 	 * <p>Upload and replace the attached file (binary) of a specific event by a given ID.<br>The size of the attachment is configurable, and the default size is 50 MiB. The default chunk size is 5MiB.</p>
+	 * <p>You can use two types of Content-Type headers for your PUT requests:</p>
+	 * <ul>
+	 * 	<li><p>text/plain is the default.</p>
+	 * 	</li>
+	 * 	<li><p>application/octet-stream indicates that the request body contains arbitrary binary data. In this case, parameters should be specified in the Content-Disposition header.</p>
+	 * 	</li>
+	 * </ul>
+	 * <pre>
+	 * PUT /event/events/{id}/binaries
+	 * Host: https://<TENANT_DOMAIN>
+	 * Authorization: <AUTHORIZATION>
+	 * Accept: application/json
+	 * Content-Type: application/octet-stream
+	 * Content-Disposition: attachment; filename="filename.txt"
+	 * </pre>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_EVENT_ADMIN <b>OR</b> owner of the source <b>OR</b> EVENT_ADMIN permission on the source
 	 * </section>
@@ -79,6 +94,52 @@ public class AttachmentsApi extends AdaptableApi {
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/json")
 			.rx()
 			.method("PUT", Entity.text(body), EventBinary.class);
+	}
+	
+	/**
+	 * <p>Replace the attached file of a specific event</p>
+	 * <p>Upload and replace the attached file (binary) of a specific event by a given ID.<br>The size of the attachment is configurable, and the default size is 50 MiB. The default chunk size is 5MiB.</p>
+	 * <p>You can use two types of Content-Type headers for your PUT requests:</p>
+	 * <ul>
+	 * 	<li><p>text/plain is the default.</p>
+	 * 	</li>
+	 * 	<li><p>application/octet-stream indicates that the request body contains arbitrary binary data. In this case, parameters should be specified in the Content-Disposition header.</p>
+	 * 	</li>
+	 * </ul>
+	 * <pre>
+	 * PUT /event/events/{id}/binaries
+	 * Host: https://<TENANT_DOMAIN>
+	 * Authorization: <AUTHORIZATION>
+	 * Accept: application/json
+	 * Content-Type: application/octet-stream
+	 * Content-Disposition: attachment; filename="filename.txt"
+	 * </pre>
+	 * <section><h5>Required roles</h5>
+	 * ROLE_EVENT_ADMIN <b>OR</b> owner of the source <b>OR</b> EVENT_ADMIN permission on the source
+	 * </section>
+	 * <h5>Response Codes</h5>
+	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
+	 * <ul>
+	 * 	<li><p>HTTP 201 <p>A file was uploaded.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 404 <p>Event not found.</p></p>
+	 * 	</li>
+	 * </ul>
+	 * 
+	 * @param body
+	 * @param id
+	 * <p>Unique identifier of the event.</p>
+	 */
+	public CompletionStage<EventBinary> replaceEventAttachment(final byte[] body, final String id) {
+		final JsonNode jsonNode = toJsonNode(body);
+		return adapt().path("event").path("events").path(valueOf(id)).path("binaries")
+			.request()
+			.header("Content-Type", "application/octet-stream")
+			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/json")
+			.rx()
+			.method("PUT", Entity.json(jsonNode), EventBinary.class);
 	}
 	
 	/**
