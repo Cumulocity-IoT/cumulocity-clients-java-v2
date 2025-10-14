@@ -107,6 +107,15 @@ public class ManagedObject {
 	private C8yLatestMeasurements c8yLatestMeasurements;
 
 	/**
+	 * <p>The read only fragment which contains the previous to latest measurements reported by the device.The returned optionally only if the query parameter <code>withLatestValues=true</code> is used.</p>
+	 * <blockquote>
+	 * <p><strong>⚠️ Feature Preview:</strong> The feature is part of the Latest Measurement feature which is still under public feature preview.</p>
+	 * </blockquote>
+	 */
+	@JsonProperty(value = "c8y_PreviousMeasurements")
+	private C8yPreviousMeasurements c8yPreviousMeasurements;
+
+	/**
 	 * <p>A fragment which identifies this managed object as a device group.</p>
 	 */
 	@JsonProperty(value = "c8y_IsDeviceGroup")
@@ -250,6 +259,14 @@ public class ManagedObject {
 		this.c8yLatestMeasurements = c8yLatestMeasurements;
 	}
 
+	public C8yPreviousMeasurements getC8yPreviousMeasurements() {
+		return c8yPreviousMeasurements;
+	}
+	
+	public void setC8yPreviousMeasurements(final C8yPreviousMeasurements c8yPreviousMeasurements) {
+		this.c8yPreviousMeasurements = c8yPreviousMeasurements;
+	}
+
 	public C8yIsDeviceGroup getC8yIsDeviceGroup() {
 		return c8yIsDeviceGroup;
 	}
@@ -375,7 +392,7 @@ public class ManagedObject {
 	public boolean equals(final Object r) {
 		if (r != null && r instanceof ManagedObject) {
 			ManagedObject comparer = (ManagedObject) r;
-			if (String.valueOf(comparer.getCreationTime()).equals(String.valueOf(this.getCreationTime())) && String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getLastUpdated()).equals(String.valueOf(this.getLastUpdated())) && String.valueOf(comparer.getName()).equals(String.valueOf(this.getName())) && String.valueOf(comparer.getOwner()).equals(String.valueOf(this.getOwner())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && String.valueOf(comparer.getType()).equals(String.valueOf(this.getType())) && comparer.getChildAdditions().equals(this.getChildAdditions()) && comparer.getChildAssets().equals(this.getChildAssets()) && comparer.getChildDevices().equals(this.getChildDevices()) && comparer.getAdditionParents().equals(this.getAdditionParents()) && comparer.getAssetParents().equals(this.getAssetParents()) && comparer.getDeviceParents().equals(this.getDeviceParents()) && comparer.getC8yIsDevice().equals(this.getC8yIsDevice()) && comparer.getC8yLatestMeasurements().equals(this.getC8yLatestMeasurements()) && comparer.getC8yIsDeviceGroup().equals(this.getC8yIsDeviceGroup()) && comparer.getC8yDeviceTypes().equals(this.getC8yDeviceTypes()) && comparer.getC8ySupportedOperations().equals(this.getC8ySupportedOperations()) && comparer.getCustomFragments().equals(this.getCustomFragments())) {
+			if (String.valueOf(comparer.getCreationTime()).equals(String.valueOf(this.getCreationTime())) && String.valueOf(comparer.getId()).equals(String.valueOf(this.getId())) && String.valueOf(comparer.getLastUpdated()).equals(String.valueOf(this.getLastUpdated())) && String.valueOf(comparer.getName()).equals(String.valueOf(this.getName())) && String.valueOf(comparer.getOwner()).equals(String.valueOf(this.getOwner())) && String.valueOf(comparer.getSelf()).equals(String.valueOf(this.getSelf())) && String.valueOf(comparer.getType()).equals(String.valueOf(this.getType())) && comparer.getChildAdditions().equals(this.getChildAdditions()) && comparer.getChildAssets().equals(this.getChildAssets()) && comparer.getChildDevices().equals(this.getChildDevices()) && comparer.getAdditionParents().equals(this.getAdditionParents()) && comparer.getAssetParents().equals(this.getAssetParents()) && comparer.getDeviceParents().equals(this.getDeviceParents()) && comparer.getC8yIsDevice().equals(this.getC8yIsDevice()) && comparer.getC8yLatestMeasurements().equals(this.getC8yLatestMeasurements()) && comparer.getC8yPreviousMeasurements().equals(this.getC8yPreviousMeasurements()) && comparer.getC8yIsDeviceGroup().equals(this.getC8yIsDeviceGroup()) && comparer.getC8yDeviceTypes().equals(this.getC8yDeviceTypes()) && comparer.getC8ySupportedOperations().equals(this.getC8ySupportedOperations()) && comparer.getCustomFragments().equals(this.getCustomFragments())) {
 				return true;
 			}
 		}

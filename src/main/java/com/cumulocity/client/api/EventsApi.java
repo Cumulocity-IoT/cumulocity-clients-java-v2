@@ -38,6 +38,8 @@ public class EventsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param createdFrom
@@ -67,10 +69,14 @@ public class EventsApi extends AdaptableApi {
 	 * <p>The managed object ID to which the event is associated.</p>
 	 * @param type
 	 * <p>The type of event to search for.</p>
+	 * @param withSourceChildren
+	 * <p>When set to <code>true</code>, events for related source assets, devices and additions will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withSourceAssets
-	 * <p>When set to <code>true</code> also events for related source assets will be included in the request. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * <p>When set to <code>true</code>, events for related source assets will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withSourceDevices
-	 * <p>When set to <code>true</code> also events for related source devices will be included in the request. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * <p>When set to <code>true</code>, events for related source devices will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * @param withSourceAdditions
+	 * <p>When set to <code>true</code>, events for related source additions will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
@@ -78,7 +84,7 @@ public class EventsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
-	public CompletionStage<EventCollection> getEvents(final String createdFrom, final String createdTo, final int currentPage, final String dateFrom, final String dateTo, final String fragmentType, final String fragmentValue, final String lastUpdatedFrom, final String lastUpdatedTo, final int pageSize, final boolean revert, final String source, final String type, final boolean withSourceAssets, final boolean withSourceDevices, final boolean withTotalElements, final boolean withTotalPages) {
+	public CompletionStage<EventCollection> getEvents(final String createdFrom, final String createdTo, final int currentPage, final String dateFrom, final String dateTo, final String fragmentType, final String fragmentValue, final String lastUpdatedFrom, final String lastUpdatedTo, final int pageSize, final boolean revert, final String source, final String type, final boolean withSourceChildren, final boolean withSourceAssets, final boolean withSourceDevices, final boolean withSourceAdditions, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("event").path("events")
 			.queryParam("createdFrom", createdFrom)
 			.queryParam("createdTo", createdTo)
@@ -93,8 +99,10 @@ public class EventsApi extends AdaptableApi {
 			.queryParam("revert", revert)
 			.queryParam("source", source)
 			.queryParam("type", type)
+			.queryParam("withSourceChildren", withSourceChildren)
 			.queryParam("withSourceAssets", withSourceAssets)
 			.queryParam("withSourceDevices", withSourceDevices)
+			.queryParam("withSourceAdditions", withSourceAdditions)
 			.queryParam("withTotalElements", withTotalElements)
 			.queryParam("withTotalPages", withTotalPages)
 			.request()
@@ -219,6 +227,8 @@ public class EventsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Event not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -246,6 +256,8 @@ public class EventsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>An event was updated.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Event not found.</p></p>
 	 * 	</li>

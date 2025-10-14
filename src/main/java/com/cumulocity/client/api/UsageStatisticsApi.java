@@ -147,6 +147,8 @@ public class UsageStatisticsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param currentPage
@@ -226,6 +228,8 @@ public class UsageStatisticsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param dateFrom
@@ -259,6 +263,8 @@ public class UsageStatisticsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>The request has succeeded and the tenant statistics are sent in the response.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -311,6 +317,8 @@ public class UsageStatisticsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -342,6 +350,8 @@ public class UsageStatisticsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>The request has succeeded and the file is sent in the response.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Statistics file not found.</p></p>
 	 * 	</li>
@@ -380,6 +390,8 @@ public class UsageStatisticsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>The request has succeeded and the file is sent in the response.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

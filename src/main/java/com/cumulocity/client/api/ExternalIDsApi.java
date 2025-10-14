@@ -37,6 +37,8 @@ public class ExternalIDsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param id
@@ -62,6 +64,8 @@ public class ExternalIDsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>An external ID was created.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Global ID not found.</p></p>
 	 * 	</li>
@@ -98,6 +102,8 @@ public class ExternalIDsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>External ID not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -127,6 +133,8 @@ public class ExternalIDsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 204 <p>An external ID was deleted.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>External ID not found.</p></p>
 	 * 	</li>

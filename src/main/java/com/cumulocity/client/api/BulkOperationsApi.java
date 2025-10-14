@@ -46,6 +46,8 @@ public class BulkOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param currentPage
@@ -79,6 +81,8 @@ public class BulkOperationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>A bulk operation was created.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -115,6 +119,8 @@ public class BulkOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Bulk operation not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -142,6 +148,8 @@ public class BulkOperationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>A bulk operation was updated.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Bulk operation not found.</p></p>
 	 * 	</li>

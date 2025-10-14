@@ -34,7 +34,7 @@ public class AlarmsApiTest {
     public void testGetAlarms() {
     	Object response = null;
     	try {
-    		response = service.getAlarms(null, null, 1, null, null, null, null, 5, false, null, null, null, null, false, false, false, false).toCompletableFuture().get();
+    		response = service.getAlarms(null, null, 1, null, null, null, null, 5, false, null, null, null, null, false, false, false, false, false, false).toCompletableFuture().get();
     	} catch (InterruptedException | ExecutionException e) {
     		e.printStackTrace();
     	}
@@ -45,7 +45,7 @@ public class AlarmsApiTest {
     public void testGetNumberOfAlarms() {
     	Object response = null;
     	try {
-    		response = service.getNumberOfAlarms(null, null, false, null, null, null, null, false, false).toCompletableFuture().get();
+    		response = service.getNumberOfAlarms(null, null, false, null, null, null, null, false, false, false, false).toCompletableFuture().get();
     	} catch (InterruptedException | ExecutionException e) {
     		e.printStackTrace();
     	}

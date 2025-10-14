@@ -87,6 +87,8 @@ public class TenantApplicationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Application not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 409 <p>The application is already assigned to the tenant.</p></p>
@@ -122,6 +124,8 @@ public class TenantApplicationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 204 <p>A tenant was unsubscribed from an application.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Tenant not found.</p></p>
 	 * 	</li>

@@ -40,6 +40,8 @@ public class ApplicationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param currentPage
@@ -102,6 +104,8 @@ public class ApplicationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 409 <p>Duplicate key/name.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
@@ -141,6 +145,8 @@ public class ApplicationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Application not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -168,6 +174,8 @@ public class ApplicationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>An application was updated.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Application not found.</p></p>
 	 * 	</li>
@@ -253,6 +261,8 @@ public class ApplicationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – method not supported</p></p>
 	 * 	</li>
 	 * </ul>
@@ -290,6 +300,8 @@ public class ApplicationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param name
@@ -316,6 +328,8 @@ public class ApplicationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param tenantId
@@ -341,6 +355,8 @@ public class ApplicationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>The request has succeeded and the applications are sent in the response.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -381,6 +397,8 @@ public class ApplicationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>The request has succeeded and the applications are sent in the response.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

@@ -36,6 +36,8 @@ public class LoginOptionsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 400 <p>Bad request – invalid parameters.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param management
@@ -68,6 +70,8 @@ public class LoginOptionsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 400 <p>Duplicated – The login option already exists.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>

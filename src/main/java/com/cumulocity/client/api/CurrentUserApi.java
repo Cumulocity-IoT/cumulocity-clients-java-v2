@@ -41,6 +41,8 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 */
 	public CompletionStage<CurrentUser> getCurrentUser() {
@@ -55,7 +57,7 @@ public class CurrentUserApi extends AdaptableApi {
 	 * <p>Update the current user</p>
 	 * <p>Update the current user.</p>
 	 * <section><h5>Required roles</h5>
-	 * ROLE_USER_MANAGEMENT_OWN_ADMIN
+	 * ROLE_USER_MANAGEMENT_OWN_ADMIN 
 	 * </section>
 	 * <h5>Response Codes</h5>
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
@@ -63,6 +65,8 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>The current user was updated.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
@@ -102,6 +106,8 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -132,6 +138,8 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 */
 	public CompletionStage<CurrentUserTotpSecret> generateTfaSecret() {
@@ -154,6 +162,8 @@ public class CurrentUserApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>Returns the activation state.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>User not found.</p></p>
 	 * 	</li>

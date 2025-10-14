@@ -35,6 +35,8 @@ public class ApplicationVersionsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Application not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>both parameters (version and tag) are present.</p></p>
@@ -71,6 +73,8 @@ public class ApplicationVersionsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Application version not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>This application doesn't support versioning.</p></p>
@@ -101,6 +105,8 @@ public class ApplicationVersionsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>An application version was created.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Application version not found.</p></p>
 	 * 	</li>
@@ -142,6 +148,8 @@ public class ApplicationVersionsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Application version not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 409 <p>Version with tag latest cannot be removed.</p></p>
@@ -179,6 +187,8 @@ public class ApplicationVersionsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>An application version was updated.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Application version not found.</p></p>
 	 * 	</li>

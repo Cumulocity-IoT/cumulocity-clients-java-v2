@@ -64,13 +64,16 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
+	 * @param certificateAuthority
+	 * <p>When set to <code>true</code>, the tenant certificate authority will be retrieved.</p>
 	 */
-	public CompletionStage<TrustedCertificateCollection> getTrustedCertificates(final String tenantId, final int currentPage, final int pageSize, final boolean withTotalElements, final boolean withTotalPages) {
+	public CompletionStage<TrustedCertificateCollection> getTrustedCertificates(final String tenantId, final int currentPage, final int pageSize, final boolean withTotalElements, final boolean withTotalPages, final boolean certificateAuthority) {
 		return adapt().path("tenant").path("tenants").path(valueOf(tenantId)).path("trusted-certificates")
 			.queryParam("currentPage", currentPage)
 			.queryParam("pageSize", pageSize)
 			.queryParam("withTotalElements", withTotalElements)
 			.queryParam("withTotalPages", withTotalPages)
+			.queryParam("certificateAuthority", certificateAuthority)
 			.request()
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/json")
 			.rx()
@@ -89,6 +92,8 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>The certificate was added to the tenant.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Tenant not found.</p></p>
 	 * 	</li>
@@ -131,6 +136,8 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>The certificates were added to the tenant.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Tenant not found.</p></p>
 	 * 	</li>
@@ -175,6 +182,8 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param tenantId
@@ -202,6 +211,8 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>The certificate was updated on the tenant.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Certificate not found.</p></p>
 	 * 	</li>
@@ -252,6 +263,8 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Certificate not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -283,6 +296,8 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	<li><p>HTTP 400 <p>The provided signed verification code is not correct.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Trusted certificate not found.</p></p>
 	 * 	</li>
@@ -319,6 +334,8 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Trusted certificate not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>The verification was not successful. Certificate not confirmed.</p></p>
@@ -350,6 +367,8 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>The verification code was generated.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Trusted certificate not found.</p></p>
 	 * 	</li>
@@ -422,6 +441,8 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * <p>The following table gives an overview of the possible response codes and their meanings:</p>
 	 * <ul>
 	 * 	<li><p>HTTP 200 <p>The CRL file of the current tenant.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * </ul>
 	 */
@@ -582,6 +603,8 @@ public class TrustedCertificatesApi extends AdaptableApi {
 	 * 	<li><p>HTTP 400 <p>Unable to parse certificate chain.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>One or more certificates in the chain are revoked or the certificate chain is not valid. Revoked certificates are checked first, then the validity of the certificate chain.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Device access token feature is disabled.</p></p>
 	 * 	</li>

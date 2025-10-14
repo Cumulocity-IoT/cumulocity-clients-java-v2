@@ -20,7 +20,7 @@ import com.cumulocity.client.model.BulkNewDeviceRequest;
  * <p><strong>⚠️ Important:</strong> Do not use your tenant credentials with this API.</p>
  * </blockquote>
  * <blockquote>
- * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST requests, otherwise an empty response body will be returned.</p>
+ * <p><strong>ⓘ Info:</strong> The Accept header should be provided in all POST requests, otherwise an empty response body will be returned.<strong>ⓘ Info:</strong> Device credential passwords must comply with all the requirements listed <a href="https://cumulocity.com/docs/get-familiar-with-the-ui/user-settings/#to-change-your-password">here</a>.</p>
  * </blockquote>
  */
 public class DeviceCredentialsApi extends AdaptableApi {
@@ -41,6 +41,8 @@ public class DeviceCredentialsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>Device credentials were created.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 
@@ -132,6 +134,8 @@ public class DeviceCredentialsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>A bulk of new device requests was created.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * </ul>
 	 * 

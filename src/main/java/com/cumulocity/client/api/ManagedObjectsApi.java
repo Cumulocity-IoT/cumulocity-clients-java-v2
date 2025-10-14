@@ -39,6 +39,8 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Invalid data was sent.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -73,13 +75,14 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * @param type
 	 * <p>The type of managed object to search for.</p>
 	 * @param withChildren
-	 * <p>Determines if children with ID and name should be returned when fetching the managed object. Set it to <code>false</code> to improve query performance.</p>
+	 * <p>Determines if children with ID and name should be returned when fetching the managed object. Set it to <code>false</code> to improve query performance. The default behavior can be controlled by the feature toggle <code>core.inventory.without.children</code>. When this toggle is disabled, the default value reverts to <code>true</code> for backward compatibility.</p>
 	 * @param withChildrenCount
 	 * <p>When set to <code>true</code>, the returned result will contain the total number of children in the respective objects (<code>childAdditions</code>, <code>childAssets</code> and <code>childDevices</code>).</p>
 	 * @param withGroups
 	 * <p>When set to <code>true</code> it returns additional information about the groups to which the searched managed object belongs. This results in setting the <code>assetParents</code> property with additional information about the groups.</p>
 	 * @param withParents
-	 * <p>When withParents is set to <code>true</code>, the request will include the device’s parent groups up to a maximum depth of three levels above the device in the group hierarchy. If no parent groups exist, an empty array will be returned.</p>
+	 * <p>When withParents is set to <code>true</code>, the request will include all ancestors from all the levels above the device in the hierarchy. If no parents exist, an empty array will be returned.</p>
+	 * <p><strong>ⓘ Info:</strong> Inventory roles are not taken into consideration when collecting managed object parents, so basic information about all ancestors will be returned.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
@@ -87,7 +90,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 * @param withLatestValues
-	 * <p>If set to true the platform returns managed objects with the fragment `c8y_LatestMeasurements, which contains the latest measurement values reported by the device to the platform.</p>
+	 * <p>If set to true the platform returns managed objects with the fragment <code>c8y_LatestMeasurements</code>, which contains the latest measurement values reported by the device to the platform. Additionally returned managed objects can have fragment <code>c8y_PreviousMeasurements</code> if there was a value of a given series previous to the latest.</p>
 	 * <p><strong>⚠️ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
 	 */
 	public CompletionStage<ManagedObjectCollection> getManagedObjects(final String childAdditionId, final String childAssetId, final String childDeviceId, final int currentPage, final String fragmentType, final String[] ids, final boolean onlyRoots, final String owner, final int pageSize, final String q, final String query, final boolean skipChildrenNames, final String text, final String type, final boolean withChildren, final boolean withChildrenCount, final boolean withGroups, final boolean withParents, final boolean withTotalElements, final boolean withTotalPages, final boolean withLatestValues) {
@@ -150,6 +153,8 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Unprocessable Entity – invalid payload.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -162,10 +167,11 @@ public class ManagedObjectsApi extends AdaptableApi {
 		final JsonNode jsonNode = toJsonNode(body);
 		removeFromNode(jsonNode, "owner");
 		removeFromNode(jsonNode, "additionParents");
-		removeFromNode(jsonNode, "lastUpdated");
 		removeFromNode(jsonNode, "childDevices");
 		removeFromNode(jsonNode, "childAssets");
 		removeFromNode(jsonNode, "creationTime");
+		removeFromNode(jsonNode, "lastUpdated");
+		removeFromNode(jsonNode, "c8y_PreviousMeasurements");
 		removeFromNode(jsonNode, "childAdditions");
 		removeFromNode(jsonNode, "c8y_LatestMeasurements");
 		removeFromNode(jsonNode, "self");
@@ -194,6 +200,8 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -203,13 +211,14 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * @param skipChildrenNames
 	 * <p>When set to <code>true</code>, the returned references of child devices won't contain their names.</p>
 	 * @param withChildren
-	 * <p>Determines if children with ID and name should be returned when fetching the managed object. Set it to <code>false</code> to improve query performance.</p>
+	 * <p>Determines if children with ID and name should be returned when fetching the managed object. Set it to <code>false</code> to improve query performance. The default behavior can be controlled by the feature toggle <code>core.inventory.without.children</code>. When this toggle is disabled, the default value reverts to <code>true</code> for backward compatibility.</p>
 	 * @param withChildrenCount
 	 * <p>When set to <code>true</code>, the returned result will contain the total number of children in the respective objects (<code>childAdditions</code>, <code>childAssets</code> and <code>childDevices</code>).</p>
 	 * @param withParents
-	 * <p>When withParents is set to <code>true</code>, the request will include the device’s parent groups up to a maximum depth of three levels above the device in the group hierarchy. If no parent groups exist, an empty array will be returned.</p>
+	 * <p>When withParents is set to <code>true</code>, the request will include all ancestors from all the levels above the device in the hierarchy. If no parents exist, an empty array will be returned.</p>
+	 * <p><strong>ⓘ Info:</strong> Inventory roles are not taken into consideration when collecting managed object parents, so basic information about all ancestors will be returned.</p>
 	 * @param withLatestValues
-	 * <p>If set to true the platform returns managed objects with the fragment `c8y_LatestMeasurements, which contains the latest measurement values reported by the device to the platform.</p>
+	 * <p>If set to true the platform returns managed objects with the fragment <code>c8y_LatestMeasurements</code>, which contains the latest measurement values reported by the device to the platform. Additionally returned managed objects can have fragment <code>c8y_PreviousMeasurements</code> if there was a value of a given series previous to the latest.</p>
 	 * <p><strong>⚠️ Feature Preview:</strong> The parameter is a part of the Latest Measurement feature which is still under public preview.</p>
 	 */
 	public CompletionStage<ManagedObject> getManagedObject(final String id, final boolean skipChildrenNames, final boolean withChildren, final boolean withChildrenCount, final boolean withParents, final boolean withLatestValues) {
@@ -240,6 +249,8 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -257,6 +268,7 @@ public class ManagedObjectsApi extends AdaptableApi {
 		removeFromNode(jsonNode, "childDevices");
 		removeFromNode(jsonNode, "childAssets");
 		removeFromNode(jsonNode, "creationTime");
+		removeFromNode(jsonNode, "c8y_PreviousMeasurements");
 		removeFromNode(jsonNode, "childAdditions");
 		removeFromNode(jsonNode, "c8y_LatestMeasurements");
 		removeFromNode(jsonNode, "self");
@@ -290,6 +302,8 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 204 <p>A managed object was removed.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
@@ -333,6 +347,8 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>A device with provided ID is not monitored.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -360,6 +376,8 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>The request has succeeded and all measurement types are sent in the response.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
@@ -389,6 +407,8 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -417,6 +437,8 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -444,6 +466,8 @@ public class ManagedObjectsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 200 <p>The user's details of a specific managed object were updated.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>

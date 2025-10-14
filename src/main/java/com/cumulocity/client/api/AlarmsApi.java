@@ -39,6 +39,8 @@ public class AlarmsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param createdFrom
@@ -70,10 +72,14 @@ public class AlarmsApi extends AdaptableApi {
 	 * @param type
 	 * <p>The types of alarm to search for.</p>
 	 * <p><strong>ⓘ Info:</strong> If you query for multiple alarm types at once, comma-separate the values. Space characters in alarm types must be escaped.</p>
+	 * @param withSourceChildren
+	 * <p>When set to <code>true</code>, alarms for related source assets, devices and additions will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withSourceAssets
-	 * <p>When set to <code>true</code> also alarms for related source assets will be included in the request. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * <p>When set to <code>true</code>, alarms for related source assets will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withSourceDevices
-	 * <p>When set to <code>true</code> also alarms for related source devices will be included in the request. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * <p>When set to <code>true</code>, alarms for related source devices will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * @param withSourceAdditions
+	 * <p>When set to <code>true</code>, alarms for related source additions will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withTotalElements
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of elements. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalElements</code> statistics are cached for 10 seconds.</p>
@@ -81,7 +87,7 @@ public class AlarmsApi extends AdaptableApi {
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
-	public CompletionStage<AlarmCollection> getAlarms(final String createdFrom, final String createdTo, final int currentPage, final String dateFrom, final String dateTo, final String lastUpdatedFrom, final String lastUpdatedTo, final int pageSize, final boolean resolved, final String[] severity, final String source, final String[] status, final String[] type, final boolean withSourceAssets, final boolean withSourceDevices, final boolean withTotalElements, final boolean withTotalPages) {
+	public CompletionStage<AlarmCollection> getAlarms(final String createdFrom, final String createdTo, final int currentPage, final String dateFrom, final String dateTo, final String lastUpdatedFrom, final String lastUpdatedTo, final int pageSize, final boolean resolved, final String[] severity, final String source, final String[] status, final String[] type, final boolean withSourceChildren, final boolean withSourceAssets, final boolean withSourceDevices, final boolean withSourceAdditions, final boolean withTotalElements, final boolean withTotalPages) {
 		return adapt().path("alarm").path("alarms")
 			.queryParam("createdFrom", createdFrom)
 			.queryParam("createdTo", createdTo)
@@ -96,8 +102,10 @@ public class AlarmsApi extends AdaptableApi {
 			.queryParam("source", source)
 			.queryParam("status", status, false)
 			.queryParam("type", type, false)
+			.queryParam("withSourceChildren", withSourceChildren)
 			.queryParam("withSourceAssets", withSourceAssets)
 			.queryParam("withSourceDevices", withSourceDevices)
+			.queryParam("withSourceAdditions", withSourceAdditions)
 			.queryParam("withTotalElements", withTotalElements)
 			.queryParam("withTotalPages", withTotalPages)
 			.request()
@@ -151,12 +159,16 @@ public class AlarmsApi extends AdaptableApi {
 	 * @param status
 	 * <p>The status of the alarm to search for. Should not be used when <code>resolved</code> parameter is provided.</p>
 	 * <p><strong>ⓘ Info:</strong> If you query for multiple alarm statuses at once, comma-separate the values.</p>
+	 * @param withSourceChildren
+	 * <p>When set to <code>true</code>, alarms for related source assets, devices and additions will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withSourceAssets
-	 * <p>When set to <code>true</code> also alarms for related source assets will be included in the request. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * <p>When set to <code>true</code>, alarms for related source assets will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withSourceDevices
-	 * <p>When set to <code>true</code> also alarms for related source devices will be included in the request. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * <p>When set to <code>true</code>, alarms for related source devices will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * @param withSourceAdditions
+	 * <p>When set to <code>true</code>, alarms for related source additions will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 */
-	public CompletionStage<Response> updateAlarms(final Alarm body, final String xCumulocityProcessingMode, final String createdFrom, final String createdTo, final String dateFrom, final String dateTo, final boolean resolved, final String[] severity, final String source, final String[] status, final boolean withSourceAssets, final boolean withSourceDevices) {
+	public CompletionStage<Response> updateAlarms(final Alarm body, final String xCumulocityProcessingMode, final String createdFrom, final String createdTo, final String dateFrom, final String dateTo, final boolean resolved, final String[] severity, final String source, final String[] status, final boolean withSourceChildren, final boolean withSourceAssets, final boolean withSourceDevices, final boolean withSourceAdditions) {
 		final JsonNode jsonNode = toJsonNode(body);
 		removeFromNode(jsonNode, "firstOccurrenceTime");
 		removeFromNode(jsonNode, "severity");
@@ -178,8 +190,10 @@ public class AlarmsApi extends AdaptableApi {
 			.queryParam("severity", severity, false)
 			.queryParam("source", source)
 			.queryParam("status", status, false)
+			.queryParam("withSourceChildren", withSourceChildren)
 			.queryParam("withSourceAssets", withSourceAssets)
 			.queryParam("withSourceDevices", withSourceDevices)
+			.queryParam("withSourceAdditions", withSourceAdditions)
 			.request()
 			.header("X-Cumulocity-Processing-Mode", xCumulocityProcessingMode)
 			.header("Content-Type", "application/vnd.com.nsn.cumulocity.alarm+json")
@@ -289,12 +303,16 @@ public class AlarmsApi extends AdaptableApi {
 	 * @param type
 	 * <p>The types of alarm to search for.</p>
 	 * <p><strong>ⓘ Info:</strong> If you query for multiple alarm types at once, comma-separate the values. Space characters in alarm types must be escaped.</p>
+	 * @param withSourceChildren
+	 * <p>When set to <code>true</code>, alarms for related source assets, devices and additions will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withSourceAssets
-	 * <p>When set to <code>true</code> also alarms for related source assets will be included in the request. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * <p>When set to <code>true</code>, alarms for related source assets will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withSourceDevices
-	 * <p>When set to <code>true</code> also alarms for related source devices will be included in the request. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * <p>When set to <code>true</code>, alarms for related source devices will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * @param withSourceAdditions
+	 * <p>When set to <code>true</code>, alarms for related source additions will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 */
-	public CompletionStage<Response> deleteAlarms(final String xCumulocityProcessingMode, final String createdFrom, final String createdTo, final String dateFrom, final String dateTo, final boolean resolved, final String[] severity, final String source, final String[] status, final String[] type, final boolean withSourceAssets, final boolean withSourceDevices) {
+	public CompletionStage<Response> deleteAlarms(final String xCumulocityProcessingMode, final String createdFrom, final String createdTo, final String dateFrom, final String dateTo, final boolean resolved, final String[] severity, final String source, final String[] status, final String[] type, final boolean withSourceChildren, final boolean withSourceAssets, final boolean withSourceDevices, final boolean withSourceAdditions) {
 		return adapt().path("alarm").path("alarms")
 			.queryParam("createdFrom", createdFrom)
 			.queryParam("createdTo", createdTo)
@@ -305,8 +323,10 @@ public class AlarmsApi extends AdaptableApi {
 			.queryParam("source", source)
 			.queryParam("status", status, false)
 			.queryParam("type", type, false)
+			.queryParam("withSourceChildren", withSourceChildren)
 			.queryParam("withSourceAssets", withSourceAssets)
 			.queryParam("withSourceDevices", withSourceDevices)
+			.queryParam("withSourceAdditions", withSourceAdditions)
 			.request()
 			.header("X-Cumulocity-Processing-Mode", xCumulocityProcessingMode)
 			.header("Accept", "application/json")
@@ -426,12 +446,16 @@ public class AlarmsApi extends AdaptableApi {
 	 * @param type
 	 * <p>The types of alarm to search for.</p>
 	 * <p><strong>ⓘ Info:</strong> If you query for multiple alarm types at once, comma-separate the values. Space characters in alarm types must be escaped.</p>
+	 * @param withSourceChildren
+	 * <p>When set to <code>true</code>, alarms for related source assets, devices and additions will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withSourceAssets
-	 * <p>When set to <code>true</code> also alarms for related source assets will be included in the request. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * <p>When set to <code>true</code>, alarms for related source assets will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 * @param withSourceDevices
-	 * <p>When set to <code>true</code> also alarms for related source devices will be included in the request. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * <p>When set to <code>true</code>, alarms for related source devices will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
+	 * @param withSourceAdditions
+	 * <p>When set to <code>true</code>, alarms for related source additions will also be included in the response. When this parameter is provided a <code>source</code> must be specified.</p>
 	 */
-	public CompletionStage<Integer> getNumberOfAlarms(final String dateFrom, final String dateTo, final boolean resolved, final String[] severity, final String source, final String[] status, final String[] type, final boolean withSourceAssets, final boolean withSourceDevices) {
+	public CompletionStage<Integer> getNumberOfAlarms(final String dateFrom, final String dateTo, final boolean resolved, final String[] severity, final String source, final String[] status, final String[] type, final boolean withSourceChildren, final boolean withSourceAssets, final boolean withSourceDevices, final boolean withSourceAdditions) {
 		return adapt().path("alarm").path("alarms").path("count")
 			.queryParam("dateFrom", dateFrom)
 			.queryParam("dateTo", dateTo)
@@ -440,8 +464,10 @@ public class AlarmsApi extends AdaptableApi {
 			.queryParam("source", source)
 			.queryParam("status", status, false)
 			.queryParam("type", type, false)
+			.queryParam("withSourceChildren", withSourceChildren)
 			.queryParam("withSourceAssets", withSourceAssets)
 			.queryParam("withSourceDevices", withSourceDevices)
+			.queryParam("withSourceAdditions", withSourceAdditions)
 			.request()
 			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, text/plain, application/json")
 			.rx()

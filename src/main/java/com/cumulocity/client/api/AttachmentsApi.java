@@ -36,6 +36,8 @@ public class AttachmentsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Attachment not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -78,6 +80,8 @@ public class AttachmentsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>A file was uploaded.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Event not found.</p></p>
 	 * 	</li>
@@ -123,6 +127,8 @@ public class AttachmentsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>A file was uploaded.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Event not found.</p></p>
 	 * 	</li>
@@ -184,6 +190,8 @@ public class AttachmentsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>A file was uploaded.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Event not found.</p></p>
 	 * 	</li>
@@ -247,6 +255,8 @@ public class AttachmentsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Event not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 409 <p>An attachment exists already.</p></p>
@@ -283,6 +293,8 @@ public class AttachmentsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 204 <p>A file was removed.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Event not found.</p></p>
 	 * 	</li>

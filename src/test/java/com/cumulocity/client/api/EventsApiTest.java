@@ -34,7 +34,7 @@ public class EventsApiTest {
     public void testGetEvents() {
     	Object response = null;
     	try {
-    		response = service.getEvents(null, null, 1, null, null, null, null, null, null, 5, false, null, null, false, false, false, false).toCompletableFuture().get();
+    		response = service.getEvents(null, null, 1, null, null, null, null, null, null, 5, false, null, null, false, false, false, false, false, false).toCompletableFuture().get();
     	} catch (InterruptedException | ExecutionException e) {
     		e.printStackTrace();
     	}

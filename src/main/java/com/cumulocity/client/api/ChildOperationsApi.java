@@ -40,6 +40,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Invalid data was sent.</p></p>
@@ -55,7 +57,7 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * @param query
 	 * <p>Use query language to perform operations and/or filter the results. Details about the properties and supported operations can be found in <a href="#tag/Query-language">Query language</a>.</p>
 	 * @param withChildren
-	 * <p>Determines if children with ID and name should be returned when fetching the managed object. Set it to <code>false</code> to improve query performance.</p>
+	 * <p>Determines if children with ID and name should be returned when fetching the managed object. Set it to <code>false</code> to improve query performance. The default behavior can be controlled by the feature toggle <code>core.inventory.without.children</code>. When this toggle is disabled, the default value reverts to <code>true</code> for backward compatibility.</p>
 	 * @param withChildrenCount
 	 * <p>When set to <code>true</code>, the returned result will contain the total number of children in the respective objects (<code>childAdditions</code>, <code>childAssets</code> and <code>childDevices</code>).</p>
 	 * @param withTotalElements
@@ -102,6 +104,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -144,6 +148,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>A managed object was assigned as child addition.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
@@ -188,6 +194,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -205,6 +213,7 @@ public class ChildOperationsApi extends AdaptableApi {
 		removeFromNode(jsonNode, "childDevices");
 		removeFromNode(jsonNode, "childAssets");
 		removeFromNode(jsonNode, "creationTime");
+		removeFromNode(jsonNode, "c8y_PreviousMeasurements");
 		removeFromNode(jsonNode, "childAdditions");
 		removeFromNode(jsonNode, "c8y_LatestMeasurements");
 		removeFromNode(jsonNode, "self");
@@ -232,6 +241,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 204 <p>Child additions were removed.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
@@ -269,6 +280,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Invalid data was sent.</p></p>
@@ -300,6 +313,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 204 <p>A child addition was removed.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
@@ -336,6 +351,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Invalid data was sent.</p></p>
@@ -351,7 +368,7 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * @param query
 	 * <p>Use query language to perform operations and/or filter the results. Details about the properties and supported operations can be found in <a href="#tag/Query-language">Query language</a>.</p>
 	 * @param withChildren
-	 * <p>Determines if children with ID and name should be returned when fetching the managed object. Set it to <code>false</code> to improve query performance.</p>
+	 * <p>Determines if children with ID and name should be returned when fetching the managed object. Set it to <code>false</code> to improve query performance. The default behavior can be controlled by the feature toggle <code>core.inventory.without.children</code>. When this toggle is disabled, the default value reverts to <code>true</code> for backward compatibility.</p>
 	 * @param withChildrenCount
 	 * <p>When set to <code>true</code>, the returned result will contain the total number of children in the respective objects (<code>childAdditions</code>, <code>childAssets</code> and <code>childDevices</code>).</p>
 	 * @param withTotalElements
@@ -398,6 +415,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -440,6 +459,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>A managed object was assigned as child asset.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
@@ -484,6 +505,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -501,6 +524,7 @@ public class ChildOperationsApi extends AdaptableApi {
 		removeFromNode(jsonNode, "childDevices");
 		removeFromNode(jsonNode, "childAssets");
 		removeFromNode(jsonNode, "creationTime");
+		removeFromNode(jsonNode, "c8y_PreviousMeasurements");
 		removeFromNode(jsonNode, "childAdditions");
 		removeFromNode(jsonNode, "c8y_LatestMeasurements");
 		removeFromNode(jsonNode, "self");
@@ -528,6 +552,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 204 <p>Child assets were removed.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
@@ -565,6 +591,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Invalid data was sent.</p></p>
@@ -596,6 +624,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 204 <p>A child asset was removed.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
@@ -632,6 +662,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Invalid data was sent.</p></p>
@@ -647,7 +679,7 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * @param query
 	 * <p>Use query language to perform operations and/or filter the results. Details about the properties and supported operations can be found in <a href="#tag/Query-language">Query language</a>.</p>
 	 * @param withChildren
-	 * <p>Determines if children with ID and name should be returned when fetching the managed object. Set it to <code>false</code> to improve query performance.</p>
+	 * <p>Determines if children with ID and name should be returned when fetching the managed object. Set it to <code>false</code> to improve query performance. The default behavior can be controlled by the feature toggle <code>core.inventory.without.children</code>. When this toggle is disabled, the default value reverts to <code>true</code> for backward compatibility.</p>
 	 * @param withChildrenCount
 	 * <p>When set to <code>true</code>, the returned result will contain the total number of children in the respective objects (<code>childAdditions</code>, <code>childAssets</code> and <code>childDevices</code>).</p>
 	 * @param withTotalElements
@@ -694,6 +726,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -736,6 +770,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 201 <p>A managed object was assigned as child device.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
@@ -780,6 +816,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -797,6 +835,7 @@ public class ChildOperationsApi extends AdaptableApi {
 		removeFromNode(jsonNode, "childDevices");
 		removeFromNode(jsonNode, "childAssets");
 		removeFromNode(jsonNode, "creationTime");
+		removeFromNode(jsonNode, "c8y_PreviousMeasurements");
 		removeFromNode(jsonNode, "childAdditions");
 		removeFromNode(jsonNode, "c8y_LatestMeasurements");
 		removeFromNode(jsonNode, "self");
@@ -824,6 +863,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 204 <p>Child devices were removed.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
@@ -861,6 +902,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 422 <p>Invalid data was sent.</p></p>
@@ -892,6 +935,8 @@ public class ChildOperationsApi extends AdaptableApi {
 	 * 	<li><p>HTTP 204 <p>A child device was removed.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
+	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
 	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Managed object not found.</p></p>
 	 * 	</li>

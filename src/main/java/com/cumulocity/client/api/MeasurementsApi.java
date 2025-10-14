@@ -41,6 +41,8 @@ public class MeasurementsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param currentPage
@@ -52,7 +54,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * @param pageSize
 	 * <p>Indicates how many entries of the collection shall be returned. The upper limit for one page is 2,000 objects.</p>
 	 * @param revert
-	 * <p>If you are using a range query (that is, at least one of the <code>dateFrom</code> or <code>dateTo</code> parameters is included in the request), then setting <code>revert=true</code> will sort the results by the newest measurements first.By default, the results are sorted by the oldest measurements first.</p>
+	 * <p>If you are using a range query (that is, at least one of the <code>dateFrom</code> or <code>dateTo</code> parameters is included in the request), then setting <code>revert=false</code> will sort theresults by the oldest measurements first and <code>revert=true</code> will sort the results by the newest measurements first. By default, the results are sorted by the newestmeasurements first for time series and by the oldest first for legacy measurements.</p>
 	 * @param source
 	 * <p>The managed object ID to which the measurement is associated.</p>
 	 * @param type
@@ -94,7 +96,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <ul>
 	 * 	<li><p><code>value</code> - The value of the individual measurement. The maximum precision for floating point numbers is 64-bit IEEE 754. For integers it's a 64-bit two's complement integer. The <code>value</code> is mandatory for a fragment.</p>
 	 * 	</li>
-	 * 	<li><p><code>unit</code> - The unit of the measurements.</p>
+	 * 	<li><p><code>unit</code> - The unit of the measurements. This field is optional in the request body; however, if it is provided, it must be a non-empty string and must not be null.</p>
 	 * 	</li>
 	 * </ul>
 	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review <a href="https://www.cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity user documentation.</p>
@@ -200,8 +202,8 @@ public class MeasurementsApi extends AdaptableApi {
 	 *   }
 	 * </pre>
 	 * <p>To ensure data integrity, custom fragments should be used only with valid series.</p>
-	 * <h3>Create multiple measurements</h3>
-	 * <p>It is also possible to create multiple measurements at once by sending a <code>measurements</code> array containing all the measurements to be created. The content type must be <code>application/vnd.com.nsn.cumulocity.measurementcollection+json</code>.</p>
+	 * <p><strong>Create multiple measurements</strong></p>
+	 * <p>Using the same API request, it is also possible to create multiple measurements by sending a <code>measurements</code> array containing all the measurements to be created. The content type must be <code>application/vnd.com.nsn.cumulocity.measurementcollection+json</code>.</p>
 	 * <blockquote>
 	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, refer to <a href="https://www.cumulocity.com/docs/device-integration/fragment-library/">Device management & connectivity > Device integration > Fragment library</a> in the Cumulocity user documentation.</p>
 	 * </blockquote>
@@ -246,7 +248,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * <ul>
 	 * 	<li><p><code>value</code> - The value of the individual measurement. The maximum precision for floating point numbers is 64-bit IEEE 754. For integers it's a 64-bit two's complement integer. The <code>value</code> is mandatory for a fragment.</p>
 	 * 	</li>
-	 * 	<li><p><code>unit</code> - The unit of the measurements.</p>
+	 * 	<li><p><code>unit</code> - The unit of the measurements. This field is optional in the request body; however, if it is provided, it must be a non-empty string and must not be null.</p>
 	 * 	</li>
 	 * </ul>
 	 * <p>Review the <a href="#section/System-of-units">System of units</a> section for details about the conversions of units. Also review <a href="https://www.cumulocity.com/docs/concepts/domain-model/#naming-conventions-of-fragments">Getting started > Technical concepts > Cumulocity's domain model > Inventory > Fragments > Naming conventions of fragments</a> in the Cumulocity user documentation.</p>
@@ -352,8 +354,8 @@ public class MeasurementsApi extends AdaptableApi {
 	 *   }
 	 * </pre>
 	 * <p>To ensure data integrity, custom fragments should be used only with valid series.</p>
-	 * <h3>Create multiple measurements</h3>
-	 * <p>It is also possible to create multiple measurements at once by sending a <code>measurements</code> array containing all the measurements to be created. The content type must be <code>application/vnd.com.nsn.cumulocity.measurementcollection+json</code>.</p>
+	 * <p><strong>Create multiple measurements</strong></p>
+	 * <p>Using the same API request, it is also possible to create multiple measurements by sending a <code>measurements</code> array containing all the measurements to be created. The content type must be <code>application/vnd.com.nsn.cumulocity.measurementcollection+json</code>.</p>
 	 * <blockquote>
 	 * <p><strong>ⓘ Info:</strong> For more details about fragments with specific meanings, refer to <a href="https://www.cumulocity.com/docs/device-integration/fragment-library/">Device management & connectivity > Device integration > Fragment library</a> in the Cumulocity user documentation.</p>
 	 * </blockquote>
@@ -471,6 +473,8 @@ public class MeasurementsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * 	<li><p>HTTP 404 <p>Measurement not found.</p></p>
 	 * 	</li>
 	 * </ul>
@@ -488,7 +492,7 @@ public class MeasurementsApi extends AdaptableApi {
 	
 	/**
 	 * <p>Remove a specific measurement</p>
-	 * <p>Remove a specific measurement by a given ID.Note that you cannot delete time series measurements by ID.Instead, you can delete by query or use the retention rules to remove expired measurements data from the Operational Store.No behavior changes for tenants which do not have time series enabled.</p>
+	 * <p>Remove a specific measurement by a given ID.For time series measurements, it is recommended to delete by query or use the retention rules to remove expireddata from the Operational Store.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_MEASUREMENT_ADMIN <b>OR</b> owner of the source <b>OR</b> MEASUREMENT_ADMIN permission on the source
 	 * </section>
@@ -536,6 +540,8 @@ public class MeasurementsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>HTTP 401 <p>Authentication information is missing or invalid.</p></p>
 	 * 	</li>
+	 * 	<li><p>HTTP 403 <p>Not authorized to perform this operation.</p></p>
+	 * 	</li>
 	 * </ul>
 	 * 
 	 * @param aggregationType
@@ -545,7 +551,7 @@ public class MeasurementsApi extends AdaptableApi {
 	 * @param dateTo
 	 * <p>End date or date and time of the measurement.</p>
 	 * @param revert
-	 * <p>If you are using a range query (that is, at least one of the <code>dateFrom</code> or <code>dateTo</code> parameters is included in the request), then setting <code>revert=true</code> will sort the results by the newest measurements first.By default, the results are sorted by the oldest measurements first.</p>
+	 * <p>If you are using a range query (that is, at least one of the <code>dateFrom</code> or <code>dateTo</code> parameters is included in the request), then setting <code>revert=false</code> will sort theresults by the oldest measurements first and <code>revert=true</code> will sort the results by the newest measurements first. By default, the results are sorted by the newestmeasurements first for time series and by the oldest first for legacy measurements.</p>
 	 * @param series
 	 * <p>The specific series to search for.</p>
 	 * <p><strong>ⓘ Info:</strong> If you want to query multiple series at once, you must specify the parameter multiple times.</p>
