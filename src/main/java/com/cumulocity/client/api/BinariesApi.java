@@ -56,15 +56,13 @@ public class BinariesApi extends AdaptableApi {
 	 * <p>Username of the owner of the managed objects.</p>
 	 * @param pageSize
 	 * <p>Indicates how many entries of the collection shall be returned. The upper limit for one page is 2,000 objects.</p>
-	 * @param text
-	 * <p>Search for managed objects where a property value is equal to the given one.The following properties are examined: <code>id, type, name, owner, externalIds</code>.</p>
 	 * @param type
 	 * <p>The type of managed object to search for.</p>
 	 * @param withTotalPages
 	 * <p>When set to <code>true</code>, the returned result will contain in the statistics object the total number of pages. Only applicable on <a href="https://en.wikipedia.org/wiki/Range_query_(database)">range queries</a>.</p>
 	 * <p><strong>ⓘ Info:</strong> To improve performance, the <code>totalPages</code> statistics are cached for 10 seconds.</p>
 	 */
-	public CompletionStage<BinaryCollection> getBinaries(final String childAdditionId, final String childAssetId, final String childDeviceId, final int currentPage, final String[] ids, final String owner, final int pageSize, final String text, final String type, final boolean withTotalPages) {
+	public CompletionStage<BinaryCollection> getBinaries(final String childAdditionId, final String childAssetId, final String childDeviceId, final int currentPage, final String[] ids, final String owner, final int pageSize, final String type, final boolean withTotalPages) {
 		return adapt().path("inventory").path("binaries")
 			.queryParam("childAdditionId", childAdditionId)
 			.queryParam("childAssetId", childAssetId)
@@ -73,7 +71,6 @@ public class BinariesApi extends AdaptableApi {
 			.queryParam("ids", ids, false)
 			.queryParam("owner", owner)
 			.queryParam("pageSize", pageSize)
-			.queryParam("text", text)
 			.queryParam("type", type)
 			.queryParam("withTotalPages", withTotalPages)
 			.request()

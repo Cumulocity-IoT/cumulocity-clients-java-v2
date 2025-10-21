@@ -34,7 +34,7 @@ public class BinariesApiTest {
     public void testGetBinaries() {
     	Object response = null;
     	try {
-    		response = service.getBinaries(null, null, null, 1, null, null, 5, null, null, false).toCompletableFuture().get();
+    		response = service.getBinaries(null, null, null, 1, null, null, 5, null, false).toCompletableFuture().get();
     	} catch (InterruptedException | ExecutionException e) {
     		e.printStackTrace();
     	}

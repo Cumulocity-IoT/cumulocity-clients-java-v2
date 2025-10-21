@@ -80,15 +80,31 @@ public class OptionsApi extends AdaptableApi {
 	 * <p><strong>alarm.type.mapping</strong></p>
 	 * <p>| Key  |	Predefined | Description ||--|--|--|| <ALARM_TYPE> | No | Overrides the severity and alarm text for the alarm with type <ALARM_TYPE>. The severity and text are specified as <code><ALARM_SEVERITY>\|<ALARM_TEXT></code>. If either part is empty, the value will not be overridden. If the severity is NONE, the alarm will be suppressed. Example: <code>"CRITICAL\|temperature too high"</code>|</p>
 	 * <h3>Encrypted credentials</h3>
-	 * <p>Adding a "credentials." prefix to the <code>key</code> will make the <code>value</code> of the option encrypted. When the option is sent to a microservice, the "credentials." prefix is removed, and the <code>value</code> is decrypted only if the tenant option category matches the category defined by the microservice. The category is determined based on the first non-blank value from: manifest settings category, context path or service name. If the tenant option category does not match any of these values, the encrypted value will not be decrypted. For example:</p>
+	 * <p>Adding a <code>credentials.</code> prefix to the key causes the value of the option to be stored in an encrypted form. When the option is retrieved from a microservice, the <code>credentials.</code> prefix is removed, and the value is decrypted only if the microservice is the owner of the option. A microservice is considered the owner when the tenant option category matches its own category, which is determined based on the first non-blank value from the following, in order of priority:</p>
+	 * <ul>
+	 * 	<li><p>the <code>settingsCategory</code> defined in the microservice manifest</p>
+	 * 	</li>
+	 * 	<li><p>the microservice’s context path</p>
+	 * 	</li>
+	 * 	<li><p>the microservice name</p>
+	 * 	</li>
+	 * </ul>
+	 * <p>Decryption is performed only for system users (such as service users or the bootstrap user) who are the owners of the option. For example:</p>
 	 * <pre>
 	 * {
-	 *   "category": "secrets",
-	 *   "key": "credentials.mykey",
-	 *   "value": "myvalue"
+	 *   "category": "microservice1",
+	 *   "key": "secret",
+	 *   "value": "secret-content"
 	 * }
 	 * </pre>
-	 * <p>In that particular example, the request will contain an additional header <code>"Mykey": "myvalue"</code>.</p>
+	 * <p>If the tenant option category does not match any of these values, the encrypted value will not be decrypted, and static string will be returned. For example:</p>
+	 * <pre>
+	 * {
+	 *   "category": "microservice2",
+	 *   "key": "credentials.secret",
+	 *   "value": "<<Encrypted>>"
+	 * }
+	 * </pre>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_OPTION_MANAGEMENT_ADMIN
 	 * </section>
