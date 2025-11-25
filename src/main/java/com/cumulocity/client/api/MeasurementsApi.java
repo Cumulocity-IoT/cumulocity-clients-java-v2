@@ -544,8 +544,15 @@ public class MeasurementsApi extends AdaptableApi {
 	 * 	</li>
 	 * </ul>
 	 * 
+	 * @param aggregationFunction
+	 * <p>Selects aggregation functions that are calculated for each selected aggregation interval.Providing this parameter requires also providing the <code>aggregationInterval</code> parameter.By default <code>min</code> and <code>max</code> functions are calculated.</p>
+	 * <p><strong>ⓘ Info:</strong> This parameter is only available when time series persistence is enabled. For legacy persistence only <code>min</code> and <code>max</code> are calculated. If you want to calculate multiple functions at once, you must specify the parameter multiple times.</p>
+	 * @param aggregationInterval
+	 * <p>Fetch results are aggregated using a time interval specified by an integer followed by a unit.Available units of <code>s</code>econd, <code>m</code>inute, <code>h</code>our, <code>d</code>ay, <code>w</code>eek, <code>M</code>onth, <code>q</code>uarter and <code>y</code>ear are specified using their first letter.Provided integer value must be positive with maximum three digits and without leading zeros.</p>
+	 * <p><strong>ⓘ Info:</strong> Full range of values for <code>aggregationInterval</code> parameter is only available when time series persistence is enabled. For legacy persistence the implementation will always fall back to <code>1d</code>, <code>1h</code> or <code>1m</code> based on the closest unit used.</p>
 	 * @param aggregationType
 	 * <p>Fetch aggregated results as specified.</p>
+	 * <p><strong>ⓘ Info:</strong> When time series persistence is enabled, then this parameter is superseded by <code>aggregationInterval</code> and will be ignored if that parameter is specified. <code>aggregationType</code> should only be used for legacy persistence.</p>
 	 * @param dateFrom
 	 * <p>Start date or date and time of the measurement.</p>
 	 * @param dateTo
@@ -558,8 +565,10 @@ public class MeasurementsApi extends AdaptableApi {
 	 * @param source
 	 * <p>The managed object ID to which the measurement is associated.</p>
 	 */
-	public CompletionStage<MeasurementSeries> getMeasurementSeries(final String aggregationType, final String dateFrom, final String dateTo, final boolean revert, final String[] series, final String source) {
+	public CompletionStage<MeasurementSeries> getMeasurementSeries(final String[] aggregationFunction, final String aggregationInterval, final String aggregationType, final String dateFrom, final String dateTo, final boolean revert, final String[] series, final String source) {
 		return adapt().path("measurement").path("measurements").path("series")
+			.queryParam("aggregationFunction", aggregationFunction, true)
+			.queryParam("aggregationInterval", aggregationInterval)
 			.queryParam("aggregationType", aggregationType)
 			.queryParam("dateFrom", dateFrom)
 			.queryParam("dateTo", dateTo)

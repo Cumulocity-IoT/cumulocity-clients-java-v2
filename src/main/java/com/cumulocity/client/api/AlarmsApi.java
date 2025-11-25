@@ -212,8 +212,6 @@ public class AlarmsApi extends AdaptableApi {
 	 * 	</li>
 	 * 	<li><p>The severity of the alarm: CRITICAL, MAJOR, MINOR or WARNING.</p>
 	 * 	</li>
-	 * 	<li><p>A history of changes to the event in form of audit logs.</p>
-	 * 	</li>
 	 * </ul>
 	 * <h3>Alarm suppression</h3>
 	 * <p>If the source device is in maintenance mode, the alarm is not created and not reported to the Cumulocity event processing engine. When sending a POST request to create a new alarm and if the source device is in maintenance mode, the self link of the alarm will be:</p>
@@ -221,7 +219,7 @@ public class AlarmsApi extends AdaptableApi {
 	 * "self": "https://<TENANT_DOMAIN>/alarm/alarms/null"
 	 * </pre>
 	 * <h3>Alarm de-duplication</h3>
-	 * <p>If an ACTIVE or ACKNOWLEDGED alarm with the same source and type exists, no new alarm is created.Instead, the existing alarm is updated by incrementing the <code>count</code> property; the <code>time</code> property is also updated.Any other changes are ignored, and the alarm history is not updated. Alarms with status CLEARED are not de-duplicated.The first occurrence of the alarm is recorded in the <code>firstOccurrenceTime</code> property.</p>
+	 * <p>If an ACTIVE or ACKNOWLEDGED alarm with the same source and type exists, no new alarm is created.Instead, the existing alarm is updated by incrementing the <code>count</code> property; the <code>time</code> property is also updated.Any other changes are ignored, and the audit log is not created. Alarms with status CLEARED are not de-duplicated.The first occurrence of the alarm is recorded in the <code>firstOccurrenceTime</code> property.</p>
 	 * <section><h5>Required roles</h5>
 	 * ROLE_ALARM_ADMIN <b>OR</b> owner of the source <b>OR</b> ALARM_ADMIN permission on the source
 	 * </section>
