@@ -147,11 +147,14 @@ public class LoginOptionsApi extends AdaptableApi {
 	 * <p>The type or ID of the login option. The type's value is case insensitive and can be <code>OAUTH2</code>, <code>OAUTH2_INTERNAL</code> or <code>BASIC</code>.</p>
 	 * @param xCumulocityProcessingMode
 	 * <p>Used to explicitly control the processing mode of the request. See <a href="#processing-mode">Processing mode</a> for more details.</p>
+	 * @param terminateUserSessions
+	 * <p>When set to 'true', all active sessions for all users within the tenant will be terminated.</p>
 	 */
-	public CompletionStage<AuthConfig> updateLoginOption(final AuthConfig body, final String typeOrId, final String xCumulocityProcessingMode) {
+	public CompletionStage<AuthConfig> updateLoginOption(final AuthConfig body, final boolean terminateUserSessions, final String typeOrId, final String xCumulocityProcessingMode) {
 		final JsonNode jsonNode = toJsonNode(body);
 		removeFromNode(jsonNode, "self");
 		return adapt().path("tenant").path("loginOptions").path(valueOf(typeOrId))
+			.queryParam("terminateUserSessions", terminateUserSessions)
 			.request()
 			.header("X-Cumulocity-Processing-Mode", xCumulocityProcessingMode)
 			.header("Content-Type", "application/vnd.com.nsn.cumulocity.authconfig+json")
