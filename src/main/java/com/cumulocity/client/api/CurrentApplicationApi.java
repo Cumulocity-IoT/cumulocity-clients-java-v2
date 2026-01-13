@@ -101,7 +101,7 @@ public class CurrentApplicationApi extends AdaptableApi {
 	public CompletionStage<ApplicationSettings[]> getCurrentApplicationSettings() {
 		return adapt().path("application").path("currentApplication").path("settings")
 			.request()
-			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/vnd.com.nsn.cumulocity.applicationsettings+json")
+			.header("Accept", "application/vnd.com.nsn.cumulocity.error+json, application/vnd.com.nsn.cumulocity.option+json")
 			.rx()
 			.method("GET", ApplicationSettings[].class);
 	}
