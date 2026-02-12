@@ -9,8 +9,9 @@ import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Response;
 import com.cumulocity.client.supplementary.AdaptableApi;
-import com.cumulocity.client.model.Application;
+import com.cumulocity.client.model.ApplicationNoMicroserviceManifest;
 import com.cumulocity.client.model.ApplicationCollection;
+import com.cumulocity.client.model.Application;
 
 /**
  * <p>API methods to retrieve, create, update and delete applications.</p>
@@ -116,7 +117,7 @@ public class ApplicationsApi extends AdaptableApi {
 	 * @param xCumulocityProcessingMode
 	 * <p>Used to explicitly control the processing mode of the request. See <a href="#processing-mode">Processing mode</a> for more details.</p>
 	 */
-	public CompletionStage<Application> createApplication(final Application body, final String xCumulocityProcessingMode) {
+	public CompletionStage<Application> createApplication(final ApplicationNoMicroserviceManifest body, final String xCumulocityProcessingMode) {
 		final JsonNode jsonNode = toJsonNode(body);
 		removeFromNode(jsonNode, "owner");
 		removeFromNode(jsonNode, "activeVersionId");
@@ -187,7 +188,7 @@ public class ApplicationsApi extends AdaptableApi {
 	 * @param xCumulocityProcessingMode
 	 * <p>Used to explicitly control the processing mode of the request. See <a href="#processing-mode">Processing mode</a> for more details.</p>
 	 */
-	public CompletionStage<Application> updateApplication(final Application body, final String id, final String xCumulocityProcessingMode) {
+	public CompletionStage<Application> updateApplication(final ApplicationNoMicroserviceManifest body, final String id, final String xCumulocityProcessingMode) {
 		final JsonNode jsonNode = toJsonNode(body);
 		removeFromNode(jsonNode, "owner");
 		removeFromNode(jsonNode, "activeVersionId");
